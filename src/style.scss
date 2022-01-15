@@ -1,0 +1,26 @@
+@import './scss/fonts.scss';
+@import './scss/variables.scss';
+@import './scss/mixins.scss';
+
+@import 'material-icons/iconfont/material-icons.css';
+@import 'air-datepicker/air-datepicker.css';
+
+@import './scss/main.scss';
+@import './js/libs/datetimepicker/daterangepicker.min.css';
+
+@import './components/form_elements/input-group/style.scss';
+@import './components/form_elements/field-text/style.scss';
+@import './components/form_elements/field-dropdown/field-dropdown.scss';
+@import './components/form_elements/field-datepicker/field-datepicker.scss';
+@import './components/form_elements/button/style.scss';
+@import './components/form_elements/field-checkbox/field-checkbox.scss';
+
+
+
+.pudge {
+  color: $blue;
+}
+
+.material-icons {
+  font-family: 'Material Icons', Arial, sans-serif;
+}

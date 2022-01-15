@@ -1,0 +1,7 @@
+mixin dropdownField(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+  .field-dropdown-container
+    input(type='hidden', data-dropdown-with-counters)

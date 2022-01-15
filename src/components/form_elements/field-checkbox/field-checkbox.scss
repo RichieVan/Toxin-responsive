@@ -1,0 +1,34 @@
+.checkbox-field {
+  $label-height: 20px;
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: inline-block;
+    position: relative;
+    min-height: $label-height;
+    padding-left: 30px;
+    padding-top: 1px;
+    line-height: 18px;
+    color: $dark-shade--50;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $label-height;
+      height: $label-height;
+      border: 1px solid $dark-shade--25;
+      border-radius: 4px;
+    }
+  }
+
+  &__input:checked + &__label:before {
+    border-color:#BC9CFF;
+    background: url('./assets/images/icons/check.svg') center no-repeat;
+  }
+}

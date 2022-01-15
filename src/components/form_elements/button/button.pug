@@ -1,0 +1,16 @@
+mixin btn(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' btn--' + options.mods[i].trim();
+      }
+    }
+
+    var buttonClassName = 'btn' + mods;
+  button(class = buttonClassName)
+    span= options.text

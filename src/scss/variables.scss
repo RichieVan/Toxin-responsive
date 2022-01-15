@@ -1,0 +1,17 @@
+$dark-shade--100: rgba(31, 32, 65, 1);
+$dark-shade--75: rgba(31, 32, 65, 0.75);
+$dark-shade--50: rgba(31, 32, 65, 0.5);
+$dark-shade--25: rgba(31, 32, 65, 0.25);
+$dark-shade--5: rgba(31, 32, 65, 0.05);
+$purple: #BC9CFF;
+$green: #6fcf97;
+$purple-gradient: linear-gradient(180deg, rgba(188, 156, 255) 0%, rgba(139, 164, 249) 100%);
+$green-gradient: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
+$font-family: 'Montserrat', Arial, sans-serif;
+$font-family--icons: 'Material-icons', $font-family;
+$font-size--h1: 2rem;
+$font-size--h2: 1.35rem;
+$font-size--label: 0.857rem;
+
+$default-field-height: 44px;

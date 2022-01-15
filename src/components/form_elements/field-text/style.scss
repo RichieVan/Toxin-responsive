@@ -1,0 +1,49 @@
+.text-field {
+  position: relative;
+  max-width: 320px;
+  
+  &__input {
+    width: 100%;
+    height: $default-field-height;
+    padding: 13px 0 13px 15px;
+    background: #FFFFFF;
+    border: 1px solid $dark-shade--25;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.285em;
+    color: $dark-shade--75;
+
+    &.input--with-button {
+      padding-right: $default-field-height;
+    }
+
+    &:focus {
+      border-color: $dark-shade--50;
+      outline: none;
+    }
+
+    @include lightPlaceholder;
+  }
+
+  &:hover &__input {
+    border-color: $dark-shade--50;
+    outline: none;
+  }
+
+  &__send-button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $default-field-height;
+    height: $default-field-height;
+    background: none;
+    border: none;
+    color: $purple;
+    cursor: pointer;
+
+    &:hover {
+      opacity: .5;
+    }
+  }
+}

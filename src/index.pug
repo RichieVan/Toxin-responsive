@@ -1,0 +1,39 @@
+extends ./components/main/base.pug
+include ./components/form_elements/button/button
+include ./components/form_elements/input-group/input-group
+include ./components/form_elements/field-text/field-text
+include ./components/form_elements/field-dropdown/field-dropdown
+include ./components/form_elements/field-datepicker/field-datepicker
+include ./components/form_elements/field-checkbox/field-checkbox
+
+block content
+  h1.heading-1 This one is the sub-section or widget title
+  +btn({text: 'Перейти к оплате'})
+  +btn({text: 'Перейти к оплате', mods: ['light']})
+  +inputGroup('Text field')
+    +textField({
+      type: 'email',
+      placeholder : 'Email1'
+    })
+    +textField({
+      type: 'email',
+      placeholder : 'Email2'
+    })
+  +dropdownField()
+  +datepickerField({
+    id: 1,
+    placeholder: 'ДД.ММ.ГГГГ',
+    multiple: true
+  })
+  +datepickerField({
+    id: 2,
+  })
+  +inputGroup('Subscription text field')
+    +textField({
+      type: 'email',
+      placeholder: 'Email',
+      sendArrow: true,
+    })
+  +checkboxField({
+    text: 'Можно курить'
+  })

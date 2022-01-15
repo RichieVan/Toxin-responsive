@@ -1,0 +1,32 @@
+mixin textField(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' text-input--' + options.mods[i].trim();
+      }
+    }
+
+    var showSendArrow = options?.sendArrow ? options.sendArrow : false;
+    var defaultClassName = 'text-field';
+    var classList = defaultClassName + mods;
+    var inputClassList = defaultClassName + '__input' + (showSendArrow ? ' input--with-button' : '')
+    var inputType = options?.type || 'text'
+    var placeholder = options?.placeholder || '';
+    var inputValue = options?.value || '';
+  div(class=classList)
+    input(
+      type = inputType, 
+      placeholder = placeholder,
+      class = inputClassList
+      value = inputValue
+    )
+    if showSendArrow
+      button(class=(defaultClassName + '__send-button'))
+        span.material-icons arrow_forward
+    
+      
