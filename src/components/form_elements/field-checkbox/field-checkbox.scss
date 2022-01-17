@@ -1,9 +1,7 @@
-.checkbox-field {
+.field-checkbox {
   $label-height: 20px;
   $toggler-width: 40px;
   $toggler-inner-size: 12px;
-
-  max-width: 260px;
 
   &__input {
     display: none;

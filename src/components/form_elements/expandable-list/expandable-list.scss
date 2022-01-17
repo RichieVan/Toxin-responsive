@@ -1,0 +1,53 @@
+.expandable-list {
+  $heading-height: 44px;
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: $heading-height;
+  }
+
+  &__label {
+    font-size: $font-size--label;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: $dark-shade--100;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $heading-height;
+    height: $heading-height;
+    color: $dark-shade--50;
+  }
+
+  &__mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  &__content {
+    overflow: hidden;
+    transition: height .2s ease-out;
+  }
+
+  .content-list {
+    padding-top: 2px;
+
+    &__item {
+      list-style: none;
+    }
+
+    &__item:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

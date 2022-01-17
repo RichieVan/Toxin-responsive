@@ -9,6 +9,7 @@ include ./components/form_elements/field-checkbox/field-checkbox
 include ./components/form_elements/field-radio/field-radio
 include ./components/form_elements/like-button/like-button
 include ./components/form_elements/rate-button/rate-button
+include ./components/form_elements/expandable-list/expandable-list
 include ./components/bullet-list/bullet-list
 include ./components/ui-kit-col/ui-kit-col
 
@@ -21,76 +22,84 @@ block content
     })
       +fields-group()
         +field-caption('Text field')
-        +textField({
+        +field-text({
           type: 'email',
           placeholder : 'Email1'
         })
       +fields-group()
         +field-caption('Dropdown field')
-        +dropdownField()
-      +datepickerField({
+        +field-dropdown()
+      +field-datepicker({
         id: 1,
         placeholder: 'ДД.ММ.ГГГГ',
         multiple: true
       })
-    +datepickerField({
-      id: 2,
-    })
+      +ui-kit-col()
+        +field-datepicker({
+          id: 2,
+        })
+        +expandable-list({
+          text: 'Expandable list',
+          checkboxList: [
+            'Завтрак',
+            'Письменный стол',
+            'Стул для кормления',
+            'Кроватка',
+            'Телевизор',
+            'Шампунь',
+          ],
+          mods: ['expanded']
+        })
+    
     +fields-group('Subscription text field')
-      +textField({
+      +field-text({
         type: 'email',
         placeholder: 'Email',
         sendArrow: true,
       })
     +btn({text: 'Перейти к оплате'})
     +btn({text: 'Перейти к оплате', mods: ['light']})
-    +checkboxField({
+    +field-checkbox({
       text: 'Можно курить',
-      id: 1,
     })
-    +checkboxField({
+    +field-checkbox({
       text: 'Можно с питомцами',
-      id: 2,
     })
-    +checkboxField({
+    +field-checkbox({
       text: 'Можно пригласить гостей (до 10 человек)',
-      id: 3,
     })
-    +radioField({
+    +field-radio({
       text: 'Мужчина',
       id: 1,
       name: 'gender',
     })
-    +radioField({
+    +field-radio({
       text: 'Женщина',
       id: 2,
       name: 'gender',
     })
-    +checkboxField({
+    +field-checkbox({
       text: 'Получать спецпредложения',
-      id: 4,
       mods: ['toggle'],
     })
-    +likeButton({
+    +like-button({
       count: 2
     })
-    +likeButton({
+    +like-button({
       count: 12,
       mods: ['liked']
     })
-    +rateButton()
-    +checkboxField({
+    +rate-button()
+    +field-checkbox({
       text: 'Широкий коридор',
-      id: 5,
       mods: ['rich'],
       richText: 'Ширина коридоров в номере не менее 91 см.'
     })
-    +bulletList({
+    +bullet-list({
       items: [
         'Нельзя с питомцами',
         'Без вечеринок и мероприятий',
         'Время прибытия — после 13:00, а выезд до 12:00'
       ]
     })
-    +ui-kit-col()
     

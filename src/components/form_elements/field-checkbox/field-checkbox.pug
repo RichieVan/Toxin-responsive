@@ -1,4 +1,4 @@
-mixin checkboxField(options)
+mixin field-checkbox(options)
   -
     if (typeof options === 'undefined') {
       options = {};
@@ -7,16 +7,16 @@ mixin checkboxField(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' checkbox-field--' + options.mods[i].trim();
+        mods = mods + ' field-checkbox--' + options.mods[i].trim();
       }
     }
 
-    var defaultClassName = 'checkbox-field';
+    var defaultClassName = 'field-checkbox';
     var classList = defaultClassName + mods;
     var labelText = options?.text ? options.text : '';
     var inputChecked = options?.checked || false;
     var inputName = options?.name ? options.name : '';
-    var id = 'checkbox' + options.id;
+    var id = 'checkbox' + (options?.id ? options.id : Math.random(0, 999999));
     var richText = options?.richText ? options.richText : '';
   div(class = classList)
     input(
