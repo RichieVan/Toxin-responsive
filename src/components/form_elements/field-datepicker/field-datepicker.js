@@ -23,7 +23,7 @@ $('.field-datepicker-container').each(function (index) {
     range: true,
     minView: 'days',
     autoClose: false,
-    container: this,
+    container: $(this).find('.field-datepicker')[0],
     prevHtml: '<span class="material-icons">arrow_back</span>',
     nextHtml: '<span class="material-icons">arrow_forward</span>',
     navTitles: {

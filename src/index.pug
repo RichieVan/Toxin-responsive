@@ -12,6 +12,7 @@ include ./components/form_elements/rate-button/rate-button
 include ./components/form_elements/expandable-list/expandable-list
 include ./components/bullet-list/bullet-list
 include ./components/ui-kit-col/ui-kit-col
+include ./components/form_elements/field-range/field-range
 
 
 block content
@@ -50,13 +51,13 @@ block content
           ],
           mods: ['expanded']
         })
-    
-    +fields-group('Subscription text field')
-      +field-text({
-        type: 'email',
-        placeholder: 'Email',
-        sendArrow: true,
-      })
+        +fields-group()
+          +field-caption('Subscription text field')
+          +field-text({
+            type: 'email',
+            placeholder: 'Email',
+            sendArrow: true,
+          })
     +btn({text: 'Перейти к оплате'})
     +btn({text: 'Перейти к оплате', mods: ['light']})
     +field-checkbox({
@@ -102,4 +103,8 @@ block content
         'Время прибытия — после 13:00, а выезд до 12:00'
       ]
     })
+    +ui-kit-col()
+      +field-range({
+        info: 'Стоимость за сутки пребывания в номере'
+      })
     

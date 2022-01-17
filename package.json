@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "air-datepicker": "^3.1.0",
+    "ion-rangeslider": "^2.3.1",
     "jquery": "^3.6.0",
     "material-icons": "^1.10.6",
     "moment": "^2.29.1"

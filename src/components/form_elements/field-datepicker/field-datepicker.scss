@@ -85,6 +85,7 @@
 
   top: calc($default-field-height + 5px) !important;
   width: 100%;
+  min-width: 320px;
   font-family: $font-family;
   box-sizing: border-box;
   border-color: $dark-shade--25;
