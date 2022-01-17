@@ -1,0 +1,29 @@
+.bullet-list {
+  $bullet-size: 10px;
+
+  &__item {
+    position: relative;
+    padding-left: 20px;
+    color: $dark-shade--75;
+    list-style: none;
+    overflow: hidden;
+
+    span {
+      display: inline-block;
+      margin-top: -3px;
+      line-height: $line-height;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 4px;
+      height: $bullet-size;
+      width: $bullet-size;
+      border-radius: 50%;
+      background: $dark-shade--25;
+    }
+  }
+}

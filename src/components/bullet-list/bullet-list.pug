@@ -1,0 +1,19 @@
+mixin bulletList(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' bullet-list--' + options.mods[i].trim();
+      }
+    }
+
+    var buttonClassName = 'bullet-list' + mods;
+    var listItems = options?.items ? options.items : [];
+  ul(class = buttonClassName)
+    each item in listItems
+      li.bullet-list__item 
+        span=item

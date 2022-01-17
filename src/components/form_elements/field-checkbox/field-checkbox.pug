@@ -7,28 +7,33 @@ mixin checkboxField(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' text-input--' + options.mods[i].trim();
+        mods = mods + ' checkbox-field--' + options.mods[i].trim();
       }
     }
 
     var defaultClassName = 'checkbox-field';
     var classList = defaultClassName + mods;
-    var inputClassList = defaultClassName + '__input'
-    var placeholder = options?.placeholder || '';
-    var inputChecked = options?.checked || false;
-    var id = 'checkbox' + options.id;
     var labelText = options?.text ? options.text : '';
+    var inputChecked = options?.checked || false;
+    var inputName = options?.name ? options.name : '';
+    var id = 'checkbox' + options.id;
+    var richText = options?.richText ? options.richText : '';
   div(class = classList)
     input(
       type = 'checkbox', 
       id = id,
-      class = inputClassList,
+      class = defaultClassName + '__input',
       checked = inputChecked,
+      name = inputName
     )
     label(
       class = defaultClassName + '__label',
       for = id,
     )
-      =labelText
+      span(class = defaultClassName + '__label-name')
+        =labelText
+      if (richText)
+        span(class = defaultClassName + '__label-rich')
+          =richText
     
       

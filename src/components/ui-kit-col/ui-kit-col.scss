@@ -1,0 +1,11 @@
+.ui-kit-col {
+  width: 266px;
+
+  &--wide {
+    width: 320px;
+  }
+
+  > * {
+    margin-bottom: 20px;
+  }
+}

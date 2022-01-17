@@ -1,0 +1,35 @@
+mixin radioField(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' radio-field--' + options.mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'radio-field';
+    var classList = defaultClassName + mods;
+    var inputClassList = defaultClassName + '__input'
+    var inputChecked = options?.checked || false;
+    var inputName = options?.name ? options.name : '';
+    var id = 'radio' + options.id;
+    var labelText = options?.text ? options.text : '';
+  div(class = classList)
+    input(
+      type = 'radio', 
+      id = id,
+      name = inputName,
+      class = inputClassList,
+      checked = inputChecked,
+    )
+    label(
+      class = defaultClassName + '__label',
+      for = id,
+    )
+      =labelText
+    
+      

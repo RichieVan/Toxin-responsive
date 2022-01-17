@@ -1,5 +1,9 @@
 .checkbox-field {
   $label-height: 20px;
+  $toggler-width: 40px;
+  $toggler-inner-size: 12px;
+
+  max-width: 260px;
 
   &__input {
     display: none;
@@ -24,11 +28,61 @@
       height: $label-height;
       border: 1px solid $dark-shade--25;
       border-radius: 4px;
+      background: white center no-repeat;
+      box-sizing: border-box;
+      transition: border-color .1s linear;
     }
   }
 
   &__input:checked + &__label:before {
     border-color:#BC9CFF;
-    background: url('./assets/images/icons/check.svg') center no-repeat;
+    background-image: url('./components/form_elements/field-checkbox/img/check.svg');
+  }
+
+
+  &--rich &__label {
+    display: inline-flex;
+    flex-direction: column;
+
+    &-name {
+      font-weight: bold;
+      color: $dark-shade--75;
+    }
+
+    &-rich {
+      padding-top: 5px;
+      font-size: $font-size--label;
+      line-height: $line-height--label;
+    }
+  }
+
+  &--toggle &__label {
+    padding-left: 50px;
+
+    &:before {
+      width: $toggler-width;
+      border-radius: 10px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(($label-height - $toggler-inner-size) / 2);
+      top: calc(($label-height - $toggler-inner-size) / 2);
+      width: $toggler-inner-size;
+      height: $toggler-inner-size;
+      background: $dark-shade--25;
+      border-radius: 50%;
+      transition: left .1s linear;
+    } 
+  }
+
+  &--toggle &__input:checked + &__label:after {
+    left: calc(($label-height - $toggler-inner-size) / 2) + 20px;
+    background: $purple-gradient;
+  }
+
+  &--toggle &__input:checked + &__label:before {
+    background: none;
   }
 }

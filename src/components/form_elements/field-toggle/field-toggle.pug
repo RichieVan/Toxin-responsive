@@ -1,0 +1,35 @@
+mixin toggleField(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' toggle-field--' + options.mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'toggle-field';
+    var classList = defaultClassName + mods;
+    var inputClassList = defaultClassName + '__input'
+    var inputChecked = options?.checked || false;
+    var inputName = options?.name || false;
+    var id = 'toggle' + options.id;
+    var labelText = options?.text ? options.text : '';
+  div(class = classList)
+    input(
+      type = 'checkbox', 
+      id = id,
+      class = inputClassList,
+      checked = inputChecked,
+      name = inputName
+    )
+    label(
+      class = defaultClassName + '__label',
+      for = id,
+    )
+      =labelText
+    
+      

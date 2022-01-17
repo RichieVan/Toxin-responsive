@@ -1,0 +1,25 @@
+mixin rateButton(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' rate-btn--' + options.mods[i].trim();
+      }
+    }
+
+    var buttonClassName = 'rate-btn' + mods;
+  div(class = buttonClassName)
+    button.rate-btn__star
+      span.material-icons
+    button.rate-btn__star
+      span.material-icons
+    button.rate-btn__star
+      span.material-icons
+    button.rate-btn__star
+      span.material-icons
+    button.rate-btn__star
+      span.material-icons

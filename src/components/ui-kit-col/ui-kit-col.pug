@@ -1,0 +1,16 @@
+mixin ui-kit-col(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' ui-kit-col--' + options.mods[i].trim();
+      }
+    }
+
+    var classList = 'ui-kit-col' + mods;
+  div(class=classList)
+    block

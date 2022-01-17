@@ -1,0 +1,56 @@
+$button-width: 40px;
+$button-height: 20px;
+
+.like-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: $button-width;
+  height: $button-height;
+  padding: 0;
+  border: 1px solid $dark-shade--25;
+  border-radius: 10px;
+  background: none;
+  color: $dark-shade--25;
+  font-family: $font-family;
+  font-size: 10px;
+  box-sizing: border-box;
+  transition: 
+    border-color .1s ease-in-out;
+  cursor: pointer;
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $button-height;
+    margin-left: -1px;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        content: 'favorite_border';
+        font-size: 10px;
+        background: $dark-shade--25 no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+
+  &--liked {
+    color: $purple;
+    border-color: $purple;
+  }
+
+  &--liked &__icon span:before {
+    content: 'favorite';
+    background: $purple-gradient no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}

@@ -1,4 +1,6 @@
 mixin datepickerField(options)
+  include ../fields-group/fields-group
+  include ../field-caption/field-caption
   -
     if (typeof options === 'undefined') {
       options = {};
@@ -12,24 +14,28 @@ mixin datepickerField(options)
     var firstDatepickerMods = !multiple ? ' field--wide' : '';
     var firstDatepickerClassList = 'field-datepicker' + firstDatepickerMods;
   .field-datepicker-container(id = 'datepickerContainer' + id)
-    div(class=firstDatepickerClassList)
-      input.field-datepicker__input(
-        type='text', 
-        name=fromName, 
-        placeholder=placeholder, 
-        id = 'datepickerFrom' + id,
-      )
-      .field-datepicker__arrow
-        span.material-icons expand_more
-      .field-datepicker__mask
-    if multiple
-      .field-datepicker
+    +fields-group()
+      +field-caption('Text from')
+      div(class=firstDatepickerClassList)
         input.field-datepicker__input(
-          type='text', 
-          name=toName, 
+          type='text',
+          name=fromName,
           placeholder=placeholder,
-          id = 'datepickerTo' + id,
+          id = 'datepickerFrom' + id,
         )
         .field-datepicker__arrow
           span.material-icons expand_more
         .field-datepicker__mask
+    if multiple
+      +fields-group()
+        +field-caption('Text to')
+        .field-datepicker
+          input.field-datepicker__input(
+            type='text', 
+            name=toName, 
+            placeholder=placeholder,
+            id = 'datepickerTo' + id,
+          )
+          .field-datepicker__arrow
+            span.material-icons expand_more
+          .field-datepicker__mask

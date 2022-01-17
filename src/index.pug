@@ -1,39 +1,96 @@
 extends ./components/main/base.pug
 include ./components/form_elements/button/button
-include ./components/form_elements/input-group/input-group
+include ./components/form_elements/fields-group/fields-group
+include ./components/form_elements/field-caption/field-caption
 include ./components/form_elements/field-text/field-text
 include ./components/form_elements/field-dropdown/field-dropdown
 include ./components/form_elements/field-datepicker/field-datepicker
 include ./components/form_elements/field-checkbox/field-checkbox
+include ./components/form_elements/field-radio/field-radio
+include ./components/form_elements/like-button/like-button
+include ./components/form_elements/rate-button/rate-button
+include ./components/bullet-list/bullet-list
+include ./components/ui-kit-col/ui-kit-col
+
 
 block content
-  h1.heading-1 This one is the sub-section or widget title
-  +btn({text: 'Перейти к оплате'})
-  +btn({text: 'Перейти к оплате', mods: ['light']})
-  +inputGroup('Text field')
-    +textField({
-      type: 'email',
-      placeholder : 'Email1'
+  .container
+    h1.heading-1 This one is the sub-section or widget title
+    +ui-kit-col({
+      mods: ['wide']
     })
-    +textField({
-      type: 'email',
-      placeholder : 'Email2'
+      +fields-group()
+        +field-caption('Text field')
+        +textField({
+          type: 'email',
+          placeholder : 'Email1'
+        })
+      +fields-group()
+        +field-caption('Dropdown field')
+        +dropdownField()
+      +datepickerField({
+        id: 1,
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+    +datepickerField({
+      id: 2,
     })
-  +dropdownField()
-  +datepickerField({
-    id: 1,
-    placeholder: 'ДД.ММ.ГГГГ',
-    multiple: true
-  })
-  +datepickerField({
-    id: 2,
-  })
-  +inputGroup('Subscription text field')
-    +textField({
-      type: 'email',
-      placeholder: 'Email',
-      sendArrow: true,
+    +fields-group('Subscription text field')
+      +textField({
+        type: 'email',
+        placeholder: 'Email',
+        sendArrow: true,
+      })
+    +btn({text: 'Перейти к оплате'})
+    +btn({text: 'Перейти к оплате', mods: ['light']})
+    +checkboxField({
+      text: 'Можно курить',
+      id: 1,
     })
-  +checkboxField({
-    text: 'Можно курить'
-  })
+    +checkboxField({
+      text: 'Можно с питомцами',
+      id: 2,
+    })
+    +checkboxField({
+      text: 'Можно пригласить гостей (до 10 человек)',
+      id: 3,
+    })
+    +radioField({
+      text: 'Мужчина',
+      id: 1,
+      name: 'gender',
+    })
+    +radioField({
+      text: 'Женщина',
+      id: 2,
+      name: 'gender',
+    })
+    +checkboxField({
+      text: 'Получать спецпредложения',
+      id: 4,
+      mods: ['toggle'],
+    })
+    +likeButton({
+      count: 2
+    })
+    +likeButton({
+      count: 12,
+      mods: ['liked']
+    })
+    +rateButton()
+    +checkboxField({
+      text: 'Широкий коридор',
+      id: 5,
+      mods: ['rich'],
+      richText: 'Ширина коридоров в номере не менее 91 см.'
+    })
+    +bulletList({
+      items: [
+        'Нельзя с питомцами',
+        'Без вечеринок и мероприятий',
+        'Время прибытия — после 13:00, а выезд до 12:00'
+      ]
+    })
+    +ui-kit-col()
+    

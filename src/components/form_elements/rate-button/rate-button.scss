@@ -1,0 +1,42 @@
+$star-size: 24px;
+
+.rate-btn {
+  display: inline-flex;
+  align-items: center;
+
+  &__star {
+    width: $star-size;
+    height: $star-size;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    
+    span {
+      width: $star-size;
+      height: $star-size;
+
+      &:before {
+        content: 'star_border';
+        background: $purple-gradient no-repeat;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+    }
+  }
+
+  &__star.star--selected,
+  &__star.star--in-hover-range,
+  &__star.star--in-selected-range {
+    span:before {
+      content: 'star';
+    }
+  }
+
+  // &__star:hover ~ &__star {
+  //   span:before {
+  //     content: 'star';
+  //   }
+  // }
+}

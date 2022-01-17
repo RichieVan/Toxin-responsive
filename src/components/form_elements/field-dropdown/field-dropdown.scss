@@ -3,17 +3,17 @@ $field-border-width: 1px;
 $counter-button-height: 30px;
 
 @function fieldHeight ($multiplier) {
-  @return $field-height / $multiplier;
+  @return calc($field-height / $multiplier);
 }
 
 .field-dropdown {
   $field-multiplier: 1;
 
   position: relative;
+  width: 100%;
   height: fieldHeight($field-multiplier);
   background: #FFFFFF;
   border-radius: 4px;
-  max-width: 270px;
 
   &.dropdown--expanded {
     border-bottom-left-radius: 0;

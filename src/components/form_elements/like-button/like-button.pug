@@ -1,0 +1,19 @@
+mixin likeButton(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' like-btn--' + options.mods[i].trim();
+      }
+    }
+
+    var buttonClassName = 'like-btn' + mods;
+    var likesCount = options?.count ? options.count : 0;
+  button(class = buttonClassName)
+    .like-btn__icon
+      span.material-icons
+    span.like-btn__count= likesCount

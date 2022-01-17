@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "/",
-    filename: "[main].[contenthash].js",
+    filename: "[name].[contenthash].js"
   },
   module: {
     rules: [
@@ -37,20 +37,13 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|ico)$/,
-        use: 'file-loader'
+        test: /\.(png|jpg|ico|svg|ttf|woff|woff2)$/,
+        type: 'asset/resource',
       },
-      {
-        test: /\.(ttf|woff|woff2|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: "[path][name].[ext]"
-            }
-          }
-        ]
-      },
+      // {
+      //   test: /\.(ttf|woff|woff2)$/,
+      //   use: 'file-loader',
+      // },
       // {
       //   test: /\.(svg)$/,
       //   use: 'svg-inline-loader'
@@ -63,15 +56,15 @@ module.exports = {
       template: path.resolve(__dirname, 'src/index.pug'),
       minify: false,
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'src/assets'),
-          to: path.resolve(__dirname, 'dist/assets')
-        },
-      ]
-    }),
-    new CleanWebpackPlugin()
+    // new CopyWebpackPlugin({
+    //   patterns: [
+    //     {
+    //       from: path.resolve(__dirname, 'src/assets'),
+    //       to: path.resolve(__dirname, 'dist/assets')
+    //     },
+    //   ]
+    // }),
+    //new CleanWebpackPlugin()
   ],
   resolve: {
     extensions: ['.js', '.scss'],
