@@ -1,0 +1,33 @@
+mixin field-range(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options?.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' field-range--' + options.mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'field-range';
+    var classList = defaultClassName + mods;
+    var labelText = options?.text ? options.text : '';
+    var inputChecked = options?.checked || false;
+    var inputName = options?.name ? options.name : '';
+    var inputClassList = defaultClassName + '__input' + ' js-range-slider';
+    var id = 'checkbox' + (options?.id ? options.id : Math.random(0, 999999));
+    var richText = options?.richText ? options.richText : '';
+    var info = options?.info ? options.info : '';
+  div(class = classList)
+    .field-range__heading
+      h3.heading-label Range slider
+      .field-range__values 10000-20000
+    input(
+      type = 'text',
+      class = inputClassList
+    )
+    span.field-range__info= info
+    
+      
