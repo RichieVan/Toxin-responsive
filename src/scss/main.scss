@@ -22,6 +22,14 @@ ul {
   padding: 0;
 }
 
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
 h1.heading-1 {
   font-size: $font-size--h1;
   color: $dark-shade--100;

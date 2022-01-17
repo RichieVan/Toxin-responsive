@@ -23,3 +23,19 @@
     opacity: 1;
   }
 }
+
+@mixin center-flex ($inline: false) {
+  @if $inline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-effect {
+  &:hover {
+    opacity: .5;
+  }
+}
