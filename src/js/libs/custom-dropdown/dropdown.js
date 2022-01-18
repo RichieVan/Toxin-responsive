@@ -4,7 +4,7 @@ import * as $ from 'jquery';
   $.fn.dropdownWithCounters = function (props) {
     const dropdown = new DropdownWithCounters(props)
     
-    this.after(dropdown.render())
+    dropdown.render(this);
   }
 })($)
 
@@ -19,10 +19,11 @@ class DropdownWithCounters {
     text: 'Очистить',
     show: false,
   };
+  initialHeight;
   resultInput;
-  listContainerElement;
   fieldContainerElement;
   maskElement;
+  contentBlock;
   activityClass = 'dropdown--expanded';
 
   constructor (options) {
@@ -44,11 +45,21 @@ class DropdownWithCounters {
     }
   }
 
+  show () {
+    this.fieldContainerElement.addClass(this.activityClass);
+    this.contentBlock.height(this.initialHeight);
+  }
+
+  hide () {
+    this.fieldContainerElement.removeClass(this.activityClass);
+    this.contentBlock.height(0);
+  }
+
   maskClickHandler () {
     if (this.showList) {
-      this.fieldContainerElement.removeClass(this.activityClass);
+      this.hide();
     } else {
-      this.fieldContainerElement.addClass(this.activityClass);
+      this.show();
     }
     this.showList = !this.showList;
   }
@@ -64,7 +75,7 @@ class DropdownWithCounters {
     this.maskClickHandler();
   }
 
-  setJoinedResultString () {
+  setJoinedResultsString () {
     let result = '';
     this.counters.forEach(counter => {
       if (result.length > 0) result = result + ', ';
@@ -104,21 +115,25 @@ class DropdownWithCounters {
     return buttonsContainer;
   }
 
-  render () {
-    this.fieldContainerElement = $("<div/>", { "class": "field-dropdown" });
+  render (target) {
+    this.fieldContainerElement = $("<div/>", { "class": "field-dropdown " + this.activityClass });
     this.resultInput = $("<input/>", { "class": "field-dropdown__input", "type": "text", }).appendTo(this.fieldContainerElement);
     const dropdownArrow = $("<div/>", { "class": "field-dropdown__arrow" }).appendTo(this.fieldContainerElement);
     $("<span/>", { "class": "material-icons", "html": "expand_more" }).appendTo(dropdownArrow);
     this.maskElement = $("<div/>", { "class": "field-dropdown__mask", "click": () => (this.maskClickHandler()) }).appendTo(this.fieldContainerElement);
-    this.listContainerElement = $("<div/>", { "class": "dropdown-content", }).appendTo(this.fieldContainerElement);
-    const listCounters = $("<div/>", { "class": "dropdown-counters", }).appendTo(this.listContainerElement);
+    this.contentBlock = $("<div/>", { "class": "dropdown-content", }).appendTo(this.fieldContainerElement);
+    const contentInner = $("<div/>", { "class": "dropdown-content__inner", }).appendTo(this.contentBlock);
+    const listCounters = $("<div/>", { "class": "dropdown-counters", }).appendTo(contentInner);
     this.counters.forEach(counter => {
       counter.render().appendTo(listCounters);
     })
-    this.renderButtons().appendTo(this.listContainerElement)
+    this.renderButtons().appendTo(contentInner);
 
-    this.setJoinedResultString();
-    return this.fieldContainerElement;
+    this.setJoinedResultsString();
+    target.after(this.fieldContainerElement);
+
+    this.initialHeight = this.contentBlock.height() + 1;
+    this.hide();
   }
 }
 

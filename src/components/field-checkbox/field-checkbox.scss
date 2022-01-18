@@ -1,0 +1,94 @@
+.field-checkbox {
+  $label-height: 20px;
+  $toggler-width: 40px;
+  $toggler-inner-size: 12px;
+  $label-left-padding: 30px;
+
+  &__input {
+    display: none;
+  }
+
+  &__label {
+    display: inline-block;
+    min-height: $label-height;
+    cursor: pointer;
+  }
+
+  &__name {
+    display: inline-block;
+    position: relative;
+    padding-left: $label-left-padding;
+    padding-top: 1px;
+    line-height: 18px;
+    color: $dark-shade--50;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: $label-height;
+      height: $label-height;
+      border: 1px solid $dark-shade--25;
+      border-radius: 4px;
+      background: white center no-repeat;
+      box-sizing: border-box;
+      transition: border-color .1s linear;
+    }
+  }
+
+  &__input:checked + &__name:before {
+    border-color:#BC9CFF;
+    background-image: url('./components/field-checkbox/img/check.svg');
+  }
+
+  &__input-wrapper:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &__input-wrapper--rich &__label {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
+  &__input-wrapper--rich &__name {
+    font-weight: bold;
+    color: $dark-shade--75;
+  }
+
+  &__input-wrapper--rich &__rich-text {
+    padding: 5px 0 0 $label-left-padding;
+    font-size: $font-size--label;
+    line-height: $line-height--label;
+  }
+
+  &__input-wrapper--toggle &__label &__name {
+    padding-left: 50px;
+
+    &:before {
+      width: $toggler-width;
+      border-radius: 10px;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(($label-height - $toggler-inner-size) / 2);
+      top: calc(($label-height - $toggler-inner-size) / 2);
+      width: $toggler-inner-size;
+      height: $toggler-inner-size;
+      background: $dark-shade--25;
+      border-radius: 50%;
+      transition: left .1s linear;
+    } 
+  }
+
+  &__input-wrapper--toggle &__input:checked + &__name:after {
+    left: calc(($label-height - $toggler-inner-size) / 2) + 20px;
+    background: $purple-gradient;
+  }
+
+  &__input-wrapper--toggle &__input:checked + &__name:before {
+    background: none;
+  }
+}

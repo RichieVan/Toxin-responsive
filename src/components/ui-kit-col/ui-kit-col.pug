@@ -1,16 +1,10 @@
-mixin ui-kit-col(options)
+mixin ui-kit-col(margin = 0, mods = [])
   -
-    if (typeof options === 'undefined') {
-      options = {};
+    var allMods = '';
+    for (let i = 0; i < mods.length; i++) {
+      allMods = allMods + ' ui-kit-col--' + mods[i].trim();
     }
-
-    let mods = '';
-    if (options?.mods) {
-      for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' ui-kit-col--' + options.mods[i].trim();
-      }
-    }
-
-    var classList = 'ui-kit-col' + mods;
+    var marginClass = margin ? ' mr-' + margin : '';
+    var classList = 'ui-kit-col' + allMods + marginClass;
   div(class=classList)
     block

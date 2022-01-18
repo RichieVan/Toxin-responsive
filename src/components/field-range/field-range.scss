@@ -1,0 +1,63 @@
+@import 'ion-rangeslider/css/ion.rangeslider.min.css';
+
+.field-range {
+  &__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__values {
+    font-size: $font-size--label;
+    line-height: $line-height--label;
+  }
+
+  &__info {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: $font-size--label;
+    line-height: $line-height--label;
+    color: $dark-shade--50;
+  }
+}
+
+.irs {
+  $bar-height: 6px;
+  $dot-size: 12px;
+
+  &--flat {
+    height: $dot-size;
+  }
+
+  &--flat &-line {
+    top: 3px;
+    height: $bar-height;
+    border: 1px solid $dark-shade--25;
+    border-radius: 3px;
+    background: #fff;
+  }
+
+  &--flat &-bar {
+    top: 3px;
+    height: $bar-height;
+    background: $green-gradient;
+  }
+  
+  &--flat &-handle {
+    top: 0px;
+    width: $dot-size;
+    height: $dot-size;
+
+    &>i:first-child {
+      left: 0;
+      top: 0;
+      width: $dot-size;
+      margin-left: 0;
+      border-radius: 50%;
+      background: $green-gradient;
+      outline: 2px solid white;
+    }
+  }
+}
+

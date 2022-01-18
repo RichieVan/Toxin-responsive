@@ -1,0 +1,18 @@
+mixin field-checkbox(checkboxes)
+  div.field-checkbox
+    each checkbox in checkboxes
+      -
+        let allMods = '';
+        if (checkbox.mods) {
+          for (let i = 0; i < checkbox.mods.length; i++) {
+            allMods = allMods + ' field-checkbox__input-wrapper--' + checkbox.mods[i].trim();
+          }
+        }
+        var attributes = checkbox.attrs ? checkbox.attrs : {};
+      div(class = 'field-checkbox__input-wrapper' + allMods)
+        label.field-checkbox__label
+          input.field-checkbox__input(type = 'checkbox')&attributes(attributes)
+          span.field-checkbox__name= checkbox.text
+          if (checkbox.rich)
+            span.field-checkbox__rich-text
+              =checkbox.rich

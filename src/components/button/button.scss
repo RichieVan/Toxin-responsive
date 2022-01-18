@@ -1,0 +1,86 @@
+button.btn {
+  transition: opacity .1s linear;
+
+  &:hover, &--hovered {
+    opacity: .5;
+  }
+}
+
+a.btn {
+  transition: color .1s linear;
+
+  &:hover, &--hovered {
+    color: $dark-shade--50;
+  }
+}
+
+.btn {
+  $button-height: 44px;
+
+  position: relative;
+  height: $button-height;
+  padding: 0 20px;
+  border: none;
+  border-radius: 22px;
+  background: $purple-gradient;
+  font-size: $font-size--label;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  vertical-align: middle;
+  cursor: pointer;
+  z-index: 1;
+
+  &--wide {
+    width: 100%;
+  }
+
+  &--thin {
+    height: auto;
+    padding: 0;
+    background: none;
+    color: $purple;
+  }
+
+  &--light {
+    color: $purple;
+    background: white;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background: $purple-gradient;
+      border-radius: inherit;
+      box-sizing: border-box;
+      z-index: -1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      height: calc(100% - 4px);
+      width: calc(100% - 4px);
+      background: white;
+      border-radius: inherit;
+      z-index: -1;
+    }
+  }
+
+  &__arrow {
+    @include center-flex;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: $button-height;
+    height: $button-height;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+  }
+}
+
