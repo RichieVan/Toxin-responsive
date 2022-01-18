@@ -13,11 +13,13 @@ include ./components/form_elements/expandable-list/expandable-list
 include ./components/bullet-list/bullet-list
 include ./components/ui-kit-col/ui-kit-col
 include ./components/form_elements/field-range/field-range
+include ./components/comment/comment
 
 
 block content
   .container
     h1.heading-1 This one is the sub-section or widget title
+    +comment()
     +ui-kit-col({
       mods: ['wide']
     })
@@ -34,6 +36,11 @@ block content
         id: 1,
         placeholder: 'ДД.ММ.ГГГГ',
         multiple: true
+      })
+      +btn({
+        text: 'Перейти к оплате', 
+        mods: ['wide'],
+        arrow: true
       })
       +ui-kit-col()
         +field-datepicker({
