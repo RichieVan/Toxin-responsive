@@ -1,0 +1,24 @@
+mixin btn(text, options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let allMods = '';
+    if (options.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        allMods = allMods + ' btn--' + options.mods[i].trim();
+      }
+    }
+
+    var buttonClassName = 'btn' + allMods;
+  if (options.href)
+    a(class = buttonClassName, href = options.href)
+      span= text
+      if options.arrow
+        span.material-icons.btn__arrow arrow_forward
+  else
+    button(class = buttonClassName)
+      span= text
+      if options.arrow
+        span.material-icons.btn__arrow arrow_forward

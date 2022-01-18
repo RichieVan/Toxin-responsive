@@ -23,6 +23,7 @@
     width: 100%;
     border-radius: 50%;
     text-decoration: none;
+    transition: $smooth-hover-transition;
     
     @include hover-effect;
 

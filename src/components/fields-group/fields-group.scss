@@ -1,0 +1,17 @@
+.fields-group {
+  width: 100%;
+
+  &--inline {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+
+    &.mr-10 > *:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    &.mr-20 > *:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

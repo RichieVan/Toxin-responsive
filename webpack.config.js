@@ -56,6 +56,31 @@ module.exports = {
       template: path.resolve(__dirname, 'src/index.pug'),
       minify: false,
     }),
+    // new HTMLWebpackPlugin({
+    //   filename: "ui-kit/colors-n-fonts.html",
+    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
+    //   minify: false,
+    // }),
+    // new HTMLWebpackPlugin({
+    //   filename: "ui-kit/forms.html",
+    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
+    //   minify: false,
+    // }),
+    // new HTMLWebpackPlugin({
+    //   filename: "ui-kit/heading-n-footer.html",
+    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
+    //   minify: false,
+    // }),
+    // new HTMLWebpackPlugin({
+    //   filename: "ui-kit/test.html",
+    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
+    //   minify: false,
+    // }),
+    // new HTMLWebpackPlugin({
+    //   filename: "ui-kit/test.html",
+    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
+    //   minify: false,
+    // }),
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
@@ -81,6 +106,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       watch: true,
     },
+    watchFiles: ['src/components/*/*.pug'],
     historyApiFallback: true
   },
   //devtool: 'source-map',

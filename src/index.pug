@@ -1,108 +1,205 @@
 extends ./components/main/base.pug
-include ./components/form_elements/button/button
-include ./components/form_elements/fields-group/fields-group
-include ./components/form_elements/field-caption/field-caption
-include ./components/form_elements/field-text/field-text
-include ./components/form_elements/field-dropdown/field-dropdown
-include ./components/form_elements/field-datepicker/field-datepicker
-include ./components/form_elements/field-checkbox/field-checkbox
-include ./components/form_elements/field-radio/field-radio
-include ./components/form_elements/like-button/like-button
-include ./components/form_elements/rate-button/rate-button
-include ./components/form_elements/expandable-list/expandable-list
+include ./components/button/button
+include ./components/fields-group/fields-group
+include ./components/field-label/field-label
+include ./components/field-text/field-text
+include ./components/field-dropdown/field-dropdown
+include ./components/field-datepicker/field-datepicker
+include ./components/field-checkbox/field-checkbox
+include ./components/field-radio/field-radio
+include ./components/like-button/like-button
+include ./components/rate-button/rate-button
+include ./components/expandable-list/expandable-list
 include ./components/bullet-list/bullet-list
-include ./components/ui-kit-col/ui-kit-col
-include ./components/form_elements/field-range/field-range
+include ./components/field-range/field-range
 include ./components/comment/comment
+include ./components/pagination/pagination
+
+include ./components/ui-kit-col/ui-kit-col
+include ./components/ui-kit-flex-container/ui-kit-flex-container
 
 
 block content
-  .container
-    h1.heading-1 This one is the sub-section or widget title
-    +comment()
-    +ui-kit-col({
-      mods: ['wide']
-    })
-      +fields-group()
-        +field-caption('Text field')
-        +field-text({
-          type: 'email',
-          placeholder : 'Email1'
-        })
-      +fields-group()
-        +field-caption('Dropdown field')
-        +field-dropdown()
-      +field-datepicker({
-        id: 1,
-        placeholder: 'ДД.ММ.ГГГГ',
-        multiple: true
-      })
-      +btn({
-        text: 'Перейти к оплате', 
-        mods: ['wide'],
-        arrow: true
-      })
-      +ui-kit-col()
-        +field-datepicker({
-          id: 2,
-        })
-        +expandable-list({
-          text: 'Expandable list',
-          checkboxList: [
-            'Завтрак',
-            'Письменный стол',
-            'Стул для кормления',
-            'Кроватка',
-            'Телевизор',
-            'Шампунь',
-          ],
-          mods: ['expanded']
-        })
+  .inner-container.ui-kit
+    +ui-kit-flex-container()
+      +ui-kit-col(20, ['wide'])
         +fields-group()
-          +field-caption('Subscription text field')
+          +field-label('Text field')
           +field-text({
             type: 'email',
-            placeholder: 'Email',
-            sendArrow: true,
+            placeholder : 'Email'
           })
-    +btn({text: 'Перейти к оплате'})
-    +btn({text: 'Перейти к оплате', mods: ['light']})
-    +field-checkbox({
-      text: 'Можно курить',
-    })
-    +field-checkbox({
-      text: 'Можно с питомцами',
-    })
-    +field-checkbox({
-      text: 'Можно пригласить гостей (до 10 человек)',
-    })
-    +field-radio({
-      text: 'Мужчина',
-      id: 1,
-      name: 'gender',
-    })
-    +field-radio({
-      text: 'Женщина',
-      id: 2,
-      name: 'gender',
-    })
-    +field-checkbox({
-      text: 'Получать спецпредложения',
-      mods: ['toggle'],
-    })
-    +like-button({
-      count: 2
-    })
-    +like-button({
-      count: 12,
-      mods: ['liked']
-    })
-    +rate-button()
-    +field-checkbox({
-      text: 'Широкий коридор',
-      mods: ['rich'],
-      richText: 'Ширина коридоров в номере не менее 91 см.'
-    })
+        +fields-group()
+          +field-label('Dropdown')
+          +field-dropdown()
+        +field-datepicker({
+          id: 1,
+          labels: ['date dropdown', 'date dropdown'],
+          placeholder: 'ДД.ММ.ГГГГ',
+          multiple: true
+        })
+        +ui-kit-col(20)
+          +field-datepicker({
+            id: 2,
+            labels: ['filter date dropdown'],
+            placeholder: 'ДД.ММ.ГГГГ',
+          })
+          //- +expandable-list({
+          //-   text: 'Expandable list',
+          //-   checkboxList: [
+          //-     'Завтрак',
+          //-     'Письменный стол',
+          //-     'Стул для кормления',
+          //-     'Кроватка',
+          //-     'Телевизор',
+          //-     'Шампунь',
+          //-   ],
+          //-   mods: ['expanded']
+          //- })
+          +fields-group()
+            +field-label('Subscription text field')
+            +field-text({
+              type: 'email',  
+              placeholder: 'Email',
+              sendArrow: true,
+            })
+      +ui-kit-col(40)
+        +fields-group
+          +field-label('Checkbox buttons', ['high'])
+          +field-checkbox([
+            {
+              text: 'Можно курить',
+              attrs : {
+                checked: true
+              }
+            },
+            {
+              text: 'Можно с питомцами',
+            },
+            {
+              text: 'Можно пригласить гостей (до 10 человек)',
+            },
+          ])
+        +fields-group
+          +field-label('Radio buttons', ['high'])
+          +field-radio(
+            [
+              {
+                text: 'Мужчина',
+                attrs: {
+                  name: 'gender'
+                }
+              },
+              {
+                text: 'Женщина',
+                attrs: {
+                  name: 'gender',
+                  checked: true
+                }
+              }
+            ], 
+            ['inline']
+          )
+        +fields-group
+          +field-label('Toggle', ['high'])
+          +field-checkbox([
+            {
+              text: 'Получать спецпредложения',
+              attrs : {
+                checked: true
+              },
+              mods: ['toggle'],
+            },
+            {
+              text: 'Получать спецпредложения',
+              mods: ['toggle'],
+            },
+          ])
+        +fields-group()  
+          +field-label('Like button', ['high'])
+          +fields-group(['inline'], 10)
+            +like-button({
+              count: 2
+            })
+            +like-button({
+              count: 12,
+              mods: ['liked']
+            }
+          )
+        +fields-group() 
+          +field-label('Rate button', ['high'])
+          +fields-group(['inline'], 20)
+            +rate-button(4)
+            +rate-button(2)
+        +fields-group() 
+          +field-checkbox([
+            {
+              text: 'Широкий коридор',
+              attrs : {
+                checked: true
+              },
+              mods: ['rich'],
+              rich: 'Ширина коридоров в номере не менее 91 см.'
+            },
+            {
+              text: 'Помощник для инвалидов',
+              mods: ['rich'],
+              rich: 'На 1 этаже вас встретит специалист и проводит до номера.'
+            },
+          ])
+      +ui-kit-col(40, ['wide'])
+        +ui-kit-col()
+          +field-range()
+        +fields-group()
+          +field-label('Buttons', ['high'])
+          +ui-kit-col(30)
+            +fields-group(['inline'], 20)
+              +btn('Click me')
+              +btn(
+                'Click me', 
+                {
+                  mods: ['hovered']
+                }
+              )
+            +fields-group(['inline'], 20)
+              +btn(
+                'Click me', 
+                {
+                  mods: ['light']
+                }
+              )
+              +btn(
+                'Click me', 
+                {
+                  mods: ['light', 'hovered']
+                }
+              )
+            +fields-group(['inline'], 20)
+              +btn(
+                'Click me', 
+                {
+                  href: '#',
+                  mods: ['thin']
+                }
+              )
+              +btn(
+                'Click me', 
+                {
+                  href: '#',
+                  mods: ['thin', 'hovered']
+                }
+              )
+            div
+              +btn(
+                'Перейти к оплате', 
+                {
+                  mods: ['wide'],
+                  arrow: true
+                }
+              )
+        +fields-group()
+          +field-label('Pagination', ['high'])
+          +pagination()
     +bullet-list({
       items: [
         'Нельзя с питомцами',
@@ -110,8 +207,6 @@ block content
         'Время прибытия — после 13:00, а выезд до 12:00'
       ]
     })
-    +ui-kit-col()
-      +field-range({
-        info: 'Стоимость за сутки пребывания в номере'
-      })
+    +comment()
+
     

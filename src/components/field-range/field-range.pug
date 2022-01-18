@@ -1,0 +1,28 @@
+mixin field-range(options)
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+
+    let mods = '';
+    if (options.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods = mods + ' field-range--' + options.mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'field-range';
+    var classList = defaultClassName + mods;
+    var inputClassList = defaultClassName + '__input' + ' js-range-slider';
+  div(class = classList)
+    .field-range__heading
+      h3.heading-label Range slider
+      .field-range__values
+    input(
+      type = 'text',
+      class = inputClassList
+    )
+    if options.info
+      span.field-range__info= info
+    
+      

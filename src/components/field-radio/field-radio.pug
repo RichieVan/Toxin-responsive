@@ -1,0 +1,25 @@
+mixin field-radio(radiobuttons, fieldMods = [])
+  -
+    let allFieldMods = '';
+    if (fieldMods) {
+      for (let i = 0; i < fieldMods.length; i++) {
+        allFieldMods = allFieldMods + ' field-radio--' + fieldMods[i].trim();
+      }
+    }
+  div(class = 'field-radio' + allFieldMods)
+    each radio in radiobuttons
+      -
+        let allMods = '';
+        if (radio.mods) {
+          for (let i = 0; i < radio.mods.length; i++) {
+            allMods = allMods + ' field-radio__input-wrapper--' + radio.mods[i].trim();
+          }
+        }
+        var attributes = radio.attrs ? radio.attrs : {};
+      div(class = 'field-radio__input-wrapper' + allMods)
+        label.field-radio__label
+          input.field-radio__input(type = 'radio')&attributes(attributes)
+          span.field-radio__name= radio.text
+          if (radio.rich)
+            span.field-radio__rich-text
+              =radio.rich

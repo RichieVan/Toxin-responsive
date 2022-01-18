@@ -1,0 +1,43 @@
+mixin field-datepicker(options)
+  include ../fields-group/fields-group
+  include ../field-label/field-label
+  -
+    if (typeof options === 'undefined') {
+      options = {};
+    }
+    
+    var id = options?.id ? options.id : 0;
+    var fromName = options.fromName;
+    var toName = options.toName;
+    var placeholder = options.placeholder;
+    var multiple = options?.multiple ? options.multiple : false;
+    var firstDatepickerMods = !multiple ? ' field--wide' : '';
+    var firstDatepickerClassList = 'field-datepicker' + firstDatepickerMods;
+    var firstDatepickerLabel = options?.labels ? options.labels[0] : '';
+    var secondDatepickerLabel = options?.labels ? options.labels[1] : '';
+  .field-datepicker-container(id = 'datepickerContainer' + id)
+    +fields-group()
+      +field-label(firstDatepickerLabel)
+      div(class=firstDatepickerClassList)
+        input.field-datepicker__input(
+          type='text',
+          name=fromName,
+          placeholder=placeholder,
+          id = 'datepickerFrom' + id,
+        )
+        .field-datepicker__arrow
+          span.material-icons expand_more
+        .field-datepicker__mask
+    if multiple
+      +fields-group()
+        +field-label(secondDatepickerLabel)
+        .field-datepicker
+          input.field-datepicker__input(
+            type='text', 
+            name=toName, 
+            placeholder=placeholder,
+            id = 'datepickerTo' + id,
+          )
+          .field-datepicker__arrow
+            span.material-icons expand_more
+          .field-datepicker__mask

@@ -5,7 +5,15 @@
     width: 320px;
   }
 
-  > * {
+  &.mr-20 > * {
     margin-bottom: 20px;
+  }
+
+  &.mr-30 > * {
+    margin-bottom: 30px;
+  }
+
+  &.mr-40 > * {
+    margin-bottom: 40px;
   }
 }
