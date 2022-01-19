@@ -18,7 +18,7 @@
     padding-left: 30px;
     padding-top: 1px;
     line-height: 18px;
-    color: $dark-shade--50;
+    color: $dark-shade-50;
 
     &:before {
       content: '';
@@ -27,7 +27,7 @@
       top: 0;
       width: $label-height;
       height: $label-height;
-      border: 1px solid $dark-shade--25;
+      border: 1px solid $dark-shade-25;
       border-radius: 50%;
       box-sizing: border-box;
     }
@@ -46,7 +46,7 @@
   }
 
   &__input:checked + &__name {
-    color: $dark-shade--75;
+    color: $dark-shade-75;
 
     &:before {
       border-color:#BC9CFF;
@@ -57,13 +57,13 @@
     }
   }
 
-  &--inline {
+  &_inline {
     display: flex;
     align-items: flex-start;
     align-content: flex-start;
   }
 
-  &--inline &__input-wrapper {
+  &_inline &__input-wrapper {
     margin-right: 20px;
   }
 }

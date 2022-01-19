@@ -1,25 +1,25 @@
 @mixin lightPlaceholder {
   &::-webkit-input-placeholder {
-    color: $dark-shade--25;
+    color: $dark-shade-25;
   }
   &:-ms-input-placeholder {
-    color: $dark-shade--25;
+    color: $dark-shade-25;
   }
   &::-moz-placeholder {
-    color: $dark-shade--25;
+    color: $dark-shade-25;
     opacity: 1;
   }
 }
 
 @mixin darkPlaceholder {
   &::-webkit-input-placeholder {
-    color: $dark-shade--75;
+    color: $dark-shade-75;
   }
   &:-ms-input-placeholder {
-    color: $dark-shade--75;
+    color: $dark-shade-75;
   }
   &::-moz-placeholder {
-    color: $dark-shade--75;
+    color: $dark-shade-75;
     opacity: 1;
   }
 }

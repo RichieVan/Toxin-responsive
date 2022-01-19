@@ -5,7 +5,7 @@ mixin field-checkbox(checkboxes)
         let allMods = '';
         if (checkbox.mods) {
           for (let i = 0; i < checkbox.mods.length; i++) {
-            allMods = allMods + ' field-checkbox__input-wrapper--' + checkbox.mods[i].trim();
+            allMods = allMods + ' field-checkbox__input-wrapper_' + checkbox.mods[i].trim();
           }
         }
         var attributes = checkbox.attrs ? checkbox.attrs : {};

@@ -31,7 +31,53 @@ block content
           })
         +fields-group()
           +field-label('Dropdown')
-          +field-dropdown()
+          +field-dropdown({
+            counters: [
+              {
+                name: 'Спальни',
+                defaultValue: 10,
+                max: 10,
+                min: 1,
+                nameEndings: [
+                  [[1], 'спальня'],
+                  [[2,3,4], 'спальни'],
+                  ['default', 'спален']
+                ],
+              },
+              {
+                name: 'Кровати',
+                defaultValue: 1,
+                max: 6,
+                min: 1,
+                nameEndings: [
+                  [[1], 'кровать'],
+                  [[2,3,4], 'кровати'],
+                  ['default', 'кроватей'] 
+                ],
+              },
+              {
+                name: 'Ванные комнаты',
+                defaultValue: 1,
+                max: 3,
+                min: 1,
+                nameEndings: [
+                  [[1], 'ванная комната'],
+                  [[2,3,4], 'ванные комнаты'],
+                  ['default', 'ванных комнат']
+                ],
+              },
+            ],
+            buttons: {
+              clear: {
+                text: 'Очистить',
+                show: true
+              },
+              accept: {
+                text: 'Применить',
+                show: true
+              },
+            }
+          })
         +field-datepicker({
           id: 1,
           labels: ['date dropdown', 'date dropdown'],

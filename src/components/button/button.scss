@@ -1,7 +1,7 @@
 button.btn {
   transition: opacity .1s linear;
 
-  &:hover, &--hovered {
+  &:hover, &_hovered {
     opacity: .5;
   }
 }
@@ -9,8 +9,8 @@ button.btn {
 a.btn {
   transition: color .1s linear;
 
-  &:hover, &--hovered {
-    color: $dark-shade--50;
+  &:hover, &_hovered {
+    color: $dark-shade-50;
   }
 }
 
@@ -23,7 +23,7 @@ a.btn {
   border: none;
   border-radius: 22px;
   background: $purple-gradient;
-  font-size: $font-size--label;
+  font-size: $font-size-label;
   font-weight: bold;
   text-transform: uppercase;
   color: white;
@@ -31,18 +31,18 @@ a.btn {
   cursor: pointer;
   z-index: 1;
 
-  &--wide {
+  &_wide {
     width: 100%;
   }
 
-  &--thin {
+  &_thin {
     height: auto;
     padding: 0;
     background: none;
     color: $purple;
   }
 
-  &--light {
+  &_light {
     color: $purple;
     background: white;
 

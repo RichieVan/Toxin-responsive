@@ -37,7 +37,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpg|ico|svg|ttf|woff|woff2)$/,
+        test: /\.(png|jpg|ico|svg|ttf|woff|woff2|svg)$/,
         type: 'asset/resource',
       },
       // {
@@ -61,11 +61,11 @@ module.exports = {
     //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
     //   minify: false,
     // }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/forms.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
+    new HTMLWebpackPlugin({
+      filename: "ui-kit/forms/index.html",
+      template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
+      minify: false,
+    }),
     // new HTMLWebpackPlugin({
     //   filename: "ui-kit/heading-n-footer.html",
     //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),

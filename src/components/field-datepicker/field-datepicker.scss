@@ -21,8 +21,8 @@
     border-radius: inherit;
     font-size: 1rem;
     line-height: 1.285em;
-    color: $dark-shade--75;
-    border: $field-border-width solid $dark-shade--25;
+    color: $dark-shade-75;
+    border: $field-border-width solid $dark-shade-25;
     outline: none;
     transition: $input-hover-transition;
 
@@ -30,7 +30,7 @@
   }
 
   &:hover &__input {
-    border-color: $dark-shade--50;
+    border-color: $dark-shade-50;
   }
 
   &__arrow {
@@ -49,7 +49,7 @@
       width: 24px;
 
       path {
-        fill: $dark-shade--75;
+        fill: $dark-shade-75;
       }
     }
   }
@@ -76,7 +76,7 @@
     }
   }
 
-  &.field--wide {
+  &.field_wide {
     max-width: none;
     width: 100%;
   }
@@ -92,7 +92,7 @@
   min-width: 320px;
   font-family: $font-family;
   box-sizing: border-box;
-  border-color: $dark-shade--25;
+  border-color: $dark-shade-25;
 
   &--buttons {
     padding: 0 20px 20px;
@@ -108,13 +108,13 @@
     height: auto;
     padding: 0;
     color: $purple;
-    font-size: $font-size--label;
+    font-size: $font-size-label;
     font-weight: bold;
     text-transform: uppercase;
 
     &:hover,
     &:focus {
-      color: $dark-shade--50;
+      color: $dark-shade-50;
       background: none;
     }
   }
@@ -136,7 +136,7 @@
 
     &--title {
       font-weight: bold;
-      font-size: $font-size--h2;
+      font-size: $font-size-h2;
     }
   }
 
@@ -164,13 +164,13 @@
   &-cell {
     height: $date-element-height;
     width: $date-element-height;
-    font-size: $font-size--label;
-    color: $dark-shade--50;
+    font-size: $font-size-label;
+    color: $dark-shade-50;
 
     overflow: hidden;
 
     &.-day-.-other-month- {
-      color: $dark-shade--25;
+      color: $dark-shade-25;
     }
 
     &.-in-range- {

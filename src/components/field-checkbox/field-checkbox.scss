@@ -20,7 +20,7 @@
     padding-left: $label-left-padding;
     padding-top: 1px;
     line-height: 18px;
-    color: $dark-shade--50;
+    color: $dark-shade-50;
 
     &:before {
       content: '';
@@ -29,7 +29,7 @@
       top: 0;
       width: $label-height;
       height: $label-height;
-      border: 1px solid $dark-shade--25;
+      border: 1px solid $dark-shade-25;
       border-radius: 4px;
       background: white center no-repeat;
       box-sizing: border-box;
@@ -46,23 +46,23 @@
     margin-bottom: 10px;
   }
 
-  &__input-wrapper--rich &__label {
+  &__input-wrapper_rich &__label {
     display: inline-flex;
     flex-direction: column;
   }
 
-  &__input-wrapper--rich &__name {
+  &__input-wrapper_rich &__name {
     font-weight: bold;
-    color: $dark-shade--75;
+    color: $dark-shade-75;
   }
 
-  &__input-wrapper--rich &__rich-text {
+  &__input-wrapper_rich &__rich-text {
     padding: 5px 0 0 $label-left-padding;
-    font-size: $font-size--label;
-    line-height: $line-height--label;
+    font-size: $font-size-label;
+    line-height: $line-height-label;
   }
 
-  &__input-wrapper--toggle &__label &__name {
+  &__input-wrapper_toggle &__label &__name {
     padding-left: 50px;
 
     &:before {
@@ -77,18 +77,18 @@
       top: calc(($label-height - $toggler-inner-size) / 2);
       width: $toggler-inner-size;
       height: $toggler-inner-size;
-      background: $dark-shade--25;
+      background: $dark-shade-25;
       border-radius: 50%;
       transition: left .1s linear;
     } 
   }
 
-  &__input-wrapper--toggle &__input:checked + &__name:after {
+  &__input-wrapper_toggle &__input:checked + &__name:after {
     left: calc(($label-height - $toggler-inner-size) / 2) + 20px;
     background: $purple-gradient;
   }
 
-  &__input-wrapper--toggle &__input:checked + &__name:before {
+  &__input-wrapper_toggle &__input:checked + &__name:before {
     background: none;
   }
 }

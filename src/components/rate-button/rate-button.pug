@@ -2,14 +2,14 @@ mixin rate-button(active = 0, mods = [])
   -
     var allMods = '';
     for (let i = 0; i < mods.length; i++) {
-      allMods = allMods + ' rate-btn--' + mods[i].trim();
+      allMods = allMods + ' rate-btn_' + mods[i].trim();
     }
 
     var buttonClassName = 'rate-btn' + allMods + ' js-rate-btn';
     var starsClasses = [];
     for (let i = 0; i < 5; i++) {
-      var selected = (i + 1 == active ? ' star--selected' : '');
-      var inRange = (i + 1 < active ? ' star--in-selected-range' : '');
+      var selected = (i + 1 == active ? ' star_selected' : '');
+      var inRange = (i + 1 < active ? ' star_in-selected-range' : '');
       starsClasses[i] = 'rate-btn__star js-rate-btn__star' + selected + inRange;
     }
   div(class = buttonClassName)

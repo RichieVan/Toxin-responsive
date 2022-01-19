@@ -3,5 +3,29 @@ mixin field-dropdown(options)
     if (typeof options === 'undefined') {
       options = {};
     }
-  .field-dropdown-container
-    input(type='hidden', data-dropdown-with-counters)
+    var counters = options.counters || {};
+    var buttons = options.buttons || {};
+  .field-dropdown-container(data-dropdown-with-counters)
+    input(type = 'hidden', class = 'js-dropdown-data-output')
+    .field-dropdown.js-field-dropdown
+      input(class = 'field-dropdown__input js-field-dropdown__input',type = 'text')
+      .field-dropdown__arrow
+        span.material-icons expand_more
+      .field-dropdown__mask.js-field-dropdown__mask
+      .field-dropdown__content.js-field-dropdown__content 
+        .field-dropdown__wrapper 
+          .dropdown-counters
+            each counter in counters 
+              -
+                var defaultValue = counter.defaultValue || 0;
+                var stringifiedData = JSON.stringify(counter);
+              .dropdown-counter(data-counter=stringifiedData)
+                .dropdown-counter__name= counter.name
+                .dropdown-counter__buttons 
+                  button(class = 'dropdown-counter__button js-counter__button_decrease', type = 'button') -
+                  span(class = 'dropdown-counter__count js-dropdown-counter__count')= defaultValue
+                  button(class = 'dropdown-counter__button js-counter__button_increase', type = 'button') +
+          .dropdown-buttons 
+            each button, key in buttons 
+              if (button.show)
+                button(class = 'dropdown-button js-dropdown-button_' + key)= button.text

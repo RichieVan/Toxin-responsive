@@ -26,9 +26,9 @@ $star-size: 24px;
     }
   }
 
-  &__star.star--selected,
-  &__star.star--in-hover-range,
-  &__star.star--in-selected-range {
+  &__star.star_selected,
+  &__star.star_in-hover-range,
+  &__star.star_in-selected-range {
     span:before {
       content: 'star';
     }

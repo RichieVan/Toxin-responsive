@@ -2,6 +2,6 @@ mixin field-label(text, mods = [])
   -
     var allMods = '';
     for (var i = 0; i < mods.length; i++)
-      allMods += ' ' + 'field-label--' + mods[i].trim()
+      allMods += ' ' + 'field-label_' + mods[i].trim()
     var classList = 'heading-label field-label' + allMods;
   h3(class = classList)= text

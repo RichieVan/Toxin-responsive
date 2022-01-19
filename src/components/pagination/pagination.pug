@@ -8,12 +8,12 @@ mixin pagination(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' pagination--' + options.mods[i].trim();
+        mods = mods + ' pagination_' + options.mods[i].trim();
       }
     }
   nav.pagination
     ul.pagination__list
-      li.pagination__item.pagination__item--active
+      li.pagination__item.pagination__item_active
         a.pagination__link(href='#') 1
       li.pagination__item
         a.pagination__link(href='#') 2
@@ -24,6 +24,6 @@ mixin pagination(options)
       li.pagination__item
         a.pagination__link(href='#') 15
       li.pagination__item
-        a.pagination__link.pagination__link--with-arrow(href='#') 
+        a.pagination__link.pagination__link_with-arrow(href='#') 
           span.material-icons arrow_forward
     .pagination__info 1 – 12 из 100+ вариантов аренды
