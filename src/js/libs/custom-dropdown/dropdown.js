@@ -1,48 +1,38 @@
 import * as $ from 'jquery';
 
 (function ($) {
-  $.fn.dropdownWithCounters = function (props) {
-    const dropdown = new DropdownWithCounters(props)
-    
-    dropdown.render(this);
+  $.fn.dropdownWithCounters = function () {
+    const dropdown = new DropdownWithCounters(this, this.find('[js-dropdown-data-output]'));
+    dropdown.render();
   }
 })($)
 
 class DropdownWithCounters {
   counters;
   showList = false;
-  acceptButtonData = {
-    text: 'Применить',
-    show: true,
-  };
-  clearButtonData = {
-    text: 'Очистить',
-    show: false,
-  };
   initialHeight;
   resultInput;
   fieldContainerElement;
   maskElement;
   contentBlock;
+  acceptButton;
+  clearButton;
+  outputElement;
   activityClass = 'dropdown--expanded';
 
-  constructor (options) {
-    this.counters = options.counters.map(props => {
-      const item = new Counter({
-        ...props,
-        parentClass: this
-      });
+  constructor (container, outputElement) {
+    this.counters = Array.from(container.find('[data-counter]')).map((counter) => {
+      const item = new Counter($(counter), this).render();
       return item;
     });
 
-    if (options?.buttons) {
-      if (options.buttons?.accept) {
-        this.acceptButtonData = {...this.acceptButtonData, ...options.buttons.accept};
-      }
-      if (options.buttons?.clear) {
-        this.clearButtonData = {...this.clearButtonData, ...options.buttons.clear};
-      }
-    }
+    this.fieldContainerElement = container.find('.js-field-dropdown');
+    this.resultInput = container.find('.js-field-dropdown__input');
+    this.maskElement = container.find('.js-field-dropdown__mask');
+    this.contentBlock = container.find('.js-field-dropdown__content');
+    this.acceptButton = container.find('.js-dropdown-button--accept');
+    this.clearButton = container.find('.js-dropdown-button--clear');
+    this.outputElement = outputElement;
   }
 
   show () {
@@ -55,24 +45,17 @@ class DropdownWithCounters {
     this.contentBlock.height(0);
   }
 
-  maskClickHandler () {
-    if (this.showList) {
-      this.hide();
-    } else {
-      this.show();
-    }
+  toggleState () {
+    if (this.showList) this.hide();
+    else this.show();
     this.showList = !this.showList;
   }
 
-  cleanButtonClickHandler () {
+  clearButtonClickHandler () {
     this.counters.forEach(counter => {
       counter.clearCountValue();
     })
-    this.setJoinedResultString();
-  }
-
-  acceptButtonClickHandler () {
-    this.maskClickHandler();
+    this.setJoinedResultsString();
   }
 
   setJoinedResultsString () {
@@ -85,58 +68,28 @@ class DropdownWithCounters {
     this.maskElement.attr('title', result);
   }
 
-  renderButtons () {
-    let buttonsContainer;
-    if (this.acceptButtonData.show || this.clearButtonData.show) {
-      buttonsContainer = $("<div/>", { "class": "dropdown-buttons", });
-    }
+  bindEvents () {
+    this.acceptButton.on('click', () => {
+      this.toggleState();
+    })
 
-    if (this.clearButtonData.show) {
-      $(
-        "<button/>", 
-        { 
-          "class": "dropdown-button",
-          "click": () => (this.cleanButtonClickHandler()),
-          "text": this.clearButtonData.text
-        }
-      ).appendTo(buttonsContainer);
-    }
+    this.clearButton.on('click', () => {
+      this.clearButtonClickHandler();
+    })
 
-    if (this.acceptButtonData.show) {
-      $(
-        "<button/>", 
-        { 
-          "class": "dropdown-button",
-          "click": () => (this.acceptButtonClickHandler()),
-          "text": this.acceptButtonData.text
-        }
-      ).appendTo(buttonsContainer);
-    }
-    return buttonsContainer;
+    this.maskElement.on('click', () => {
+      this.toggleState();
+    })
   }
 
-  render (target) {
-    this.fieldContainerElement = $("<div/>", { "class": "field-dropdown " + this.activityClass });
-    this.resultInput = $("<input/>", { "class": "field-dropdown__input", "type": "text", }).appendTo(this.fieldContainerElement);
-    const dropdownArrow = $("<div/>", { "class": "field-dropdown__arrow" }).appendTo(this.fieldContainerElement);
-    $("<span/>", { "class": "material-icons", "html": "expand_more" }).appendTo(dropdownArrow);
-    this.maskElement = $("<div/>", { "class": "field-dropdown__mask", "click": () => (this.maskClickHandler()) }).appendTo(this.fieldContainerElement);
-    this.contentBlock = $("<div/>", { "class": "dropdown-content", }).appendTo(this.fieldContainerElement);
-    const contentInner = $("<div/>", { "class": "dropdown-content__inner", }).appendTo(this.contentBlock);
-    const listCounters = $("<div/>", { "class": "dropdown-counters", }).appendTo(contentInner);
-    this.counters.forEach(counter => {
-      counter.render().appendTo(listCounters);
-    })
-    this.renderButtons().appendTo(contentInner);
-
+  render () {
+    this.bindEvents();
     this.setJoinedResultsString();
-    target.after(this.fieldContainerElement);
 
     this.initialHeight = this.contentBlock.height() + 1;
     this.hide();
   }
 }
-
 
 class Counter {
   count;
@@ -150,15 +103,22 @@ class Counter {
   countElement;
   decreaseButton;
   increaseButton;
+  element;
 
-  constructor (options) {
-    this.name = options.name;
-    this.max = options.max;
-    this.min = options?.min || 0;
-    this.defaultValue = options?.defaultValue || 0;
+  constructor (element, parentClass) {
+    const data = element.data('counter');
+    this.element = element;
+    this.name = data.name;
+    this.max = data.max;
+    this.min = data.min || 0;
+    this.defaultValue = data.defaultValue || 0;
+    this.endings = data.nameEndings;
     this.count = this.defaultValue;
-    this.endings = options.nameEndings;
-    this.parentClass = options.parentClass;
+    this.parentClass = parentClass;
+
+    this.decreaseButton = this.element.find('.js-counter__button--decrease');
+    this.increaseButton = this.element.find('.js-counter__button--increase');
+    this.countElement = this.element.find('.js-dropdown-counter__count');
   }
 
   getResultString () {
@@ -169,6 +129,7 @@ class Counter {
   clearCountValue () {
     this.count = this.defaultValue;
     this.countElement.text(this.count);
+    this.toggleButtons();
   }
 
   decreaseHandler () {
@@ -187,7 +148,7 @@ class Counter {
 
   buttonsClickHandler () {
     this.toggleButtons();
-    this.parentClass.setJoinedResultString();
+    this.parentClass.setJoinedResultsString();
   }
 
   toggleButtons () {
@@ -205,70 +166,20 @@ class Counter {
   }
 
   bindButtons () {
-    this.decreaseButton = $(
-      "<button/>",
-      {
-        "class": "dropdown-counter__button",
-        "click": () => {
-          this.decreaseHandler()
-          this.buttonsClickHandler()
-        },
-        'text': '-',
-      }
-    );
+    this.decreaseButton.on('click', () => {
+      this.decreaseHandler()
+      this.buttonsClickHandler()
+    })
 
-    this.countElement = $(
-      "<div/>",
-      {
-        "class": "dropdown-counter__count",
-        "text": this.count
-      }
-    );
-
-    this.increaseButton = $(
-      "<button/>",
-      {
-        "class": "dropdown-counter__button",
-        "click": () => {
-          this.increaseHandler()
-          this.buttonsClickHandler()
-        },
-        'text': '+',
-      }
-    );
-
-    const buttonsContainer = $(
-      "<div/>",
-      {
-        "class": "dropdown-counter__buttons-container"
-      }
-    ).append([this.decreaseButton, this.countElement, this.increaseButton]);
-
-    return buttonsContainer;
+    this.increaseButton.on('click', () => {
+      this.increaseHandler()
+      this.buttonsClickHandler()
+    })
   }
 
   render () {
-    const buttonsContainer = this.bindButtons();
-
-    this.counterContainer = $(
-      "<div/>",
-      {
-        "class": "dropdown-counter"
-      }
-    );
-
-    const counterName = $(
-      "<div/>",
-      {
-        "class": "dropdown-counter__name",
-        "text": this.name
-      }
-    )
-
-    counterName.appendTo(this.counterContainer);
-    buttonsContainer.appendTo(this.counterContainer);
-
+    this.bindButtons();
     this.toggleButtons();
-    return this.counterContainer;
+    return this;
   }
 }
