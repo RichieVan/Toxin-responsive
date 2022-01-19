@@ -3,8 +3,8 @@
 
   &__item {
     position: relative;
-    padding-left: 20px;
-    color: $dark-shade--75;
+    padding: 0 0 3px 20px;
+    color: $dark-shade-75;
     list-style: none;
     overflow: hidden;
 
@@ -23,7 +23,11 @@
       height: $bullet-size;
       width: $bullet-size;
       border-radius: 50%;
-      background: $dark-shade--25;
+      background: $dark-shade-25;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
   }
 }

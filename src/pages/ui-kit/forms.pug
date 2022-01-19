@@ -1,0 +1,81 @@
+extends ../../components/main/base.pug
+include ../../components/form/form
+include ../../components/field-datepicker/field-datepicker
+include ../../components/field-dropdown/field-dropdown
+include ../../components/fields-group/fields-group
+include ../../components/field-label/field-label
+include ../../components/button/button
+
+block content 
+  div 213
+    +form('Найдём номера под ваши пожелания')
+      +field-datepicker({
+        id: 1,
+        labels: ['Прибытие', 'Выезд'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+      +fields-group()
+        +field-label('Гости')
+        +field-dropdown({
+          counters: [
+            {
+              name: 'Спальни',
+              defaultValue: 10,
+              max: 10,
+              min: 1,
+              nameEndings: [
+                [[1], 'спальня'],
+                [[2,3,4], 'спальни'],
+                ['default', 'спален']
+              ],
+            },
+            {
+              name: 'Кровати',
+              defaultValue: 1,
+              max: 6,
+              min: 1,
+              nameEndings: [
+                [[1], 'кровать'],
+                [[2,3,4], 'кровати'],
+                ['default', 'кроватей'] 
+              ],
+            },
+            {
+              name: 'Ванные комнаты',
+              defaultValue: 1,
+              max: 3,
+              min: 1,
+              nameEndings: [
+                [[1], 'ванная комната'],
+                [[2,3,4], 'ванные комнаты'],
+                ['default', 'ванных комнат']
+              ],
+            },
+          ],
+          buttons: {
+            clear: {
+              text: 'Очистить',
+              show: true
+            },
+            accept: {
+              text: 'Применить',
+              show: true
+            },
+          }
+        })
+      +btn(
+        'Подобрать номер', 
+        {
+          mods: ['wide', 'submit', 'margin_big'],
+          arrow: true
+        }
+      )
+
+
+
+
+
+
+
+

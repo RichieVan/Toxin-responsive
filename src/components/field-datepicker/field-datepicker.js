@@ -9,8 +9,17 @@ $('.field-datepicker-container').each(function (index) {
   const acceptButton = {
     content: 'Применить',
     className: 'air-datepicker-button button--accept',
+    attrs: {type: 'button'},
     onClick: (dp) => {
-        dp.hide();
+      dp.hide();
+    }
+  }
+  const clearButton = {
+    content: 'Очистить',
+    className: 'air-datepicker-button button--clear',
+    attrs: {type: 'button'},
+    onClick: (dp) => {
+      dp.clear();
     }
   }
 
@@ -33,7 +42,7 @@ $('.field-datepicker-container').each(function (index) {
       }
     },
     buttons: [
-      'clear',
+      clearButton,
       acceptButton
     ],
     onSelect: function({datepicker}) {

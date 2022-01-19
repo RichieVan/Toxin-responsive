@@ -8,7 +8,7 @@ mixin expandable-list(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' expandable-list--' + options.mods[i].trim();
+        mods = mods + ' expandable-list_' + options.mods[i].trim();
       }
     }
 

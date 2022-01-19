@@ -8,7 +8,7 @@ mixin comment(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' bullet-list--' + options.mods[i].trim();
+        mods = mods + ' bullet-list_' + options.mods[i].trim();
       }
     }
 

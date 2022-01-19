@@ -2,7 +2,7 @@ mixin fields-group(mods = [], margin = 0)
   -
     var allMods = '';
     for (var i = 0; i < mods.length; i++)
-      allMods += ' ' + 'fields-group--' + mods[i].trim()
+      allMods += ' ' + 'fields-group_' + mods[i].trim()
     var marginClass = margin ? ' mr-' + margin : '';
     var classList = 'fields-group' + allMods + marginClass;
   div(class = classList)

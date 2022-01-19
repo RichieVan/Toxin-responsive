@@ -7,7 +7,7 @@ mixin like-button(options)
     let mods = '';
     if (options?.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' like-btn--' + options.mods[i].trim();
+        mods = mods + ' like-btn_' + options.mods[i].trim();
       }
     }
 

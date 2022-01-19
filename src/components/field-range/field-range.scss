@@ -9,16 +9,16 @@
   }
 
   &__values {
-    font-size: $font-size--label;
-    line-height: $line-height--label;
+    font-size: $font-size-label;
+    line-height: $line-height-label;
   }
 
   &__info {
     display: inline-block;
     margin-top: 10px;
-    font-size: $font-size--label;
-    line-height: $line-height--label;
-    color: $dark-shade--50;
+    font-size: $font-size-label;
+    line-height: $line-height-label;
+    color: $dark-shade-50;
   }
 }
 
@@ -26,25 +26,25 @@
   $bar-height: 6px;
   $dot-size: 12px;
 
-  &--flat {
+  &_flat {
     height: $dot-size;
   }
 
-  &--flat &-line {
+  &_flat &-line {
     top: 3px;
     height: $bar-height;
-    border: 1px solid $dark-shade--25;
+    border: 1px solid $dark-shade-25;
     border-radius: 3px;
     background: #fff;
   }
 
-  &--flat &-bar {
+  &_flat &-bar {
     top: 3px;
     height: $bar-height;
     background: $green-gradient;
   }
   
-  &--flat &-handle {
+  &_flat &-handle {
     top: 0px;
     width: $dot-size;
     height: $dot-size;

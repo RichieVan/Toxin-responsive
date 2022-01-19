@@ -18,7 +18,7 @@ class DropdownWithCounters {
   acceptButton;
   clearButton;
   outputElement;
-  activityClass = 'dropdown--expanded';
+  activityClass = 'dropdown_expanded';
 
   constructor (container, outputElement) {
     this.counters = Array.from(container.find('[data-counter]')).map((counter) => {
@@ -30,8 +30,8 @@ class DropdownWithCounters {
     this.resultInput = container.find('.js-field-dropdown__input');
     this.maskElement = container.find('.js-field-dropdown__mask');
     this.contentBlock = container.find('.js-field-dropdown__content');
-    this.acceptButton = container.find('.js-dropdown-button--accept');
-    this.clearButton = container.find('.js-dropdown-button--clear');
+    this.acceptButton = container.find('.js-dropdown-button_accept');
+    this.clearButton = container.find('.js-dropdown-button_clear');
     this.outputElement = outputElement;
   }
 
@@ -116,8 +116,8 @@ class Counter {
     this.count = this.defaultValue;
     this.parentClass = parentClass;
 
-    this.decreaseButton = this.element.find('.js-counter__button--decrease');
-    this.increaseButton = this.element.find('.js-counter__button--increase');
+    this.decreaseButton = this.element.find('.js-counter__button_decrease');
+    this.increaseButton = this.element.find('.js-counter__button_increase');
     this.countElement = this.element.find('.js-dropdown-counter__count');
   }
 

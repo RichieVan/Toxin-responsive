@@ -2,7 +2,7 @@ mixin ui-kit-col(margin = 0, mods = [])
   -
     var allMods = '';
     for (let i = 0; i < mods.length; i++) {
-      allMods = allMods + ' ui-kit-col--' + mods[i].trim();
+      allMods = allMods + ' ui-kit-col_' + mods[i].trim();
     }
     var marginClass = margin ? ' mr-' + margin : '';
     var classList = 'ui-kit-col' + allMods + marginClass;

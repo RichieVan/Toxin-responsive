@@ -22,10 +22,10 @@ mixin field-dropdown(options)
               .dropdown-counter(data-counter=stringifiedData)
                 .dropdown-counter__name= counter.name
                 .dropdown-counter__buttons 
-                  button.dropdown-counter__button.js-counter__button--decrease -
-                  span.dropdown-counter__count.js-dropdown-counter__count= defaultValue
-                  button.dropdown-counter__button.js-counter__button--increase +
+                  button(class = 'dropdown-counter__button js-counter__button_decrease', type = 'button') -
+                  span(class = 'dropdown-counter__count js-dropdown-counter__count')= defaultValue
+                  button(class = 'dropdown-counter__button js-counter__button_increase', type = 'button') +
           .dropdown-buttons 
             each button, key in buttons 
               if (button.show)
-                button(class = 'dropdown-button js-dropdown-button--' + key)= button.text
+                button(class = 'dropdown-button js-dropdown-button_' + key)= button.text

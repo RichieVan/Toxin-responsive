@@ -7,20 +7,20 @@
     height: $default-field-height;
     padding: 13px 0 13px 15px;
     background: #FFFFFF;
-    border: 1px solid $dark-shade--25;
+    border: 1px solid $dark-shade-25;
     box-sizing: border-box;
     border-radius: 4px;
     font-size: 1rem;
     line-height: 1.285em;
-    color: $dark-shade--75;
+    color: $dark-shade-75;
     transition: $input-hover-transition;
 
-    &.input--with-button {
+    &.input_with-button {
       padding-right: $default-field-height;
     }
 
     &:focus {
-      border-color: $dark-shade--50;
+      border-color: $dark-shade-50;
       outline: none;
     }
 
@@ -28,7 +28,7 @@
   }
 
   &:hover &__input {
-    border-color: $dark-shade--50;
+    border-color: $dark-shade-50;
     outline: none;
   }
 

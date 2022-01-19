@@ -3,7 +3,7 @@ mixin field-radio(radiobuttons, fieldMods = [])
     let allFieldMods = '';
     if (fieldMods) {
       for (let i = 0; i < fieldMods.length; i++) {
-        allFieldMods = allFieldMods + ' field-radio--' + fieldMods[i].trim();
+        allFieldMods = allFieldMods + ' field-radio_' + fieldMods[i].trim();
       }
     }
   div(class = 'field-radio' + allFieldMods)
@@ -12,7 +12,7 @@ mixin field-radio(radiobuttons, fieldMods = [])
         let allMods = '';
         if (radio.mods) {
           for (let i = 0; i < radio.mods.length; i++) {
-            allMods = allMods + ' field-radio__input-wrapper--' + radio.mods[i].trim();
+            allMods = allMods + ' field-radio__input-wrapper_' + radio.mods[i].trim();
           }
         }
         var attributes = radio.attrs ? radio.attrs : {};

@@ -10,7 +10,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  color: $dark-shade--75;
+  color: $dark-shade-75;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -39,20 +39,20 @@ input, textarea, button {
 }
 
 h1.heading-1 {
-  font-size: $font-size--h1;
-  color: $dark-shade--100;
+  font-size: $font-size-h1;
+  color: $dark-shade-100;
   line-height: 2.14rem;
 }
 
 h2.heading-2 {
-  font-size: $font-size--h2;
-  color: $dark-shade--100;
+  font-size: $font-size-h2;
+  color: $dark-shade-100;
   line-height: 1.655rem;
 }
 
 h3.heading-label {
-  font-size: $font-size--label;
-  color: $dark-shade--100;
+  font-size: $font-size-label;
+  color: $dark-shade-100;
   line-height: 1.0715rem;
   text-transform: uppercase;
 }
