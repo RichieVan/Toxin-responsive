@@ -28,4 +28,4 @@ mixin field-dropdown(options)
           .dropdown-buttons 
             each button, key in buttons 
               if (button.show)
-                button(class = 'dropdown-button js-dropdown-button_' + key)= button.text
+                button(class = 'dropdown-button js-dropdown-button_' + key, type = 'button')= button.text
