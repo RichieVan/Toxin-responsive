@@ -26,11 +26,11 @@
   $bar-height: 6px;
   $dot-size: 12px;
 
-  &_flat {
+  &--flat {
     height: $dot-size;
   }
 
-  &_flat &-line {
+  &--flat &-line {
     top: 3px;
     height: $bar-height;
     border: 1px solid $dark-shade-25;
@@ -38,13 +38,13 @@
     background: #fff;
   }
 
-  &_flat &-bar {
+  &--flat &-bar {
     top: 3px;
     height: $bar-height;
     background: $green-gradient;
   }
   
-  &_flat &-handle {
+  &--flat &-handle {
     top: 0px;
     width: $dot-size;
     height: $dot-size;
