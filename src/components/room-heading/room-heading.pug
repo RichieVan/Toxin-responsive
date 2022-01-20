@@ -1,0 +1,20 @@
+mixin room-heading(options = {})
+  -
+    var num = options.num || 0;
+    var cost = options.cost || 0;
+    var isLuxe = options.isLuxe || false;
+    var headingType = options.headingType || 2;
+  .room-heading
+    if (headingType === 1)
+      h1.heading-1
+        span.room-heading__num= '№ '
+        =num
+    if (headingType === 2)
+      h2.heading-2
+        span.room-heading__num= '№ '
+        =num
+    if (isLuxe)
+      b.room-heading__type= 'Люкс'
+    div.room-heading__cost
+      b= cost + '₽ '
+      span в сутки

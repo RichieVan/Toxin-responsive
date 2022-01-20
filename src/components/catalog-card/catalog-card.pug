@@ -1,0 +1,37 @@
+mixin catalog-card(options = {})
+  include ../../components/room-heading/room-heading
+  include ../../components/rate-button/rate-button
+  -
+    var comments = options.comments || 0;
+    var roomData = options.room || null;
+    var imageId = options.image || 1;
+    var imageUrl = `/images/room-card-${imageId}.png`;
+  article.catalog-card 
+    .catalog-card__slider
+      .catalog-card__image(style = {'background-image' : `url('${imageUrl}')`})
+      .catalog-card__slider-controls
+        .catalog-card__arrows
+          button.catalog-card__arrow.catalog-card__arrow_prev
+            span.material-icons expand_more
+          button.catalog-card__arrow.catalog-card__arrow_next
+            span.material-icons expand_more
+        .catalog-card__dots
+          each dotMod in ['active', '', '', '']
+            -
+              let dotMods = '';
+              if (dotMod) {
+                dotMods = ' catalog-card__dot_' + dotMod;
+              }
+              
+              let dotClassList = 'catalog-card__dot' + dotMods;
+            button(type = 'button', class = dotClassList)
+    .catalog-card__info
+      .catalog-card__heading
+        if (roomData)
+          +room-heading(roomData)
+      .catalog-card__stats 
+        +rate-button(5)
+        .catalog-card__comments
+          span
+            b= comments 
+            =" Отзывов"
