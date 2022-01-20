@@ -1,0 +1,30 @@
+mixin resulting-table(rows = [], result = {}, mods = [])
+  -
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods = allMods + ' form_' + mods[i].trim();
+      }
+    }
+
+    var classList = 'resulting-table__container' + allMods;
+  div(class = classList)
+    table.resulting-table
+      each row in rows
+        tr.resulting-table__row
+          td.resulting-table__cell
+            .resulting-table__cell-wrap
+              span= row.text
+              if (row.info)
+                button.resulting-table__row-info i
+          td(class = 'resulting-table__cell resulting-table__cell_with_value')
+            span= row.result
+    if (result)
+      .resulting-table__result
+        b= result.text
+        span.separator
+        b= result.value
+    
+    
+
+          
