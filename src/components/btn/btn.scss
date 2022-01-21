@@ -1,22 +1,7 @@
-button.btn {
-  transition: opacity .1s linear;
-
-  &:hover, &_hovered {
-    opacity: .5;
-  }
-}
-
-a.btn {
-  transition: color .1s linear;
-
-  &:hover, &_hovered {
-    color: $dark-shade-50;
-  }
-}
-
 .btn {
   $button-height: 44px;
 
+  @include center-flex;
   position: relative;
   height: $button-height;
   padding: 0 20px;
@@ -29,17 +14,29 @@ a.btn {
   color: white;
   vertical-align: middle;
   cursor: pointer;
+  transition: opacity .1s linear;
   z-index: 1;
+
+  &:hover, &_hovered {
+    opacity: .5;
+  }
 
   &_wide {
     width: 100%;
   }
 
-  &_thin {
+  &_inline {
     height: auto;
     padding: 0;
     background: none;
     color: $purple;
+
+    transition: color .1s linear;
+    
+    &:hover, &.btn_hovered {
+      color: $dark-shade-50;
+      opacity: 1;
+    }
   }
 
   &_light {
@@ -70,6 +67,10 @@ a.btn {
       border-radius: inherit;
       z-index: -1;
     }
+  }
+
+  &_thin {
+    height: 34px;
   }
 
   &__arrow {
