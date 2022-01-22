@@ -1,0 +1,20 @@
+mixin header-auth(isAuth = false)
+  include ../btn/btn
+  .header-auth
+    if (isAuth)
+      .header-auth__user
+        a.header-auth__link(href="#")  Константин Константинопольский
+    else
+      .header-auth__buttons
+        +btn(
+          'Войти',
+          {
+            mods: ['thin', 'light']
+          }
+        )
+        +btn(
+          'Зарегистрироваться',
+          {
+            mods: ['thin']
+          }
+        )
