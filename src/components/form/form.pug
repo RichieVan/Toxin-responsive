@@ -1,16 +1,21 @@
-mixin form(title = '', attrs = '', mods = [])
+mixin form(title = '', options = {})
+  include ../../components/room-heading/room-heading
   -
     let allMods = '';
-    if (mods) {
-      for (let i = 0; i < mods.length; i++) {
-        allMods = allMods + ' form_' + mods[i].trim();
+    if (options.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        allMods = allMods + ' form_' + options.mods[i].trim();
       }
     }
 
     var classList = 'form' + allMods;
+    var attrs = options.attrs || '';
+    var room = options.room;
   form(class = classList)
     .form__wrapper 
-      if (title)
-        .form__heading
+      .form__heading
+        if (room)
+          +room-heading(room)
+        if (title)
           h1.heading-1= title
       block

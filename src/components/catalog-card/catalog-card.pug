@@ -6,6 +6,7 @@ mixin catalog-card(options = {})
     var roomData = options.room || null;
     var imageId = options.image || 1;
     var imageUrl = `/images/room-card-${imageId}.png`;
+    var roomRating = options.rating || 1;
   article.catalog-card 
     .catalog-card__slider
       .catalog-card__image(style = {'background-image' : `url('${imageUrl}')`})
@@ -30,7 +31,7 @@ mixin catalog-card(options = {})
         if (roomData)
           +room-heading(roomData)
       .catalog-card__stats 
-        +rate-button(5)
+        +rate-button(roomRating)
         .catalog-card__comments
           span
             b= comments 

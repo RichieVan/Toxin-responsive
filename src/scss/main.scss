@@ -8,6 +8,9 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   color: $dark-shade-75;
@@ -34,6 +37,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
 input, textarea, button {
   font-family: $font-family;
 }
@@ -41,13 +48,13 @@ input, textarea, button {
 h1.heading-1 {
   font-size: $font-size-h1;
   color: $dark-shade-100;
-  line-height: 2.14rem;
+  line-height: 2.143rem;
 }
 
 h2.heading-2 {
   font-size: $font-size-h2;
   color: $dark-shade-100;
-  line-height: 1.655rem;
+  line-height: $line-height;
 }
 
 h3.heading-label {
@@ -59,15 +66,30 @@ h3.heading-label {
 
 .container {
   max-width: 1440px;
+  min-width: 320px;
   margin: 0 auto;
+
+  @media (max-width: $screen-lg) {
+
+  }
 }
 
 .inner-container {
   width: 100%;
-  padding: 0 140px;
+  max-width: 1190px;
+  padding: 0 15px;
+  margin: 0 auto;
 
   &.ui-kit {
     padding-top: 140px;
     padding-bottom: 130px;
+  }
+
+  @media (max-width: $screen-lg) {
+    padding: 0 70px;
+  }
+
+  @media (max-width: $screen-lg) {
+    padding: 0 15px;
   }
 }

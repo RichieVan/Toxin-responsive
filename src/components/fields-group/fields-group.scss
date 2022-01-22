@@ -14,4 +14,12 @@
       margin-right: 20px;
     }
   }
+
+  & > *:not(.field-label) {
+    margin-bottom: 10px;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }

@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "air-datepicker": "^3.1.0",
+    "font-awesome": "^4.7.0",
+    "html-loader": "^3.1.0",
     "ion-rangeslider": "^2.3.1",
     "jquery": "^3.6.0",
     "material-icons": "^1.10.6",
@@ -21,6 +24,7 @@
     "copy-webpack-plugin": "^10.2.0",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
+    "fs": "0.0.1-security",
     "html-webpack-plugin": "^5.5.0",
     "path": "^0.12.7",
     "pug": "^3.0.2",

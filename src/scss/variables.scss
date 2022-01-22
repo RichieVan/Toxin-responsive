@@ -1,7 +1,9 @@
 $dark-shade-100: rgba(31, 32, 65, 1);
 $dark-shade-75: rgba(31, 32, 65, 0.75);
 $dark-shade-50: rgba(31, 32, 65, 0.5);
+$dark-shade-30: rgba(31, 32, 65, 0.30);
 $dark-shade-25: rgba(31, 32, 65, 0.25);
+$dark-shade-10: rgba(31, 32, 65, 0.1);
 $dark-shade-5: rgba(31, 32, 65, 0.05);
 $purple: #BC9CFF;
 $green: #6fcf97;
@@ -15,9 +17,17 @@ $font-size-h2: 1.35rem;
 $font-size-label: 0.857rem;
 
 $line-height: 1.7143rem;
+$line-height-cell: 1.286rem;
 $line-height-label: 1rem;
 
 $default-field-height: 44px;
 
 $smooth-hover-transition: opacity 0.2s ease-out;
 $input-hover-transition: border-color .1s linear;
+
+$screen-xl: 1440px;
+$screen-lg: 1200px;
+$screen-md: 996px;
+$screen-sm: 768px;
+$screen-xsm: 600px;
+$screen-xs: 320px;

@@ -4,6 +4,7 @@
 
 @import 'material-icons/iconfont/material-icons.css';
 @import 'air-datepicker/air-datepicker.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
 
 @import './scss/main.scss';
 
@@ -12,7 +13,7 @@
 @import './components/field-text/field-text.scss';
 @import './components/field-dropdown/field-dropdown.scss';
 @import './components/field-datepicker/field-datepicker.scss';
-@import './components/button/button.scss';
+@import './components/btn/btn.scss';
 @import './components/field-checkbox/field-checkbox.scss';
 @import './components/field-radio/field-radio.scss';
 @import './components/like-button/like-button.scss';
@@ -23,6 +24,16 @@
 @import './components/comment/comment.scss';
 @import './components/pagination/pagination.scss';
 @import './components/form/form.scss';
+@import './components/resulting-table/resulting-table.scss';
+@import './components/room-heading/room-heading.scss';
+@import './components/catalog-card/catalog-card.scss';
+@import './components/header/header.scss';
+@import './components/logo/logo.scss';
+@import './components/header-nav/header-nav.scss';
+@import './components/header-auth/header-auth.scss';
+@import './components/footer/footer.scss';
+@import './components/footer-nav/footer-nav.scss';
+@import './components/subscribe-form/subscribe-form.scss';
 
 @import './components/ui-kit-col/ui-kit-col.scss';
 @import './components/ui-kit-flex-container/ui-kit-flex-container.scss';

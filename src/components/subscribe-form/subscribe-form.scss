@@ -1,0 +1,13 @@
+.subscribe-form {
+  width: 260px;
+
+  &__heading {
+    padding-right: 4px;
+  }
+
+  &__text {
+    margin: 20px 0;
+    line-height: $line-height;
+    color: $dark-shade-75;
+  }
+}

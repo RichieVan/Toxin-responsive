@@ -1,7 +1,13 @@
 const path = require('path');
+const fs = require('fs');
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+
+// const PAGES_DIR = path.resolve(__dirname, 'src/pages');
+// const PAGES = fs.readdirSync(PAGES_DIR).filter(filename => {
+//   filename.endsWith('.pug');
+// })
 
 module.exports = {
   mode: 'development',
@@ -41,6 +47,22 @@ module.exports = {
         type: 'asset/resource',
       },
       // {
+      //   test: /\.html$/,
+      //   loader: 'html-loader',
+      //   options: {
+      //     sources: {
+      //       list: [
+      //         '...',
+      //         {
+      //           tag: 'div',
+      //           attribute: 'style',
+      //           type: 'src'
+      //         }
+      //       ]
+      //     }
+      //   }
+      // }
+      // {
       //   test: /\.(ttf|woff|woff2)$/,
       //   use: 'file-loader',
       // },
@@ -61,13 +83,25 @@ module.exports = {
     //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
     //   minify: false,
     // }),
+    // ...PAGES.map((page) => {
+    //   new HTMLWebpackPlugin({
+    //     filename: "ui-kit/forms/index.html",
+    //     template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
+    //     minify: false,
+    //   }),
+    // }),
     new HTMLWebpackPlugin({
       filename: "ui-kit/forms/index.html",
       template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
       minify: false,
     }),
+    new HTMLWebpackPlugin({
+      filename: "ui-kit/heading-n-footer/index.html",
+      template: path.resolve(__dirname, 'src/pages/ui-kit/heading-n-footer.pug'),
+      minify: false,
+    }),
     // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/heading-n-footer.html",
+    //   filename: "ui-kit/test.html",
     //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
     //   minify: false,
     // }),
@@ -76,19 +110,14 @@ module.exports = {
     //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
     //   minify: false,
     // }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/test.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(__dirname, 'src/assets'),
-    //       to: path.resolve(__dirname, 'dist/assets')
-    //     },
-    //   ]
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/components/catalog-card/images'),
+          to: path.resolve(__dirname, 'dist/images')
+        },
+      ]
+    }),
     //new CleanWebpackPlugin()
   ],
   resolve: {
@@ -106,7 +135,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       watch: true,
     },
-    watchFiles: ['src/components/*/*.pug'],
+    //watchFiles: ['src/components/*/*.pug'],
     historyApiFallback: true
   },
   //devtool: 'source-map',

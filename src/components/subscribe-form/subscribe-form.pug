@@ -1,0 +1,10 @@
+mixin subscribe-form()
+  include ../field-text/field-text
+  form.subscribe-form
+    h3.heading-label.subscribe-form__heading Подписка
+    p.subscribe-form__text Получайте специальные предложения и новости сервиса
+    +field-text({
+      type: 'email',  
+      placeholder: 'Email',
+      sendArrow: true,
+    })

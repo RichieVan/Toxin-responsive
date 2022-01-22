@@ -1,0 +1,9 @@
+mixin footer-nav(columns = [])
+  nav.footer-nav
+    each col in columns
+      .footer-nav__col
+        h3.heading-label.footer-nav__heading= col.heading
+        ul.footer-nav__list
+          each item in col.items
+            li.footer-nav__item
+              a.footer-nav__link(href=item.href)= item.text
