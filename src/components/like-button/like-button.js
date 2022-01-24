@@ -6,6 +6,6 @@ const likeHandler = function () {
 
   if ($button.hasClass(likedClassName)) $button.removeClass(likedClassName);
   else $button.addClass(likedClassName);
-}
+};
 
-$('.like-btn').on('click', likeHandler)
+$('.like-btn').on('click', likeHandler);

@@ -14,6 +14,6 @@ $maskedDateFields.each(function () {
     placeholder: 'ДД.ММ.ГГГГ',
     inputFormat: 'dd.mm.yyyy',
     min: '01.01.1900',
-    max: currentDay + '.' + currentMonth + '.' + currentYear
+    max: `${currentDay}.${currentMonth}.${currentYear}`,
   }).mask($(this));
-})
+});

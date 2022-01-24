@@ -8,16 +8,16 @@ const headerHideButton = $('.js-header-nav__button_hiding');
 const headerActiveClass = 'header-nav_active';
 
 const hideNav = function () {
-  headerNav.removeClass(headerActiveClass)
-}
+  headerNav.removeClass(headerActiveClass);
+};
 
-headerShowButton.on('click', function () {
-  headerNav.addClass(headerActiveClass)
-})
+headerShowButton.on('click', () => {
+  headerNav.addClass(headerActiveClass);
+});
 
-headerHideButton.on('click', hideNav)
-headerNavWrapper.on('click', hideNav)
+headerHideButton.on('click', hideNav);
+headerNavWrapper.on('click', hideNav);
 
-headerNavInnerWrapper.on('click', function (e) {
-  e.stopPropagation()
-})
+headerNavInnerWrapper.on('click', (e) => {
+  e.stopPropagation();
+});

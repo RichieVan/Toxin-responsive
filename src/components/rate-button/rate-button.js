@@ -11,7 +11,7 @@ const rateStarEnterHandler = function () {
     .addClass(hoverRangeClassName)
     .prevAll()
     .addClass(hoverRangeClassName);
-}
+};
 
 const rateStarLeaveHandler = function () {
   const $star = $(this);
@@ -19,7 +19,7 @@ const rateStarLeaveHandler = function () {
     .removeClass(hoverRangeClassName)
     .prevAll()
     .removeClass(hoverRangeClassName);
-}
+};
 
 const rateStarClickHandler = function () {
   const $star = $(this);
@@ -36,9 +36,9 @@ const rateStarClickHandler = function () {
     $star.addClass(selectedStarClassName);
     $star
       .prevAll()
-      .addClass(selectedRangeClassName)
+      .addClass(selectedRangeClassName);
   }
-}
+};
 
 $rateButtons.each(function () {
   const $stars = $(this).find('.js-rate-btn__star');
@@ -46,5 +46,4 @@ $rateButtons.each(function () {
     .on('mouseenter', rateStarEnterHandler)
     .on('mouseleave', rateStarLeaveHandler)
     .on('click', rateStarClickHandler);
-})
-
+});
