@@ -73,6 +73,10 @@
     height: 34px;
   }
 
+  &_margin_big {
+    margin-top: 30px;
+  }
+
   &__arrow {
     @include center-flex;
     position: absolute;

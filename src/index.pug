@@ -1,4 +1,8 @@
 extends ./components/main/base.pug
+include ./components/banner-image/banner-image
+include ./includes/room-form
 
 block content 
-  ='132'
+  +banner-image('/images/bg-main.png')
+    +room-form()
+    .banner-image__caption Лучшие номера для вашей работы, отдыха и просто вдохновения

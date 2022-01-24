@@ -1,0 +1,79 @@
+mixin registration-form()
+  include ../components/form/form
+  include ../components/field-datepicker/field-datepicker
+  include ../components/fields-group/fields-group
+  include ../components/field-label/field-label
+  include ../components/field-dropdown/field-dropdown
+  include ../components/field-text/field-text
+  include ../components/field-radio/field-radio
+  include ../components/field-checkbox/field-checkbox
+  include ../components/btn/btn
+  +form('Регистрация аккаунта')
+    +fields-group()
+      +field-text({
+        placeholder: 'Имя'
+      })
+      +field-text({
+        placeholder: 'Фамилия'
+      })
+      +field-radio(
+        [
+          {
+            text: 'Мужчина',
+            attrs: {
+              name: 'gender'
+            }
+          },
+          {
+            text: 'Женщина',
+            attrs: {
+              name: 'gender',
+              checked: true
+            }
+          }
+        ], 
+        ['inline']
+      )
+    +fields-group()
+      +field-label('Дата рождения')
+      +field-text({
+        placeholder: 'ДД.ММ.ГГГГ',
+        attrs: {
+          'data-date-masked': ''
+        }
+      })
+    +fields-group()
+      +field-label('Данные для входа в сервис')
+      +field-text({
+        type: 'email',
+        placeholder: 'Email'
+      })
+      +field-text({
+        type: 'password',
+        placeholder: 'Пароль'
+      })
+      +field-checkbox([
+        {
+          text: 'Получать спецпредложения',
+          attrs : {
+            checked: false
+          },
+          mods: ['toggle'],
+        },
+      ])
+    +btn(
+      'Перейти к оплате', 
+      {
+        mods: ['wide', 'submit', 'margin_big'],
+        arrow: true
+      }
+    )
+    .account-availability
+      span Уже есть аккаунт на Toxin
+      +btn(
+        'Войти',
+        {
+          mods: ['light'],
+          href: '/login'
+        }
+      )

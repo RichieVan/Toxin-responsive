@@ -100,20 +100,24 @@ module.exports = {
       template: path.resolve(__dirname, 'src/pages/ui-kit/heading-n-footer.pug'),
       minify: false,
     }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/test.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/test.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
+    new HTMLWebpackPlugin({
+      filename: "login/index.html",
+      template: path.resolve(__dirname, 'src/pages/login.pug'),
+      minify: false,
+    }),
+    new HTMLWebpackPlugin({
+      filename: "registration/index.html",
+      template: path.resolve(__dirname, 'src/pages/registration.pug'),
+      minify: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
           from: path.resolve(__dirname, 'src/components/catalog-card/images'),
+          to: path.resolve(__dirname, 'dist/images')
+        },
+        {
+          from: path.resolve(__dirname, 'src/assets/images'),
           to: path.resolve(__dirname, 'dist/images')
         },
       ]

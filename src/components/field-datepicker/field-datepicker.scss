@@ -71,6 +71,10 @@
     position: relative;
     max-width: 320px;
 
+    @media (max-width: $screen-xsm) {
+      max-width: 260px;
+    }
+
     & > *:nth-child(2) {
       margin-left: 20px;
     }
@@ -84,6 +88,7 @@
 
 .air-datepicker {
   $date-element-height: 40px;
+  $date-element-height-xs: 34px;
   $range-gradient: linear-gradient(180deg, rgba(188, 156, 255, .25) 0%, rgba(139, 164, 249, .25) 100%);
   $nav-height: 24px;
 
@@ -93,6 +98,10 @@
   font-family: $font-family;
   box-sizing: border-box;
   border-color: $dark-shade-25;
+
+  @media (max-width: $screen-xsm) {
+    min-width: 260px;
+  }
 
   &--buttons {
     padding: 0 20px 20px;
@@ -142,11 +151,19 @@
 
   &--content {
     padding: 20px; 
+
+    @media (max-width: $screen-xsm) {
+      padding: 11px; 
+    }
   }
 
   &-body {
     &--cells.-days- {
       grid-auto-rows: $date-element-height;
+
+      @media (max-width: $screen-xsm) {
+        grid-auto-rows: $date-element-height-xs; 
+      }
     }
 
     &--day-names {
@@ -158,6 +175,11 @@
       width: $date-element-height;
       font-weight: bold;
       color: $purple;
+
+      @media (max-width: $screen-xsm) {
+        height: $date-element-height-xs;
+        width: $date-element-height-xs;
+      }
     }
   }
   
@@ -166,8 +188,12 @@
     width: $date-element-height;
     font-size: $font-size-label;
     color: $dark-shade-50;
-
     overflow: hidden;
+
+    @media (max-width: $screen-xsm) {
+      height: $date-element-height-xs;
+      width: $date-element-height-xs;
+    }
 
     &.-day-.-other-month- {
       color: $dark-shade-25;
@@ -191,6 +217,11 @@
         background: $green-gradient;
         border-radius: 50%;
         z-index: -1;
+
+        @media (max-width: $screen-xsm) {
+          height: $date-element-height-xs;
+          width: $date-element-height-xs;
+        }
       }
     }
 
@@ -208,6 +239,11 @@
         background: $purple-gradient;
         border-radius: 50%;
         z-index: -1;
+
+        @media (max-width: $screen-xsm) {
+          height: $date-element-height-xs;
+          width: $date-element-height-xs;
+        }
       }
     }
 
@@ -220,6 +256,11 @@
       width: calc($date-element-height / 2);
       background: white;
       z-index: -1;
+
+      @media (max-width: $screen-xsm) {
+        height: $date-element-height-xs;
+        width: calc($date-element-height-xs / 2);
+      }
     }
 
     &.-range-to-:before {
@@ -231,6 +272,11 @@
       width: calc($date-element-height / 2);
       background: white;
       z-index: -1;
+
+      @media (max-width: $screen-xsm) {
+        height: $date-element-height-xs;
+        width: calc($date-element-height-xs / 2);
+      }
     }
   }
 }

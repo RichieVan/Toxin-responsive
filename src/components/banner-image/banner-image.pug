@@ -1,0 +1,12 @@
+mixin banner-image(image = '', mods = [])
+  -
+    var allMods = '';
+    for (let i = 0; i < mods.length; i++) {
+      allMods = allMods + ' banner-image_' + mods[i].trim();
+    }
+    var classList = 'banner-image' + allMods;
+  div(class=classList, style=`background-image: url(${image})`)
+    .container
+      .inner-container
+        .banner-image__inner
+          block

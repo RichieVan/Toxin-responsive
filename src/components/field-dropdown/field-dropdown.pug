@@ -3,9 +3,12 @@ mixin field-dropdown(options)
     if (typeof options === 'undefined') {
       options = {};
     }
+    var globalProps = {};
     var counters = options.counters || {};
     var buttons = options.buttons || {};
-  .field-dropdown-container(data-dropdown-with-counters)
+    globalProps.result = options.result || {};
+    var stringifiedGlobalProps = JSON.stringify(globalProps);
+  .field-dropdown-container(data-dropdown-with-counters=stringifiedGlobalProps)
     input(type = 'hidden', class = 'js-dropdown-data-output')
     .field-dropdown.js-field-dropdown
       input(class = 'field-dropdown__input js-field-dropdown__input',type = 'text')

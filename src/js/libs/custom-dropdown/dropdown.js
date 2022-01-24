@@ -13,6 +13,7 @@ import * as $ from 'jquery';
 
 class DropdownWithCounters {
   counters;
+  props;
   showList = false;
   initialHeight;
   resultInput;
@@ -26,9 +27,11 @@ class DropdownWithCounters {
 
   constructor (container, outputElement) {
     this.counters = Array.from(container.find('[data-counter]')).map((counter) => {
+      console.log(new Counter($(counter), this));
       const item = new Counter($(counter), this).render();
       return item;
     });
+    this.props = container.data('dropdown-with-counters');
 
     this.fieldContainerElement = container.find('.js-field-dropdown');
     this.resultInput = container.find('.js-field-dropdown__input');
@@ -53,7 +56,7 @@ class DropdownWithCounters {
     if (this.showList) this.hide();
     else this.show();
     this.showList = !this.showList;
-  }
+  } 
 
   clearButtonClickHandler () {
     this.counters.forEach(counter => {
@@ -64,10 +67,19 @@ class DropdownWithCounters {
 
   setJoinedResultsString () {
     let result = '';
-    this.counters.forEach(counter => {
-      if (result.length > 0) result = result + ', ';
-      result = result + counter.getResultString();
-    })
+
+    if (this.props.result) {
+      result = 0;
+      this.counters.forEach(counter => {
+        result = result + counter.getCount();
+      })
+      result = result + ' ' + this.props.result.endings.filter(val => val[0].includes(result) || val[0] === 'default')[0][1];
+    } else {
+      this.counters.forEach(counter => {
+        if (result.length > 0) result = result + ', ';
+        result = result + counter.getResultString();
+      })
+    }
     this.resultInput.val(result);
     this.maskElement.attr('title', result);
   }
@@ -128,6 +140,10 @@ class Counter {
   getResultString () {
     const ending = this.endings.filter(val => val[0].includes(this.count) || val[0] === 'default')[0][1];
     return this.count + ' ' + ending;
+  }
+
+  getCount () {
+    return this.count;
   }
 
   clearCountValue () {

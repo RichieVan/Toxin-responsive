@@ -1,0 +1,7 @@
+extends ../components/main/base.pug
+include ../components/banner-image/banner-image
+include ../includes/registration-form
+
+block content 
+  +banner-image('/images/bg-auth.png', ['centered'])
+    +registration-form()
