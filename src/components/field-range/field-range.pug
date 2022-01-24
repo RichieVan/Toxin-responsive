@@ -1,13 +1,9 @@
-mixin field-range(options)
+mixin field-range(heading = '', mods = [], info = '')
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
-    let mods = '';
-    if (options.mods) {
-      for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' field-range_' + options.mods[i].trim();
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' field-range_' + mods[i].trim();
       }
     }
 
@@ -16,13 +12,14 @@ mixin field-range(options)
     var inputClassList = defaultClassName + '__input' + ' js-range-slider';
   div(class = classList)
     .field-range__heading
-      h3.heading-label Range slider
+      if heading
+        h3.heading-label= heading
       .field-range__values
     input(
       type = 'text',
       class = inputClassList
     )
-    if options.info
+    if info
       span.field-range__info= info
     
       
