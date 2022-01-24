@@ -18,13 +18,14 @@ mixin field-text(options)
     var inputType = options.type || 'text'
     var placeholder = options.placeholder || '';
     var inputValue = options.value || '';
+    var attributes = options.attrs || {};
   div(class=classList)
     input(
       type = inputType, 
       placeholder = placeholder,
       class = inputClassList
       value = inputValue
-    )
+    )&attributes(attributes)
     if showSendArrow
       button(class=(defaultClassName + '__send-button'))
         span.material-icons arrow_forward
