@@ -1,8 +1,8 @@
 const path = require('path');
-const fs = require('fs');
-const HTMLWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
+// const fs = require('fs');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // const PAGES_DIR = path.resolve(__dirname, 'src/pages');
 // const PAGES = fs.readdirSync(PAGES_DIR).filter(filename => {
@@ -16,30 +16,30 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: "/",
-    filename: "[name].[contenthash].js"
+    publicPath: '/',
+    filename: '[name].[contenthash].js',
   },
   module: {
     rules: [
       {
         test: /\.(sass|scss)$/,
         use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.css$/,
         use: [
-            'style-loader',
-            'css-loader',
+          'style-loader',
+          'css-loader',
         ],
       },
       {
         test: /\.pug$/,
         use: [
-            'pug-loader',
+          'pug-loader',
         ],
       },
       {
@@ -74,7 +74,7 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      filename: "index.html",
+      filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.pug'),
       minify: false,
     }),
@@ -91,22 +91,22 @@ module.exports = {
     //   }),
     // }),
     new HTMLWebpackPlugin({
-      filename: "ui-kit/forms/index.html",
+      filename: 'ui-kit/forms/index.html',
       template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
       minify: false,
     }),
     new HTMLWebpackPlugin({
-      filename: "ui-kit/heading-n-footer/index.html",
+      filename: 'ui-kit/heading-n-footer/index.html',
       template: path.resolve(__dirname, 'src/pages/ui-kit/heading-n-footer.pug'),
       minify: false,
     }),
     new HTMLWebpackPlugin({
-      filename: "login/index.html",
+      filename: 'login/index.html',
       template: path.resolve(__dirname, 'src/pages/login.pug'),
       minify: false,
     }),
     new HTMLWebpackPlugin({
-      filename: "registration/index.html",
+      filename: 'registration/index.html',
       template: path.resolve(__dirname, 'src/pages/registration.pug'),
       minify: false,
     }),
@@ -114,15 +114,15 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/components/catalog-card/images'),
-          to: path.resolve(__dirname, 'dist/images')
+          to: path.resolve(__dirname, 'dist/images'),
         },
         {
           from: path.resolve(__dirname, 'src/assets/images'),
-          to: path.resolve(__dirname, 'dist/images')
+          to: path.resolve(__dirname, 'dist/images'),
         },
-      ]
+      ],
     }),
-    //new CleanWebpackPlugin()
+    // new CleanWebpackPlugin()
   ],
   resolve: {
     extensions: ['.js', '.scss'],
@@ -139,8 +139,8 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       watch: true,
     },
-    //watchFiles: ['src/components/*/*.pug'],
-    historyApiFallback: true
+    // watchFiles: ['src/components/*/*.pug'],
+    historyApiFallback: true,
   },
-  //devtool: 'source-map',
-}
+  // devtool: 'source-map',
+};
