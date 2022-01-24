@@ -15,6 +15,10 @@
     }
   }
 
+  &_no-margin {
+    margin-bottom: 0 !important;
+  }
+
   & > *:not(.field-label) {
     margin-bottom: 10px;
   }
