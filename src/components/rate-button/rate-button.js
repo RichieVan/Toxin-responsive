@@ -1,9 +1,9 @@
 import * as $ from 'jquery';
 
-const $rateButtons = $('.js-rate-btn');
-const hoverRangeClassName = 'star--in-hover-range';
-const selectedRangeClassName = 'star--in-selected-range';
-const selectedStarClassName = 'star--selected';
+const $rateButtons = $('.js-rate-btn[data-selectable]');
+const hoverRangeClassName = 'star_in-hover-range';
+const selectedRangeClassName = 'star_in-selected-range';
+const selectedStarClassName = 'star_selected';
 
 const rateStarEnterHandler = function () {
   const $star = $(this);
