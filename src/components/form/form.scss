@@ -11,6 +11,25 @@
     padding: 14px;
   }
 
+  &_for_smartfilter {
+    width: 266px;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+
+    @media (max-width: $screen-lg) {
+      width: 320px;
+
+      & .form__wrapper {
+        padding: 34px 0 1px;
+      }
+    }
+
+    @media (max-width: $screen-xsm) {
+      width: 260px;
+    }
+  }
+
   &__heading {
     margin-bottom: 20px;
 

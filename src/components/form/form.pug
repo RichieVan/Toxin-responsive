@@ -13,9 +13,10 @@ mixin form(title = '', options = {})
     var room = options.room;
   form(class = classList)
     .form__wrapper 
-      .form__heading
-        if (room)
+      if (room)
+        .form__heading
           +room-heading(room)
-        if (title)
+      if (title)
+        .form__heading
           h1.heading-1= title
       block
