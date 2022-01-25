@@ -1,0 +1,124 @@
+extends ../components/main/base.pug
+include ../components/smartfilter/smartfilter
+include ../components/catalog/catalog
+
+block content 
+  .container
+    .inner-container
+      +catalog(
+        'Номера, которые мы для вас подобрали',
+        [
+          {
+            comments: 145,
+            room: {
+              num: 888,
+              cost: 9990,
+              isLuxe: true
+            },
+            image: 1,
+            rating: 5,
+          },
+          {
+            comments: 65,
+            room: {
+              num: 840,
+              cost: 9990,
+            },
+            image: 2,
+            rating: 4,
+          },
+          {
+            comments: 35,
+            room: {
+              num: 980,
+              cost: 8500,
+              isLuxe: true
+            },
+            image: 3,
+            rating: 3,
+          },
+          {
+            comments: 19,
+            room: {
+              num: 856,
+              cost: 7300,
+            },
+            image: 4,
+            rating: 5,
+          },
+          {
+            comments: 44,
+            room: {
+              num: 740,
+              cost: 6000,
+            },
+            image: 5,
+            rating: 4,
+          },
+          {
+            comments: 56,
+            room: {
+              num: 982,
+              cost: 5800,
+            },
+            image: 6,
+            rating: 3,
+          },
+          {
+            comments: 45,
+            room: {
+              num: 678,
+              cost: 5500,
+            },
+            image: 7,
+            rating: 5,
+          },
+          {
+            comments: 39,
+            room: {
+              num: 450,
+              cost: 5300,
+            },
+            image: 8,
+            rating: 4,
+          },
+          {
+            comments: 77,
+            room: {
+              num: 350,
+              cost: 5000,
+            },
+            image: 9,
+            rating: 3,
+          },
+          {
+            comments: 25,
+            room: {
+              num: 666,
+              cost: 5000,
+            },
+            image: 10,
+            rating: 5,
+          },
+          {
+            comments: 15,
+            room: {
+              num: 444,
+              cost: 5000,
+            },
+            image: 11,
+            rating: 3,
+          },
+          {
+            comments: 55,
+            room: {
+              num: 352,
+              cost: 5000,
+            },
+            image: 12,
+            rating: 3,
+          },
+        ],
+        'smartfilter1'
+      )
+  

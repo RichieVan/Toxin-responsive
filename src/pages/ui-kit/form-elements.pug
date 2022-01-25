@@ -90,18 +90,30 @@ block content
             labels: ['filter date dropdown'],
             placeholder: 'ДД.ММ.ГГГГ',
           })
-          //- +expandable-list({
-          //-   text: 'Expandable list',
-          //-   checkboxList: [
-          //-     'Завтрак',
-          //-     'Письменный стол',
-          //-     'Стул для кормления',
-          //-     'Кроватка',
-          //-     'Телевизор',
-          //-     'Шампунь',
-          //-   ],
-          //-   mods: ['expanded']
-          //- })
+          +expandable-list({
+            text: 'Дополнительные удобства',
+            checkboxList: [
+              {
+                text: 'Завтрак'
+              },
+              {
+                text: 'Письменный стол'
+              },
+              {
+                text: 'Стул для кормления'
+              },
+              {
+                text: 'Кроватка'
+              },
+              {
+                text: 'Телевизор'
+              },
+              {
+                text: 'Шампунь'
+              },
+            ],
+            mods: ['expanded']
+          })
           +fields-group()
             +field-label('Subscription text field')
             +field-text({

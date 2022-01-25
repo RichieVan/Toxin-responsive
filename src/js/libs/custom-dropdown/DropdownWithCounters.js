@@ -68,7 +68,7 @@ export default class DropdownWithCounters {
   setJoinedResultsString() {
     let result = '';
 
-    if (this.props.result) {
+    if (Object.keys(this.props.result).length > 0) {
       result = 0;
       this.counters.forEach((counter) => {
         result += counter.getCount();

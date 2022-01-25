@@ -8,3 +8,4 @@ import './components/expandable-list/expandable-list';
 import './components/field-range/field-range';
 import './components/header-nav/header-nav';
 import './components/field-text/field-text';
+import './components/catalog/catalog';

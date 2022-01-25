@@ -1,6 +1,4 @@
 .catalog-card {
-  $slider-height: 150px;
-
   border-radius: 4px;
   box-shadow: 0px 10px 20px $dark-shade-5;
   overflow: hidden;
@@ -11,9 +9,29 @@
 
   &__image {
     width: 100%;
-    height: $slider-height;
+    height: 150px;
     background: center no-repeat;
     background-size: cover;
+
+    @media (max-width: $screen-lg) {
+      height: 180px;
+    }
+
+    @media (max-width: $screen-md) {
+      height: 210px;
+    }
+
+    @media (max-width: $screen-sm) {
+      height: 180px;
+    }
+
+    @media (max-width: $screen-xsm) {
+      height: 200px;
+    }
+
+    @media (max-width: 425px) {
+      height: 170px;
+    }
   }
 
   &__arrow {
@@ -21,22 +39,29 @@
 
     @include center-flex;
     position: absolute;
-    top: calc(50% - $arrow-size / 2);
+    top: 0;
     width: $arrow-size;
-    height: $arrow-size;
+    height: 100%;
     border: none;
-    background: none;
     color: #fff;
     transition: $smooth-hover-transition;
 
     &_prev {
       left: 0;
-      transform: rotate(90deg);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+
+      span {
+        transform: rotate(90deg);
+      }
     }
 
     &_next {
       right: 0;
-      transform: rotate(270deg);
+      background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+
+      span {
+        transform: rotate(270deg);
+      }
     }
 
     &:hover {

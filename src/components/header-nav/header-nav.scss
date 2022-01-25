@@ -45,7 +45,7 @@
   &_active &__wrapper {
     @media (max-width: $screen-sm) {
       left: 0;
-      background: rgba(0, 0, 0, .2);
+      background: rgba(0, 0, 0, .5);
       transition: background-color .2s linear;
     }
   }
