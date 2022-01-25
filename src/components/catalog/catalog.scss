@@ -4,6 +4,7 @@
 
   &__wrapper {
     flex-grow: 1;
+    width: 1px;
   }
 
   &__heading {
@@ -13,6 +14,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     margin: 0 -6px 20px;
   }
 

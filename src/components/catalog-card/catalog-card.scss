@@ -1,37 +1,51 @@
+@mixin sliderHeight {
+  height: 150px;
+
+  @media (max-width: $screen-lg) {
+    height: 180px;
+  }
+
+  @media (max-width: $screen-md) {
+    height: 210px;
+  }
+
+  @media (max-width: $screen-sm) {
+    height: 180px;
+  }
+
+  @media (max-width: $screen-xsm) {
+    height: 200px;
+  }
+
+  @media (max-width: 425px) {
+    height: 170px;
+  }
+}
+
 .catalog-card {
   border-radius: 4px;
   box-shadow: 0px 10px 20px $dark-shade-5;
   overflow: hidden;
 
-  &__slider {
+  &__images {
     position: relative;
+  }
+
+  &__slider {
+    .slick-track {
+      display: flex;
+      align-items: flex-start;
+      
+      @include sliderHeight;
+    }
   }
 
   &__image {
     width: 100%;
-    height: 150px;
     background: center no-repeat;
     background-size: cover;
 
-    @media (max-width: $screen-lg) {
-      height: 180px;
-    }
-
-    @media (max-width: $screen-md) {
-      height: 210px;
-    }
-
-    @media (max-width: $screen-sm) {
-      height: 180px;
-    }
-
-    @media (max-width: $screen-xsm) {
-      height: 200px;
-    }
-
-    @media (max-width: 425px) {
-      height: 170px;
-    }
+    @include sliderHeight;
   }
 
   &__arrow {
@@ -75,27 +89,58 @@
     position: absolute;
     right: 15px;
     bottom: 15px;
+
+    li {
+      display: block;
+
+      &:not(:first-child) {
+        margin-left: 3.75px;
+      }
+
+      button {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0px 5px 5px $dark-shade-30;
+        background: transparent;
+        font-size: 0;
+        pointer-events: none;
+    
+        &.slick-active {
+          background: #fff;
+        }
+      }
+
+      &.slick-active button {
+        background: #fff;
+      }
+    }
+    
+    
   }
 
-  &__dot {
-    width: 8px;
-    height: 8px;
-    padding: 0;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0px 5px 5px $dark-shade-30;
-    background: transparent;
+  // &__dot {
+  //   width: 8px;
+  //   height: 8px;
+  //   padding: 0;
+  //   border: 1px solid #fff;
+  //   border-radius: 50%;
+  //   box-shadow: 0px 5px 5px $dark-shade-30;
+  //   background: transparent;
 
-    &:not(:first-child) {
-      margin-left: 3.75px;
-    }
+  //   &:not(:first-child) {
+  //     margin-left: 3.75px;
+  //   }
 
-    &_active {
-      background: #fff;
-    }
-  }
+  //   &_active {
+  //     background: #fff;
+  //   }
+  // }
 
   &__info {
+    display: block;
     padding: 20px;
   }
 
