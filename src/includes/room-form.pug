@@ -6,12 +6,13 @@ mixin room-form()
   include ../components/field-dropdown/field-dropdown
   include ../components/btn/btn
   +form('Найдём номера под ваши пожелания')
-    +field-datepicker({
-      id: 1,
-      labels: ['Прибытие', 'Выезд'],
-      placeholder: 'ДД.ММ.ГГГГ',
-      multiple: true
-    })
+    +fields-group()
+      +field-datepicker({
+        id: 1,
+        labels: ['Прибытие', 'Выезд'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
     +fields-group()
       +field-label('Гости')
       +field-dropdown({

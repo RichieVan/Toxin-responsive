@@ -9,12 +9,14 @@ mixin header-auth(isAuth = false)
         +btn(
           'Войти',
           {
-            mods: ['thin', 'light']
+            mods: ['thin', 'light'],
+            href: '/login',
           }
         )
         +btn(
           'Зарегистрироваться',
           {
-            mods: ['thin']
+            mods: ['thin'],
+            href: '/registration',
           }
         )
