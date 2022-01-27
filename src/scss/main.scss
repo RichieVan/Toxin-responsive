@@ -59,7 +59,7 @@ input, textarea, button {
 h1.heading-1 {
   font-size: $font-size-h1;
   color: $dark-shade-100;
-  line-height: 2.143rem;
+  line-height: $line-height-h1;
 }
 
 h2.heading-2 {
