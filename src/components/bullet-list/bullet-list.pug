@@ -5,15 +5,15 @@ mixin bullet-list(options)
     }
 
     let mods = '';
-    if (options?.mods) {
+    if (options.mods) {
       for (let i = 0; i < options.mods.length; i++) {
         mods = mods + ' bullet-list_' + options.mods[i].trim();
       }
     }
 
     var buttonClassName = 'bullet-list' + mods;
-    var listItems = options?.items ? options.items : [];
+    var listItems = options.items ? options.items : [];
   ul(class = buttonClassName)
     each item in listItems
       li.bullet-list__item 
-        span=item
+        span !{item}
