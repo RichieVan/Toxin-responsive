@@ -10,3 +10,4 @@ import './components/header-nav/header-nav';
 import './components/field-text/field-text';
 import './components/catalog/catalog';
 import './components/catalog-card/catalog-card';
+import './components/chart/chart';
