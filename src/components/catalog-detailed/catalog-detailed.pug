@@ -1,0 +1,26 @@
+mixin catalog-detailed()
+  include ../chart/chart
+  include ../features/features
+  include ../comment/comment
+  article.catalog-detailed
+    .catalog-detailed__preview
+    .catalog-detailed__info
+      .catalog-detailed__info-group
+        h2.catalog-detailed__heading.heading-2 Сведения о номере
+        +features([
+          {
+            heading: 'Комфорт',
+            text: 'Шумопоглощающие стены',
+            icon: 'insert_emoticon',
+          },
+          {
+            heading: 'Удобство',
+            text: 'Окно в каждой из спален',
+            icon: 'location_city',
+          },
+          {
+            heading: 'Уют',
+            text: 'Номер оснащен камином',
+            icon: 'whatshot',
+          },
+        ])

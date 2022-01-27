@@ -115,6 +115,11 @@ module.exports = {
       template: path.resolve(__dirname, 'src/pages/catalog.pug'),
       minify: false,
     }),
+    new HTMLWebpackPlugin({
+      filename: 'room/index.html',
+      template: path.resolve(__dirname, 'src/pages/room.pug'),
+      minify: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {

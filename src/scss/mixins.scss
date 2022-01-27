@@ -39,3 +39,10 @@
     opacity: .5;
   }
 }
+
+@mixin gradient-clip ($color) {
+  color: transparent;
+  background: $color;
+  -webkit-background-clip: text;
+  background-clip: text;
+}

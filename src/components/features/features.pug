@@ -1,0 +1,14 @@
+mixin features(items = [])
+  -
+  ul.features 
+    each item in items
+      li.features__item
+        .feature
+          .feature__icon
+            i.material-icons= item.icon
+          .feature__info
+            .feature__heading= item.heading
+            .feature__text= item.text
+          
+
+        

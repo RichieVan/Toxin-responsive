@@ -1,0 +1,42 @@
+.features {
+  &__item {
+    width: 280px;
+
+    &:not(:first-child) {
+      padding-top: 20px;
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid $dark-shade-10;
+    }
+  }
+  
+  .feature {
+    display: flex;
+
+    &__icon {
+      display: inline-flex;
+      margin-right: 10px;
+
+      i {
+        font-size: 48px;
+        @include gradient-clip($purple-gradient);
+      }
+    }
+
+    &__info {
+      position: relative;
+      top: 3px;
+    }
+
+    &__heading {
+      line-height: $line-height;
+      font-weight: bold;
+    }
+
+    &__text {
+      line-height: $line-height;
+    }
+  }
+}
