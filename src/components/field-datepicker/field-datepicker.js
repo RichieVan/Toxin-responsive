@@ -2,10 +2,11 @@ import * as $ from 'jquery';
 import AirDatepicker from 'air-datepicker';
 import addLeadZero from '../../js/libs/add-lead-zero/addLeadZero';
 
-$('.field-datepicker-container').each(function (index) {
+$('.field-datepicker-container').each(function () {
   let isDatepickerActive = false;
-  const inputFrom = $(`#datepickerFrom${index + 1}`);
-  const inputTo = $(`#datepickerTo${index + 1}`);
+  const $container = $(this);
+  const $inputFrom = $container.find('.js-field-datepicker__input_from');
+  const $inputTo = $container.find('.js-field-datepicker__input_to');
   const acceptButton = {
     content: 'Применить',
     className: 'air-datepicker-button button--accept',
@@ -26,9 +27,9 @@ $('.field-datepicker-container').each(function (index) {
   const inputPreventationHandler = function (e) {
     e.preventDefault();
   };
-  inputFrom.on('keydown', inputPreventationHandler);
+  $inputFrom.on('keydown', inputPreventationHandler);
 
-  const dp = new AirDatepicker(`#datepickerFrom${index + 1}`, {
+  const dp = new AirDatepicker($inputFrom[0], {
     range: true,
     minView: 'days',
     autoClose: false,
@@ -46,7 +47,7 @@ $('.field-datepicker-container').each(function (index) {
       acceptButton,
     ],
     onSelect({ datepicker }) {
-      const isMultiple = inputTo.length > 0;
+      const isMultiple = $inputTo.length > 0;
 
       let dateFrom;
       let monthFrom;
@@ -65,9 +66,9 @@ $('.field-datepicker-container').each(function (index) {
 
         if (datepicker.rangeDateFrom) {
           if (isMultiple) {
-            inputFrom.val(`${dateFrom}.${monthFrom}.${yearFrom}`);
+            $inputFrom.val(`${dateFrom}.${monthFrom}.${yearFrom}`);
           } else {
-            inputFrom.val(`${dateFrom} ${monthFrom}`);
+            $inputFrom.val(`${dateFrom} ${monthFrom}`);
           }
         }
       }
@@ -85,9 +86,9 @@ $('.field-datepicker-container').each(function (index) {
         const yearTo = datepicker.rangeDateTo.getFullYear();
 
         if (isMultiple) {
-          inputTo.val(`${dateTo}.${monthTo}.${yearTo}`);
+          $inputTo.val(`${dateTo}.${monthTo}.${yearTo}`);
         } else {
-          inputFrom.val(`${dateFrom} ${monthFrom} - ${dateTo} ${monthTo}`);
+          $inputFrom.val(`${dateFrom} ${monthFrom} - ${dateTo} ${monthTo}`);
         }
       }
     },

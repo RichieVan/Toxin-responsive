@@ -6,7 +6,6 @@ mixin field-datepicker(options)
       options = {};
     }
     
-    var id = options.id ? options.id : 0;
     var fromName = options.fromName;
     var toName = options.toName;
     var placeholder = options.placeholder;
@@ -17,11 +16,12 @@ mixin field-datepicker(options)
     var firstDatepickerLabel = options.labels ? options.labels[0] : '';
 
     var secondDatepickerLabel = options.labels ? options.labels[1] : '';
-  .field-datepicker-container(id = 'datepickerContainer' + id)
+  .field-datepicker-container
     +fields-group(['no-margin'])
       +field-label(firstDatepickerLabel)
       div(class=firstDatepickerClassList)
         input.field-datepicker__input(
+          class='field-datepicker__input js-field-datepicker__input_from'
           type='text',
           name=fromName,
           placeholder=placeholder,
@@ -34,7 +34,8 @@ mixin field-datepicker(options)
       +fields-group(['no-margin'])
         +field-label(secondDatepickerLabel)
         .field-datepicker
-          input.field-datepicker__input(
+          input(
+            class='field-datepicker__input js-field-datepicker__input_to'
             type='text', 
             name=toName, 
             placeholder=placeholder,
