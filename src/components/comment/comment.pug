@@ -1,30 +1,30 @@
-mixin comment(options)
+mixin comment(options = {}, mods = [])
   include ../like-button/like-button
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
-    let mods = '';
-    if (options?.mods) {
-      for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' bullet-list_' + options.mods[i].trim();
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' comment_' + mods[i].trim();
       }
     }
 
-    var buttonClassName = 'bullet-list' + mods;
-    var listItems = options?.items ? options.items : [];
-    //var avatarStyles = options?.avatar ? `{background-image: url('${options.avatar}');}` : '';
-  article.comment
+    var classList = 'comment' + mods;
+    var avatarStyles = options.avatar ? `background-image: url('/images/${options.avatar}');` : '';
+    var username = options.username || '';
+    var datetime = options.datetime || '';
+    var text = options.text || '';
+    var likesCount = options.likes || '';
+    var isLiked = options.isLiked || '';
+  article(class=classList)
     .comment__heading
       .comment__avatar(style=avatarStyles)
       .comment__info
-        .comment__username Мурад Сарафанов
-        .comment__datetime 5 дней назад
+        .comment__username= username
+        .comment__datetime= datetime
     .comment__content
       .comment__likes
         +like-button({
-          count: 12,
-          mods: ['liked']
+          count: likesCount,
+          mods: isLiked ? ['liked'] : []
         })
-      .comment__text Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
+      p.comment__text= text
