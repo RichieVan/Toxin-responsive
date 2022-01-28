@@ -10,8 +10,13 @@
 .chart {
   display: flex;
   position: relative;
-  width: 320px;
   padding-bottom: 5px;
+
+  @media (max-width: $screen-xsm) {
+    flex-direction: column;
+    width: 290px;
+    padding-bottom: 0;
+  }
 
   &__stats {
     display: flex;
@@ -19,6 +24,11 @@
     width: 120px;
     height: 120px;
     margin-right: 30px;
+
+    @media (max-width: $screen-xsm) {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
   }
 
   &__graph {
@@ -54,6 +64,13 @@
     justify-content: flex-end;
     position: relative;
     bottom: -6px;
+
+    @media (max-width: $screen-xsm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-left: -10px;
+    }
   }
 
   &__label {
@@ -61,6 +78,10 @@
     align-items: center;
     position: relative;
     top: -6px;
+
+    @media (max-width: $screen-xsm) {
+      margin-left: 10px;
+    }
 
     &-icon {
       display: block;

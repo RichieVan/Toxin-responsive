@@ -123,7 +123,15 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: path.resolve(__dirname, 'src/components/comment/images'),
+          to: path.resolve(__dirname, 'dist/images'),
+        },
+        {
           from: path.resolve(__dirname, 'src/components/catalog-card/images'),
+          to: path.resolve(__dirname, 'dist/images'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/components/catalog-detailed/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
         {
