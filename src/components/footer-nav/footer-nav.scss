@@ -22,13 +22,17 @@
     }
   }
 
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
   &__heading {
     padding-top: 4px;
+    margin-bottom: 21px;
   }
 
   &__link {
     display: inline-block;
-    margin-top: 20px;
     color: $dark-shade-50;
   }
 }

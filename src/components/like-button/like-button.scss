@@ -19,6 +19,10 @@ $button-height: 20px;
     border-color .1s ease-in-out;
   cursor: pointer;
 
+  &__count {
+    width: 10px;
+  }
+
   &__icon {
     display: flex;
     align-items: center;

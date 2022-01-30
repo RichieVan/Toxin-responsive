@@ -41,22 +41,11 @@
     margin-bottom: 30px;
 
     &_with_margin {
+      width: 290px;
       margin-right: 70px;
 
       @media (max-width: $screen-xsm) {
         margin-right: 0;
-      }
-    }
-
-    &_for_rules {
-      width: 290px;
-
-      .catalog-detailed__heading {
-        padding-left: 20px;
-
-        @media (max-width: $screen-lg) {
-          padding-left: 0;
-        }
       }
     }
 

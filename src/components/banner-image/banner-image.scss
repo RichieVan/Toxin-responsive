@@ -55,6 +55,9 @@
 
   &__caption {
     align-self: flex-end;
+    position: relative;
+    top: -3px;
+    right: -6px;
     width: 300px;
     margin-top: 20px;
     line-height: $line-height;
@@ -62,6 +65,8 @@
     color: $dark-shade-75;
 
     @media (max-width: $screen-xsm) {
+      top: auto;
+      right: auto;
       align-self: center;
       text-align: center;
     }

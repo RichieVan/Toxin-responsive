@@ -46,12 +46,12 @@ mixin catalog-detailed()
                   },
                   {
                     name: 'Хорошо',
-                    color: ['#6FCF97', '#66D2EA'],
+                    color: ['#66D2EA', '#6FCF97'],
                     percent: 25,
                   },
                   {
                     name: 'Удовлетворительно',
-                    color: ['#BC9CFF', '#8BA4F9'],
+                    color: ['#8BA4F9', '#BC9CFF'],
                     percent: 25,
                   },
                   {
@@ -91,7 +91,7 @@ mixin catalog-detailed()
                   likes: 2,
                   isLiked: false
                 })
-            div(class='catalog-detailed__info-group catalog-detailed__info-group_with_margin catalog-detailed__info-group_for_rules')
+            .catalog-detailed__info-group.catalog-detailed__info-group_with_margin
               h2.catalog-detailed__heading.heading-2 Правила
               +bullet-list({
                 items: [

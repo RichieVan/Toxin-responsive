@@ -11,7 +11,7 @@
   &__avatar {
     width: $left-col-width;
     height: $left-col-width;
-    margin-right: 10px;
+    margin-right: 9px;
     border: 2px solid #fff;
     border-radius: 50%;
     background: center no-repeat;
@@ -33,6 +33,7 @@
   }
 
   &__text {
+    padding-top: 1px;
     padding-bottom: 2px;
     margin-top: -2px;
   }
@@ -41,7 +42,7 @@
     display: flex;
     justify-content: center;
     width: $left-col-width;
-    margin-right: 10px;
+    margin-right: 9px;
     flex-shrink: 0;
   }
 }
