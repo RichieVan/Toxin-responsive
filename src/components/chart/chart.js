@@ -3,7 +3,7 @@ import $ from 'jquery';
 let gradientIterator = 0;
 
 function polarToCartesianCoords(centerX, centerY, radius, angleInDegrees) {
-  const angleInRadians = ((angleInDegrees + 90) * Math.PI) / 180.0;
+  const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
 
   return {
     x: centerX + (radius * Math.cos(angleInRadians)),
@@ -98,10 +98,10 @@ $('[data-chart]').each(function () {
   const items = $chart.data('chart');
   let prevDegree = 0;
 
-  items.forEach((props) => {
+  items.reverse().forEach((props) => {
     if (!props.percent) return;
     const nextDegree = (props.percent / 100) * 360;
-    const arc = new Arc(60, 60, 56, prevDegree + 1, prevDegree + nextDegree - 1);
+    const arc = new Arc(60, 60, 58, prevDegree + 1, prevDegree + nextDegree - 1);
     prevDegree += nextDegree;
 
     const path = arc.createPath();
