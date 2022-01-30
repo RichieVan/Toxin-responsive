@@ -1,14 +1,10 @@
-mixin expandable-list(options)
+mixin expandable-list(options = {})
   include ../field-checkbox/field-checkbox
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
     let mods = '';
     if (options.mods) {
       for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' expandable-list_' + options.mods[i].trim();
+        mods += ' expandable-list_' + options.mods[i].trim();
       }
     }
 

@@ -23,8 +23,8 @@ mixin comment(options = {}, mods = [])
         .comment__datetime= datetime
     .comment__content
       .comment__likes
-        +like-button({
-          count: likesCount,
-          mods: isLiked ? ['liked'] : []
-        })
+        +like-button(
+          likesCount,
+          isLiked ? ['liked'] : []
+        )
       p.comment__text= text

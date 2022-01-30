@@ -1,8 +1,5 @@
-mixin field-dropdown(options)
+mixin field-dropdown(options = {})
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
     var globalProps = {};
     var counters = options.counters || {};
     var buttons = options.buttons || {};

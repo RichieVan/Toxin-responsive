@@ -1,9 +1,5 @@
-mixin field-text(options)
+mixin field-text(options = {})
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
     let mods = '';
     if (options.mods) {
       for (let i = 0; i < options.mods.length; i++) {

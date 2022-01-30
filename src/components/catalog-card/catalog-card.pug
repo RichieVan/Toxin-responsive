@@ -1,6 +1,6 @@
 mixin catalog-card(options = {})
-  include ../../components/room-heading/room-heading
   include ../../components/rate-button/rate-button
+  include ../../components/room-heading/room-heading
   -
     var comments = options.comments || 0;
     var roomData = options.room || null;
@@ -21,16 +21,6 @@ mixin catalog-card(options = {})
               span.material-icons expand_more
             button(class='catalog-card__arrow catalog-card__arrow_next js-catalog-card__arrow_next')
               span.material-icons expand_more
-          //- .catalog-card__dots
-          //-   each dotMod in ['active', '', '', '']
-          //-     -
-          //-       let dotMods = '';
-          //-       if (dotMod) {
-          //-         dotMods = ' catalog-card__dot_' + dotMod;
-          //-       }
-                
-          //-       let dotClassList = 'catalog-card__dot' + dotMods;
-          //-     button(type = 'button', class = dotClassList)
     else 
       .catalog-card__images
         .catalog-card__slider

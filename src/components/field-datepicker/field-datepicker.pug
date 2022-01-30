@@ -1,11 +1,7 @@
-mixin field-datepicker(options)
+mixin field-datepicker(options = {})
   include ../fields-group/fields-group
   include ../field-label/field-label
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-    
     var fromName = options.fromName;
     var toName = options.toName;
     var placeholder = options.placeholder;

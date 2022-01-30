@@ -1,10 +1,10 @@
 mixin catalog-detailed()
-  include ../chart/chart
-  include ../features/features
-  include ../comment/comment
   include ../bullet-list/bullet-list
-  include ../../includes/room-form
+  include ../chart/chart
+  include ../comment/comment
+  include ../features/features
   include ../multi-slider/multi-slider
+  include ../../includes/room-form
   article.catalog-detailed
     .catalog-detailed__preview
       +multi-slider([
@@ -93,13 +93,11 @@ mixin catalog-detailed()
                 })
             .catalog-detailed__info-group.catalog-detailed__info-group_with_margin
               h2.catalog-detailed__heading.heading-2 Правила
-              +bullet-list({
-                items: [
-                  'Нельзя с питомцами',
-                  'Без вечеринок и мероприятий',
-                  'Время прибытия — после 13:00,<br> а выезд до 12:00'
-                ]
-              })
+              +bullet-list([
+                'Нельзя с питомцами',
+                'Без вечеринок и мероприятий',
+                'Время прибытия — после 13:00,<br> а выезд до 12:00'
+              ])
             .catalog-detailed__info-group.catalog-detailed__info-group_for_cancel
               h2.catalog-detailed__heading.heading-2 Отмена
               p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.

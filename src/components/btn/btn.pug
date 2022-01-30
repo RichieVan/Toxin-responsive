@@ -1,9 +1,5 @@
-mixin btn(text, options)
+mixin btn(text = '', options = {})
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
     let allMods = '';
     if (options.mods) {
       for (let i = 0; i < options.mods.length; i++) {
