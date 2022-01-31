@@ -5,7 +5,7 @@ mixin banner-image(image = '', mods = [])
       allMods = allMods + ' banner-image_' + mods[i].trim();
     }
     var classList = 'banner-image' + allMods;
-  div(class=classList, style=`background-image: url(${image})`)
+  div(class=classList, style=`background-image: url(/images/${image})`)
     .container
       .inner-container
         .banner-image__inner

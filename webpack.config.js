@@ -135,9 +135,13 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/images'),
         },
         {
-          from: path.resolve(__dirname, 'src/assets/images'),
+          from: path.resolve(__dirname, 'src/components/banner-image/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
+        // {
+        //   from: path.resolve(__dirname, 'src/assets/images'),
+        //   to: path.resolve(__dirname, 'dist/images'),
+        // },
       ],
     }),
     // new CleanWebpackPlugin()
