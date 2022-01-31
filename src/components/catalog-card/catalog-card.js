@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import 'slick-carousel';
 
-const cardsWithSlider = $('.catalog-card__images[data-slick]');
+const cardsWithSlider = $('.js-catalog-card__images[data-slick]');
 
 cardsWithSlider.each(function () {
   const $card = $(this);

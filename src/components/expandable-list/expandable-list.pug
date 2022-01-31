@@ -8,7 +8,7 @@ mixin expandable-list(options = {})
       }
     }
 
-    var defaultClassName = 'expandable-list';
+    var defaultClassName = 'expandable-list js-expandable-list';
     var classList = defaultClassName + mods;
     var labelText = options.text ? options.text : '';
     var checkboxList = options.checkboxList ? options.checkboxList : [];
@@ -17,8 +17,8 @@ mixin expandable-list(options = {})
       .expandable-list__label= labelText
       .expandable-list__arrow
         span.material-icons expand_more
-      .expandable-list__mask
-    .expandable-list__content
+      .expandable-list__mask.js-expandable-list__mask
+    .expandable-list__content.js-expandable-list__content
       .content-list
         if checkboxList
           +field-checkbox(checkboxList)

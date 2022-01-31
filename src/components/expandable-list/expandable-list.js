@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 
-const expandableListClassName = 'expandable-list';
-const expandedModifierClassName = `${expandableListClassName}_expanded`;
+const expandableListClassName = 'js-expandable-list';
+const expandedModifierClassName = 'expandable-list_expanded';
 
 $(`.${expandableListClassName}`).each(function () {
   const $list = $(this);

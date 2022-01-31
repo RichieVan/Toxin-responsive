@@ -4,13 +4,13 @@ mixin chart(props = [], mark = [])
   div.chart(data-chart=stringifiedProps)
     .chart__stats
       svg(
-        class='chart__graph', 
+        class='chart__graph js-chart__graph', 
         width='120', 
         height='120', 
         version='1.1', 
         xmlns='http://www.w3.org/2000/svg'
       )
-        defs.chart__defs
+        defs.chart__defs.js-chart__defs
       .chart__total
         b.chart__total-count= mark[0]
         span.chart__total-mark= mark[1]

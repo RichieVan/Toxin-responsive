@@ -8,4 +8,4 @@ const likeHandler = function () {
   else $button.addClass(likedClassName);
 };
 
-$('.like-btn').on('click', likeHandler);
+$('.js-like-btn').on('click', likeHandler);

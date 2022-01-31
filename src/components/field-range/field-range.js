@@ -1,9 +1,9 @@
 import * as $ from 'jquery';
 import 'ion-rangeslider';
 
-$('.field-range').each(function () {
+$('.js-field-range').each(function () {
   const $container = $(this);
-  const $valuesContainer = $container.find('[class$="__values"]');
+  const $valuesContainer = $container.find('.js-field-range__values');
   const $slider = $(this).find('.js-range-slider');
   const currencySymbol = '₽';
   const from = 5000;

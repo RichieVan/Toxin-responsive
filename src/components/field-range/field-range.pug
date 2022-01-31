@@ -7,14 +7,14 @@ mixin field-range(heading = '', mods = [], info = '')
       }
     }
 
-    var defaultClassName = 'field-range';
+    var defaultClassName = 'field-range js-field-range';
     var classList = defaultClassName + mods;
     var inputClassList = defaultClassName + '__input' + ' js-range-slider';
   div(class = classList)
     .field-range__heading
       if heading
         h3.heading-label= heading
-      .field-range__values
+      .field-range__values.js-field-range__values
     input(
       type = 'text',
       class = inputClassList

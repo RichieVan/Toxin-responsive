@@ -93,8 +93,8 @@ class Arc {
 
 $('[data-chart]').each(function () {
   const $chart = $(this);
-  const $graph = $chart.find('.chart__graph');
-  const $defs = $graph.find('.chart__defs');
+  const $graph = $chart.find('.js-chart__graph');
+  const $defs = $graph.find('.js-chart__defs');
   const items = $chart.data('chart');
   let prevDegree = 0;
 

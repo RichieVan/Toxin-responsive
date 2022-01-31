@@ -2,7 +2,7 @@ import * as $ from 'jquery';
 import AirDatepicker from 'air-datepicker';
 import addLeadZero from '../../js/libs/add-lead-zero/addLeadZero';
 
-$('.field-datepicker-container').each(function () {
+$('.js-field-datepicker-container').each(function () {
   let isDatepickerActive = false;
   const $container = $(this);
   const $inputFrom = $container.find('.js-field-datepicker__input_from');
@@ -33,7 +33,7 @@ $('.field-datepicker-container').each(function () {
     range: true,
     minView: 'days',
     autoClose: false,
-    container: $(this).find('.field-datepicker')[0],
+    container: $(this).find('.js-field-datepicker')[0],
     prevHtml: '<span class="material-icons">arrow_back</span>',
     nextHtml: '<span class="material-icons">arrow_forward</span>',
     navTitles: {

@@ -8,11 +8,11 @@ mixin field-datepicker(options = {})
     var multiple = options.multiple ? options.multiple : false;
 
     var firstDatepickerMods = !multiple ? ' field_wide' : '';
-    var firstDatepickerClassList = 'field-datepicker' + firstDatepickerMods;
+    var firstDatepickerClassList = 'field-datepicker js-field-datepicker' + firstDatepickerMods;
     var firstDatepickerLabel = options.labels ? options.labels[0] : '';
 
     var secondDatepickerLabel = options.labels ? options.labels[1] : '';
-  .field-datepicker-container
+  .field-datepicker-container.js-field-datepicker-container
     +fields-group(['no-margin'])
       +field-label(firstDatepickerLabel)
       div(class=firstDatepickerClassList)
