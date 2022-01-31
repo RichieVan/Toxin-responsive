@@ -1,0 +1,13 @@
+include ../components/html-head/html-head
+include ../components/header/header
+include ../components/footer/footer
+
+doctype html
+html(lang="ru")
+  block head
+    +html-head(title)
+  body 
+    +header()
+    main 
+      block content
+    +footer()

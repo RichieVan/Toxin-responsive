@@ -1,6 +1,9 @@
-extends ./components/main/base.pug
+extends ./layouts/base.pug
 include ./components/banner-image/banner-image
 include ./includes/index-form
+
+block prepend head
+  - var title = '123';
 
 block content 
   +banner-image('bg-main.png')
