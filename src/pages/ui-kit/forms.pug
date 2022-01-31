@@ -4,7 +4,12 @@ include ../../components/field-datepicker/field-datepicker
 include ../../components/field-dropdown/field-dropdown
 include ../../components/fields-group/fields-group
 include ../../components/field-label/field-label
-include ../../components/button/button
+include ../../components/field-text/field-text
+include ../../components/field-radio/field-radio
+include ../../components/field-checkbox/field-checkbox
+include ../../components/btn/btn
+include ../../components/resulting-table/resulting-table
+include ../../components/catalog-card/catalog-card
 
 block content 
   div 213
@@ -71,11 +76,186 @@ block content
           arrow: true
         }
       )
-
-
-
-
-
-
-
-
+    +form('Регистрация аккаунта')
+      +fields-group()
+        +field-text({
+          placeholder: 'Имя'
+        })
+        +field-text({
+          placeholder: 'Фамилия'
+        })
+        +field-radio(
+          [
+            {
+              text: 'Мужчина',
+              attrs: {
+                name: 'gender'
+              }
+            },
+            {
+              text: 'Женщина',
+              attrs: {
+                name: 'gender',
+                checked: true
+              }
+            }
+          ], 
+          ['inline']
+        )
+      +fields-group()
+        +field-label('Дата рождения')
+        +field-text({
+          placeholder: 'ДД.ММ.ГГГГ'
+        })
+      +fields-group()
+        +field-label('Данные для входа в сервис')
+        +field-text({
+          type: 'email',
+          placeholder: 'Email'
+        })
+        +field-text({
+          type: 'password',
+          placeholder: 'Пароль'
+        })
+        +field-checkbox([
+          {
+            text: 'Получать спецпредложения',
+            attrs : {
+              checked: false
+            },
+            mods: ['toggle'],
+          },
+        ])
+      +btn(
+        'Перейти к оплате', 
+        {
+          mods: ['wide', 'submit', 'margin_big'],
+          arrow: true
+        }
+      )
+      .account-availability
+        span Уже есть аккаунт на Toxin
+        +btn(
+          'Войти',
+          {
+            mods: ['light'],
+            href: '/login'
+          }
+        )
+    +form(
+      '',
+      {
+        room: {
+          num: 888,
+          cost: 9990,
+          isLuxe: true,
+          headingType: 1
+        }
+      }
+    )
+      +field-datepicker({
+        id: 2,
+        labels: ['Прибытие', 'Выезд'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+      +fields-group()
+        +field-label('Гости')
+        +field-dropdown({
+          counters: [
+            {
+              name: 'Гости',
+              defaultValue: 0,
+              max: 5,
+              min: 0,
+              nameEndings: [
+                [[1], 'гость'],
+                [[2,3,4], 'гостя'],
+                ['default', 'гостей']
+              ],
+            },
+          ],
+          buttons: {
+            clear: {
+              text: 'Очистить',
+              show: true
+            },
+            accept: {
+              text: 'Применить',
+              show: true
+            },
+          }
+        })
+      +resulting-table(
+        [{
+          text: '9 990₽ х 4 суток',
+          result: '39 960₽'
+        },
+        {
+          text: 'Сбор за услуги: скидка 2 179₽',
+          info: true,
+          result: '0₽'
+        },
+        {
+          text: 'Сбор за дополнительные услуги',
+          info: true,
+          result: '300₽'
+        }],
+        {
+          text: 'Итого',
+          value: '38 081₽'
+        }  
+      )
+      +btn(
+        'Забронировать', 
+        {
+          mods: ['wide', 'submit'],
+          arrow: true
+        }
+      )
+  +form('Войти')
+    +fields-group()
+      +field-text({
+        type: 'email',
+        placeholder: 'Email'
+      })
+      +field-text({
+        type: 'password',
+        placeholder: 'Пароль'
+      })
+    +btn(
+      'Войти', 
+      {
+        mods: ['wide', 'submit', 'margin_big'],
+        arrow: true
+      }
+    )
+    .account-availability
+      span Нет аккаунта на Toxin?
+      +btn(
+        'Создать',
+        {
+          mods: ['light'],
+          href: '/register'
+        }
+      )
+  div(style = "max-width: 270px")
+    +catalog-card({
+      comments: 145,
+      room: {
+        num: 888,
+        cost: 9990,
+        isLuxe: true,
+      },
+      rating: 5
+    })
+    +catalog-card({
+      comments: 65,
+      room: {
+        num: 840,
+        cost: 9990,
+        isLuxe: false,
+      },
+      image: 2,
+      rating: 4
+    })

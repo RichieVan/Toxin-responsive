@@ -12,7 +12,7 @@ mixin field-checkbox(checkboxes)
       div(class = 'field-checkbox__input-wrapper' + allMods)
         label.field-checkbox__label
           input.field-checkbox__input(type = 'checkbox')&attributes(attributes)
-          span.field-checkbox__name= checkbox.text
+          span.field-checkbox__name !{checkbox.text}
           if (checkbox.rich)
             span.field-checkbox__rich-text
               =checkbox.rich

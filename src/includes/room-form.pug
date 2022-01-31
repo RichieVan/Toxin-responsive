@@ -1,0 +1,79 @@
+mixin room-form()
+  include ../components/form/form
+  include ../components/field-datepicker/field-datepicker
+  include ../components/field-dropdown/field-dropdown
+  include ../components/fields-group/fields-group
+  include ../components/field-label/field-label
+  include ../components/btn/btn
+  include ../components/resulting-table/resulting-table
+  +form(
+    '',
+    {
+      room: {
+        num: 888,
+        cost: 9990,
+        isLuxe: true,
+        headingType: 1
+      }
+    }
+  )
+    +fields-group()
+      +field-datepicker({
+        labels: ['Прибытие', 'Выезд'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+    +fields-group()
+      +field-label('Гости')
+      +field-dropdown({
+        counters: [
+          {
+            name: 'Гости',
+            defaultValue: 0,
+            max: 5,
+            min: 0,
+            nameEndings: [
+              [[1], 'гость'],
+              [[2,3,4], 'гостя'],
+              ['default', 'гостей']
+            ],
+          },
+        ],
+        buttons: {
+          clear: {
+            text: 'Очистить',
+            show: true
+          },
+          accept: {
+            text: 'Применить',
+            show: true
+          },
+        }
+      })
+    +resulting-table(
+      [{
+        text: '9 990₽ х 4 суток',
+        result: '39 960₽'
+      },
+      {
+        text: 'Сбор за услуги: скидка 2 179₽',
+        info: true,
+        result: '0₽'
+      },
+      {
+        text: 'Сбор за дополнительные услуги',
+        info: true,
+        result: '300₽'
+      }],
+      {
+        text: 'Итого',
+        value: '38 081₽'
+      }  
+    )
+    +btn(
+      'Забронировать', 
+      {
+        mods: ['wide', 'submit'],
+        arrow: true
+      }
+    )

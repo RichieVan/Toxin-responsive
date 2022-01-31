@@ -1,0 +1,79 @@
+mixin index-form()
+  include ../components/form/form
+  include ../components/field-datepicker/field-datepicker
+  include ../components/fields-group/fields-group
+  include ../components/field-label/field-label
+  include ../components/field-dropdown/field-dropdown
+  include ../components/btn/btn
+  +form('Найдём номера под ваши пожелания')
+    +fields-group()
+      +field-datepicker({
+        id: 1,
+        labels: ['Прибытие', 'Выезд'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+    +fields-group()
+      +field-label('Гости')
+      +field-dropdown({
+        result: {
+          name: 'Гости',
+          endings: [
+            [[1,21], 'гость'],
+            [[2,3,4,22,23,24], 'гостя'],
+            ['default', 'гостей']
+          ]
+        },
+        counters: [
+          {
+            name: 'Взрослые',
+            defaultValue: 1,
+            max: 10,
+            min: 1,
+            nameEndings: [
+              [[1], 'взрослый'],
+              [[2,3,4], 'спальни'],
+              ['default', 'спален']
+            ],
+          },
+          {
+            name: 'Дети',
+            defaultValue: 0,
+            max: 10,
+            min: 0,
+            nameEndings: [
+              [[1], 'кровать'],
+              [[2,3,4], 'кровати'],
+              ['default', 'кроватей'] 
+            ],
+          },
+          {
+            name: 'Младенцы',
+            defaultValue: 0,
+            max: 10,
+            min: 0,
+            nameEndings: [
+              [[1], 'ванная комната'],
+              [[2,3,4], 'ванные комнаты'],
+              ['default', 'ванных комнат']
+            ],
+          },
+        ],
+        buttons: {
+          clear: {
+            text: 'Очистить',
+            show: true
+          },
+          accept: {
+            text: 'Применить',
+            show: true
+          },
+        }
+      })
+    +btn(
+      'Подобрать номер', 
+      {
+        mods: ['wide', 'submit', 'margin_big'],
+        arrow: true
+      }
+    )

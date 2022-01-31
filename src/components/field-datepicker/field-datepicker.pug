@@ -1,25 +1,23 @@
-mixin field-datepicker(options)
+mixin field-datepicker(options = {})
   include ../fields-group/fields-group
   include ../field-label/field-label
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-    
-    var id = options?.id ? options.id : 0;
     var fromName = options.fromName;
     var toName = options.toName;
     var placeholder = options.placeholder;
-    var multiple = options?.multiple ? options.multiple : false;
+    var multiple = options.multiple ? options.multiple : false;
+
     var firstDatepickerMods = !multiple ? ' field_wide' : '';
     var firstDatepickerClassList = 'field-datepicker' + firstDatepickerMods;
-    var firstDatepickerLabel = options?.labels ? options.labels[0] : '';
-    var secondDatepickerLabel = options?.labels ? options.labels[1] : '';
-  .field-datepicker-container(id = 'datepickerContainer' + id)
-    +fields-group()
+    var firstDatepickerLabel = options.labels ? options.labels[0] : '';
+
+    var secondDatepickerLabel = options.labels ? options.labels[1] : '';
+  .field-datepicker-container
+    +fields-group(['no-margin'])
       +field-label(firstDatepickerLabel)
       div(class=firstDatepickerClassList)
         input.field-datepicker__input(
+          class='field-datepicker__input js-field-datepicker__input_from'
           type='text',
           name=fromName,
           placeholder=placeholder,
@@ -29,10 +27,11 @@ mixin field-datepicker(options)
           span.material-icons expand_more
         .field-datepicker__mask
     if multiple
-      +fields-group()
+      +fields-group(['no-margin'])
         +field-label(secondDatepickerLabel)
         .field-datepicker
-          input.field-datepicker__input(
+          input(
+            class='field-datepicker__input js-field-datepicker__input_to'
             type='text', 
             name=toName, 
             placeholder=placeholder,

@@ -1,0 +1,204 @@
+mixin smartfilter(id = '')
+  include ../form/form
+  include ../field-datepicker/field-datepicker
+  include ../fields-group/fields-group
+  include ../field-label/field-label
+  include ../field-dropdown/field-dropdown
+  include ../field-range/field-range
+  include ../field-checkbox/field-checkbox
+  include ../btn/btn
+  include ../expandable-list/expandable-list
+  aside.smartfilter(id=id)
+    .smartfilter__inner
+      +form(
+        '',
+        {
+          mods: ['for_smartfilter']
+        }
+      )
+        +fields-group()
+          +field-datepicker({
+            id: 1,
+            labels: ['Даты пребывания в отеле'],
+            placeholder: 'ДД.ММ.ГГГГ',
+          })
+        +fields-group(['high'])
+          +field-label('Гости')
+          +field-dropdown({
+            result: {
+              name: 'Гости',
+              endings: [
+                [[1,21], 'гость'],
+                [[2,3,4,22,23,24], 'гостя'],
+                ['default', 'гостей']
+              ]
+            },
+            counters: [
+              {
+                name: 'Взрослые',
+                defaultValue: 1,
+                max: 10,
+                min: 1,
+                nameEndings: [
+                  [[1], 'взрослый'],
+                  [[2,3,4], 'спальни'],
+                  ['default', 'спален']
+                ],
+              },
+              {
+                name: 'Дети',
+                defaultValue: 0,
+                max: 10,
+                min: 0,
+                nameEndings: [
+                  [[1], 'кровать'],
+                  [[2,3,4], 'кровати'],
+                  ['default', 'кроватей'] 
+                ],
+              },
+              {
+                name: 'Младенцы',
+                defaultValue: 0,
+                max: 10,
+                min: 0,
+                nameEndings: [
+                  [[1], 'ванная комната'],
+                  [[2,3,4], 'ванные комнаты'],
+                  ['default', 'ванных комнат']
+                ],
+              },
+            ],
+            buttons: {
+              clear: {
+                text: 'Очистить',
+                show: true
+              },
+              accept: {
+                text: 'Применить',
+                show: true
+              },
+            }
+          })
+        +fields-group(['high'])
+          +field-range(
+            'Диапазон цены',
+            [],
+            'Стоимость за сутки прибывания в номере'
+          )
+        +fields-group(['high']) 
+          +field-label(
+            'Правила дома', 
+            ['high']
+          )
+          +field-checkbox([
+            {
+              text: 'Можно курить',
+            },
+            {
+              text: 'Можно с питомцами',
+              attrs : {
+                checked: true
+              },
+            },
+            {
+              text: 'Можно пригласить гостей<br>(до 10 человек)',
+              attrs : {
+                checked: true
+              },
+            },
+          ])
+        +fields-group(['high']) 
+          +field-label(
+            'Доступность', 
+            ['high']
+          )
+          +field-checkbox([
+            {
+              text: 'Широкий коридор',
+              mods: ['rich'],
+              rich: 'Ширина коридоров в номере не менее 91 см.'
+            },
+            {
+              text: 'Помощник для инвалидов',
+              mods: ['rich'],
+              rich: 'На 1 этаже вас встретит специалист и проводит до номера.'
+            },
+          ])
+        +fields-group(['high'])
+          +field-label('Удобства номера')
+          +field-dropdown({
+            counters: [
+              {
+                name: 'Спальни',
+                defaultValue: 10,
+                max: 10,
+                min: 1,
+                nameEndings: [
+                  [[1], 'спальня'],
+                  [[2,3,4], 'спальни'],
+                  ['default', 'спален']
+                ],
+              },
+              {
+                name: 'Кровати',
+                defaultValue: 1,
+                max: 6,
+                min: 1,
+                nameEndings: [
+                  [[1], 'кровать'],
+                  [[2,3,4], 'кровати'],
+                  ['default', 'кроватей'] 
+                ],
+              },
+              {
+                name: 'Ванные комнаты',
+                defaultValue: 1,
+                max: 3,
+                min: 1,
+                nameEndings: [
+                  [[1], 'ванная комната'],
+                  [[2,3,4], 'ванные комнаты'],
+                  ['default', 'ванных комнат']
+                ],
+              },
+            ],
+            buttons: {
+              clear: {
+                text: 'Очистить',
+                show: true
+              },
+              accept: {
+                text: 'Применить',
+                show: true
+              },
+            }
+          })
+        +fields-group()
+          +expandable-list({
+            text: 'Дополнительные удобства',
+            checkboxList: [
+              {
+                text: 'Завтрак'
+              },
+              {
+                text: 'Письменный стол'
+              },
+              {
+                text: 'Стул для кормления'
+              },
+              {
+                text: 'Кроватка'
+              },
+              {
+                text: 'Телевизор'
+              },
+              {
+                text: 'Шампунь'
+              },
+            ],
+          })
+      button(
+        class='smartfilter__close btn btn_thin btn_light js-smartfilter__close',
+        data-for=id
+      )
+        i.material-icons close

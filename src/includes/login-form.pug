@@ -1,0 +1,31 @@
+mixin login-form()
+  include ../components/form/form
+  include ../components/fields-group/fields-group
+  include ../components/field-text/field-text
+  include ../components/btn/btn
+  +form('Войти')
+    +fields-group()
+      +field-text({
+        type: 'email',
+        placeholder: 'Email'
+      })
+      +field-text({
+        type: 'password',
+        placeholder: 'Пароль'
+      })
+    +btn(
+      'Войти', 
+      {
+        mods: ['wide', 'submit', 'margin_big'],
+        arrow: true
+      }
+    )
+    .account-availability
+      span Нет аккаунта на Toxin?
+      +btn(
+        'Создать',
+        {
+          mods: ['light'],
+          href: '/registration'
+        }
+      )

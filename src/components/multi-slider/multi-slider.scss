@@ -1,0 +1,115 @@
+.multi-slider {
+  $slider-height: 484px;
+  $slider-height-lg: 400px;
+  $slider-height-md: 320px;
+
+  display: flex;
+  height: $slider-height;
+  max-width: $screen-xl;
+  margin: 0 auto 70px auto;
+  overflow: hidden;
+
+  @media (max-width: $screen-lg) {
+    height: $slider-height-lg;
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: $screen-md) {
+    height: $slider-height-md;
+  }
+
+  @media (max-width: $screen-xsm) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &__big {
+    width: 68%;
+
+    @media (max-width: $screen-xsm) {
+      width: 100%;
+    }
+  }
+
+  &__for {
+    &-item {
+      height: $slider-height;
+      background: center no-repeat;
+      background-size: cover;
+
+      @media (max-width: $screen-lg) {
+        height: $slider-height-lg;
+      }
+
+      @media (max-width: $screen-md) {
+        height: $slider-height-md;
+      }
+
+      @media (max-width: $screen-xsm) {
+        height: calc(100vw / 2);
+      }
+    }
+
+    .slick-slide {
+      border: none;
+
+      & > div {
+        display: flex;
+      }
+    }
+  }
+
+  &__small {
+    width: 32%;
+
+    @media (max-width: $screen-xsm) {
+      width: 150%;
+    }
+  }
+
+  &__nav {
+    position: relative;
+    top: calc($slider-height / -2);
+
+    @media (max-width: $screen-lg) {
+      top: calc($slider-height-lg / -2);
+    }
+
+    @media (max-width: $screen-md) {
+      top: calc($slider-height-md / -2);
+    }
+
+    @media (max-width: $screen-xsm) {
+      top: auto;
+      left: -33.33333333%;
+      height: calc(100vw / 3);
+    }
+
+    &-item {
+      height: calc($slider-height / 2);
+
+      @media (max-width: $screen-lg) {
+        height: calc($slider-height-lg / 2);
+      }
+
+      @media (max-width: $screen-md) {
+        height: calc($slider-height-md / 2);
+      }
+    }
+
+    .slick-slide {
+      border: none;
+
+      & > div {
+        display: flex;
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    background: center no-repeat;
+    background-size: cover;
+  }
+}

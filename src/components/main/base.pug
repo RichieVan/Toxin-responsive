@@ -1,8 +1,12 @@
 include ./head
+include ../header/header
+include ../footer/footer
 
 doctype html
 html(lang="en")
   +htmlHead('Главная')
   body 
-    .container
+    +header()
+    main 
       block content
+    +footer()

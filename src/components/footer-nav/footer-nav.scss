@@ -1,0 +1,38 @@
+.footer-nav {
+  display: flex;
+
+  @media (max-width: $screen-md) {
+    flex-grow: 1;
+    order: 1;
+  }
+
+  @media (max-width: $screen-sm) {
+    flex-wrap: wrap;
+  }
+
+  &__col {
+    width: 200px;
+
+    @media (min-width: calc($screen-sm + 1px)) and (max-width: $screen-md) {
+      flex-grow: 1;
+    }
+
+    @media (max-width: $screen-sm) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &__heading {
+    padding-top: 4px;
+    margin-bottom: 21px;
+  }
+
+  &__link {
+    display: inline-block;
+    color: $dark-shade-50;
+  }
+}

@@ -1,0 +1,29 @@
+.room-heading {
+  display: flex;
+  align-items: baseline;
+
+  &__num {
+    font-size: 1rem;
+    line-height: normal;
+  }
+  
+  &__type {
+    position: relative;
+    top: 1px;
+    padding-left: 8px;
+    font-size: $font-size-label;
+    text-transform: uppercase;
+    color: $purple;
+  }
+  
+  &__cost {
+    flex-grow: 1;
+    line-height: 18px;
+    text-align: right;
+    color: $dark-shade-50;
+  
+    span {
+      font-size: $font-size-label;
+    }
+  }
+}

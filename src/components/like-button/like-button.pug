@@ -1,19 +1,14 @@
-mixin like-button(options)
+mixin like-button(count = 0, mods = [])
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
-    let mods = '';
-    if (options?.mods) {
-      for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' like-btn_' + options.mods[i].trim();
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' like-btn_' + mods[i].trim();
       }
     }
 
     var buttonClassName = 'like-btn' + mods;
-    var likesCount = options?.count ? options.count : 0;
   button(class = buttonClassName)
     .like-btn__icon
       span.material-icons
-    span.like-btn__count= likesCount
+    span.like-btn__count= count

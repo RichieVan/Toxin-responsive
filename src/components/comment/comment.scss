@@ -1,6 +1,8 @@
 .comment {
   $left-col-width: 48px;
 
+  max-width: 800px;
+
   &__heading {
     display: flex;
     margin-bottom: 12px;
@@ -9,16 +11,12 @@
   &__avatar {
     width: $left-col-width;
     height: $left-col-width;
-    margin-right: 10px;
+    margin-right: 9px;
     border: 2px solid #fff;
     border-radius: 50%;
-    background: url(./assets/images/avatar.png) center no-repeat;
+    background: center no-repeat;
     background-size: cover;
     filter: drop-shadow(0px 10px 20px rgba(31, 32, 65, 0.1));
-  }
-
-  &__info {
-    
   }
 
   &__username {
@@ -35,16 +33,16 @@
   }
 
   &__text {
+    padding-top: 1px;
     padding-bottom: 2px;
     margin-top: -2px;
-    line-height: $line-height;
   }
 
   &__likes {
     display: flex;
     justify-content: center;
     width: $left-col-width;
-    margin-right: 10px;
+    margin-right: 9px;
     flex-shrink: 0;
   }
 }

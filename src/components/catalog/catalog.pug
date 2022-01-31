@@ -1,0 +1,22 @@
+mixin catalog(heading = '', items = [], filter = '')
+  include ../catalog-card/catalog-card
+  include ../pagination/pagination
+  include ../smartfilter/smartfilter
+  section.catalog
+    if filter 
+      +smartfilter(filter)
+    .catalog__wrapper
+      h1.heading-1.catalog__heading= heading
+      if filter 
+        button(
+          class='catalog__show-filter btn btn_light js-catalog__show-filter', 
+          data-for=filter
+        )
+          i.material-icons sort
+          = 'показать фильтр'
+      .catalog__list
+        each item in items
+          .catalog__item
+            +catalog-card(item)
+      .catalog__pagination
+        +pagination(15, 1)

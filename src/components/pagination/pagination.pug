@@ -1,29 +1,31 @@
-mixin pagination(options)
+mixin pagination(count = 1, active = 1, mods = [])
   include ../like-button/like-button
   -
-    if (typeof options === 'undefined') {
-      options = {};
-    }
-
-    let mods = '';
-    if (options?.mods) {
-      for (let i = 0; i < options.mods.length; i++) {
-        mods = mods + ' pagination_' + options.mods[i].trim();
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' pagination_' + mods[i].trim();
       }
     }
+
+    let items = [];
+    if (active > 3) items = items.concat([1, '...']);
+    else items = items.concat([1, 2, 3]);
+
+    if (active < count - 2) {
+      if (active > 3) items = items.concat([active]);
+      items = items.concat(['...', count]);
+    } else items = items.concat([count - 2, count - 1, count]);
   nav.pagination
     ul.pagination__list
-      li.pagination__item.pagination__item_active
-        a.pagination__link(href='#') 1
-      li.pagination__item
-        a.pagination__link(href='#') 2
-      li.pagination__item
-        a.pagination__link(href='#') 3
-      li.pagination__item
-        a.pagination__link(href='#') ...
-      li.pagination__item
-        a.pagination__link(href='#') 15
-      li.pagination__item
-        a.pagination__link.pagination__link_with-arrow(href='#') 
-          span.material-icons arrow_forward
+      each item in items
+        -
+          let isActive = (active === item) ? ' pagination__item_active' : '';
+          let classList = 'pagination__item' + isActive;
+        li(class=classList)
+          a.pagination__link(href='#')= item
+      if active < count
+        li.pagination__item
+          a.pagination__link.pagination__link_with-arrow(href='#') 
+            span.material-icons arrow_forward
     .pagination__info 1 – 12 из 100+ вариантов аренды

@@ -1,5 +1,6 @@
 .fields-group {
   width: 100%;
+  margin-bottom: 20px;
 
   &_inline {
     display: flex;
@@ -13,5 +14,21 @@
     &.mr-20 > *:not(:last-child) {
       margin-right: 20px;
     }
+  }
+
+  &_no-margin {
+    margin-bottom: 0;
+  }
+
+  &_high {
+    margin-bottom: 30px;
+  }
+
+  & > *:not(.field-label) {
+    margin-bottom: 10px;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
   }
 }

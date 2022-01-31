@@ -1,0 +1,30 @@
+mixin room-heading(options = {})
+  -
+    var num = options.num || 0;
+    var isLuxe = options.isLuxe || false;
+    var headingType = options.headingType || 2;
+    
+    var cost = options.cost ? String(options.cost) : '0';
+    var finalCost = '';
+    var costMarker = 0;
+    while (cost.length > costMarker) {
+      if (costMarker > 0) finalCost = cost.slice(-(3 + costMarker), -costMarker) + ' ' + finalCost;
+      else finalCost = cost.slice(-3) + ' ' + finalCost;
+
+      costMarker += 3;
+    }
+    finalCost = finalCost.trim()
+  .room-heading
+    if (headingType === 1)
+      h1.heading-1
+        span.room-heading__num= '№ '
+        =num
+    if (headingType === 2)
+      h2.heading-2
+        span.room-heading__num= '№ '
+        =num
+    if (isLuxe)
+      b.room-heading__type= 'Люкс'
+    div.room-heading__cost
+      b= finalCost + '₽ '
+      span в сутки

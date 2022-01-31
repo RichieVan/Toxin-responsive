@@ -1,0 +1,84 @@
+mixin footer()
+  include ../logo/logo
+  include ../footer-nav/footer-nav
+  include ../subscribe-form/subscribe-form
+  footer.footer 
+    .container
+      .inner-container
+        .footer__top-wrapper
+          .footer__about
+            +logo()
+            p Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+          +footer-nav([
+            {
+              heading: 'Навигация',
+              items: [
+                {
+                  text: 'О нас',
+                  href: '#',
+                },
+                {
+                  text: 'Новости',
+                  href: '#',
+                },
+                {
+                  text: 'Служба поддержки',
+                  href: '#',
+                },
+                {
+                  text: 'Услуги',
+                  href: '#',
+                },
+              ],
+            },
+            {
+              heading: 'О нас',
+              items: [
+                {
+                  text: 'О сервисе',
+                  href: '#',
+                },
+                {
+                  text: 'Наша команда',
+                  href: '#',
+                },
+                {
+                  text: 'Вакансии',
+                  href: '#',
+                },
+                {
+                  text: 'Инвесторы',
+                  href: '#',
+                },
+              ],
+            },
+            {
+              heading: 'Служба поддержки',
+              items: [
+                {
+                  text: 'Соглашения',
+                  href: '#',
+                },
+                {
+                  text: 'Сообщества',
+                  href: '#',
+                },
+                {
+                  text: 'Связь с нами',
+                  href: '#',
+                },
+              ],
+            },
+          ])
+          +subscribe-form()
+        .footer__bottom-wrapper
+          .footer__bottom-logo
+            +logo()
+          .footer__copyright Copyright © 2018 Toxin отель. Все права защищены.
+          .footer__socials
+            a.footer__social(href="https://twitter.com", target='_blank', rel='noopener noreferrer') 
+              i.footer__social-icon.fab.fa-twitter
+            a.footer__social(href="https://facebook.com", target='_blank', rel='noopener noreferrer') 
+              i.footer__social-icon.fab.fa-facebook-square
+            a.footer__social(href="https://instagram.com", target='_blank', rel='noopener noreferrer') 
+              i.footer__social-icon.fab.fa-instagram

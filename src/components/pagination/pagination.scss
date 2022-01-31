@@ -14,7 +14,6 @@
     width: $pagination-item-size;
     height: $pagination-item-size;
     font-size: $font-size-label;
-    color: $dark-shade-50;
   }
 
   &__link {
@@ -23,6 +22,7 @@
     width: 100%;
     border-radius: 50%;
     text-decoration: none;
+    color: $dark-shade-50;
     transition: $smooth-hover-transition;
     
     @include hover-effect;

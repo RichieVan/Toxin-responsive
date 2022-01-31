@@ -1,0 +1,36 @@
+mixin header(isAuth = false)
+  include ../logo/logo
+  include ../header-nav/header-nav
+  include ../header-auth/header-auth
+  -
+  header.header 
+    .container
+      .inner-container
+        .header__inner
+          +logo()
+          +header-nav([
+            {
+              text: 'О нас',
+              active: true,
+              href: '#'
+            },
+            {
+              text: 'Услуги',
+              dropdown: true,
+              href: '#'
+            },
+            {
+              text: 'Вакансии',
+              href: '#'
+            },
+            {
+              text: 'Новости',
+              href: '#'
+            },
+            {
+              text: 'Соглашения',
+              dropdown: true,
+              href: '#'
+            },
+          ])
+          +header-auth(isAuth)

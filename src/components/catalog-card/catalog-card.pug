@@ -1,0 +1,39 @@
+mixin catalog-card(options = {})
+  include ../../components/rate-button/rate-button
+  include ../../components/room-heading/room-heading
+  -
+    var comments = options.comments || 0;
+    var roomData = options.room || null;
+    var images = options.images || [1];
+    var roomRating = options.rating || 1;
+    var url = options.url || '#';
+  article.catalog-card 
+    if images.length > 1
+      .catalog-card__images.js-catalog-card__images(data-slick)
+        .catalog-card__slider.js-catalog-card__slider
+          each image in images
+            -
+              let imageUrl = `/images/room-card-${image}.png`;
+            .catalog-card__image(style = {'background-image' : `url('${imageUrl}')`})
+        .catalog-card__slider-controls.js-catalog-card__slider-controls
+          .catalog-card__arrows
+            button(class='catalog-card__arrow catalog-card__arrow_prev js-catalog-card__arrow_prev')
+              span.material-icons expand_more
+            button(class='catalog-card__arrow catalog-card__arrow_next js-catalog-card__arrow_next')
+              span.material-icons expand_more
+    else 
+      .catalog-card__images
+        .catalog-card__slider
+          -
+            let imageUrl = `/images/room-card-${images[0]}.png`;
+          .catalog-card__image(style = {'background-image' : `url('${imageUrl}')`})
+    a.catalog-card__info(href=url)
+      .catalog-card__heading
+        if (roomData)
+          +room-heading(roomData)
+      .catalog-card__stats 
+        +rate-button(roomRating)
+        .catalog-card__comments
+          span
+            b= comments 
+            =" Отзывов"

@@ -1,0 +1,21 @@
+mixin chart(props = [], mark = [])
+  -
+    var stringifiedProps = props ? JSON.stringify(props) : '';
+  div.chart(data-chart=stringifiedProps)
+    .chart__stats
+      svg(
+        class='chart__graph', 
+        width='120', 
+        height='120', 
+        version='1.1', 
+        xmlns='http://www.w3.org/2000/svg'
+      )
+        defs.chart__defs
+      .chart__total
+        b.chart__total-count= mark[0]
+        span.chart__total-mark= mark[1]
+    ul.chart__legend 
+      each item in props
+        li.chart__label
+          i.chart__label-icon(style=`background: linear-gradient(180deg, ${item.color[0]} 0%, ${item.color[1]} 100%);`)
+          span.chart__label-text= item.name

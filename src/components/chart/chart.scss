@@ -1,0 +1,100 @@
+@keyframes chart {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chart {
+  display: flex;
+  position: relative;
+  padding-bottom: 5px;
+
+  @media (max-width: $screen-xsm) {
+    flex-direction: column;
+    width: 290px;
+    padding-bottom: 0;
+  }
+
+  &__stats {
+    display: flex;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-right: 30px;
+
+    @media (max-width: $screen-xsm) {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__graph {
+    animation: chart .5s ease-in;
+  }
+
+  &__total {
+    @include center-flex;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 120px;
+    height: 120px;
+    padding-bottom: 5px;
+    background: transparent;
+    font-weight: bold;
+    color: $purple;
+
+    &-count {
+      font-size: $font-size-h1;
+      line-height: $line-height-h1;
+    }
+
+    &-mark {
+      text-transform: uppercase;
+      font-size: $font-size-label;
+    }
+  }
+
+  &__legend {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    bottom: -8px;
+
+    @media (max-width: $screen-xsm) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      margin-left: -10px;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -6px;
+
+    @media (max-width: $screen-xsm) {
+      margin-left: 10px;
+    }
+
+    &-icon {
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin-right: 5px;
+      border-radius: 50%;
+    }
+
+    &-text {
+      line-height: $line-height;
+      color: $dark-shade-75;
+    }
+  }
+}

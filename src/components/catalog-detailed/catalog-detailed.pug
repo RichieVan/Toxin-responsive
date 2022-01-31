@@ -1,0 +1,105 @@
+mixin catalog-detailed()
+  include ../bullet-list/bullet-list
+  include ../chart/chart
+  include ../comment/comment
+  include ../features/features
+  include ../multi-slider/multi-slider
+  include ../../includes/room-form
+  article.catalog-detailed
+    .catalog-detailed__preview
+      +multi-slider([
+        'detailed-image-1',
+        'detailed-image-2',
+        'detailed-image-3',
+      ])
+    .container
+      .inner-container
+        .catalog-detailed__wrapper
+          .catalog-detailed__info
+            .catalog-detailed__info-group.catalog-detailed__info-group_with_margin
+              h2.catalog-detailed__heading.heading-2 Сведения о номере
+              +features([
+                {
+                  heading: 'Комфорт',
+                  text: 'Шумопоглощающие стены',
+                  icon: 'insert_emoticon',
+                },
+                {
+                  heading: 'Удобство',
+                  text: 'Окно в каждой из спален',
+                  icon: 'location_city',
+                },
+                {
+                  heading: 'Уют',
+                  text: 'Номер оснащен камином',
+                  icon: 'whatshot',
+                },
+              ])
+            .catalog-detailed__info-group
+              h2.catalog-detailed__heading.heading-2 Впечатления от номера
+              +chart(
+                [
+                  {
+                    name: 'Великолепно',
+                    color: ['#FFE39C', '#FFBA9C'],
+                    percent: 50,
+                  },
+                  {
+                    name: 'Хорошо',
+                    color: ['#66D2EA', '#6FCF97'],
+                    percent: 25,
+                  },
+                  {
+                    name: 'Удовлетворительно',
+                    color: ['#8BA4F9', '#BC9CFF'],
+                    percent: 25,
+                  },
+                  {
+                    name: 'Разочарован',
+                    color: ['#919191', '#3D4975'],
+                    percent: 0,
+                  },
+                ],
+                [
+                  260,
+                  'голосов'
+                ]
+              )
+            .catalog-detailed__info-group
+              .catalog-detailed__heading-wrapper
+                h2.catalog-detailed__heading.heading-2 Отзывы посетителей номера
+                span.catalog-detailed__comments-count 2 отзыва
+              .catalog-detailed__comment
+                +comment({
+                  username: 'Мурад Сарафанов',
+                  avatar: 'avatar-1.png',
+                  datetime: '5 дней назад',
+                  text: `Великолепный матрас на кровати в основной спальне! 
+                    А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. 
+                    Выкрикивал комплименты повару — никто не жаловался из соседей.`,
+                  likes: 12,
+                  isLiked: true
+                })
+              .catalog-detailed__comment
+                +comment({
+                  username: 'Патрисия Стёклышкова',
+                  avatar: 'avatar-2.png',
+                  datetime: 'Неделю назад',
+                  text: `Обслуживание на высоте! Всё аккуратно, чисто. 
+                    Завтраки в номер советую заказать, каждый день 
+                    новое блюдо и десерт как комплимент`,
+                  likes: 2,
+                  isLiked: false
+                })
+            .catalog-detailed__info-group.catalog-detailed__info-group_with_margin
+              h2.catalog-detailed__heading.heading-2 Правила
+              +bullet-list([
+                'Нельзя с питомцами',
+                'Без вечеринок и мероприятий',
+                'Время прибытия — после 13:00,<br> а выезд до 12:00'
+              ])
+            .catalog-detailed__info-group.catalog-detailed__info-group_for_cancel
+              h2.catalog-detailed__heading.heading-2 Отмена
+              p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
+          .catalog-detailed__form
+            +room-form()

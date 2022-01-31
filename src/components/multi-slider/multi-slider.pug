@@ -1,0 +1,18 @@
+mixin multi-slider(items = [])
+  - 
+    if (items.length > 0) {
+      while(items.length <= 4) {
+        items = items.concat(items);
+      }
+    }
+  .multi-slider.js-multi-slider(data-slick='')
+    .multi-slider__big
+      .multi-slider__for.js-multi-slider__for
+        each item in items
+          .multi-slider__for-item
+            .multi-slider__image(style=`background-image: url('/images/${item}.png')`)
+    .multi-slider__small
+      .multi-slider__nav.js-multi-slider__nav
+        each item in items
+          .multi-slider__nav-item
+            .multi-slider__image(style=`background-image: url('/images/${item}.png')`)

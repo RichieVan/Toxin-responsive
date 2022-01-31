@@ -1,4 +1,4 @@
-mixin rate-button(active = 0, mods = [])
+mixin rate-button(active = 0, mods = [], isSelectable = false)
   -
     var allMods = '';
     for (let i = 0; i < mods.length; i++) {
@@ -12,7 +12,8 @@ mixin rate-button(active = 0, mods = [])
       var inRange = (i + 1 < active ? ' star_in-selected-range' : '');
       starsClasses[i] = 'rate-btn__star js-rate-btn__star' + selected + inRange;
     }
-  div(class = buttonClassName)
+    var attrs = isSelectable ? {'data-selectable' : ''} : {};
+  div(class = buttonClassName)&attributes(attrs)
     each starClass in starsClasses
       button(class = starClass)
         span.material-icons

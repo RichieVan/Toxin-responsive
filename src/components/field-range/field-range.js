@@ -3,7 +3,7 @@ import 'ion-rangeslider';
 
 $('.field-range').each(function () {
   const $container = $(this);
-  const $valuesContainer = $container.find('[class$="__values"]')
+  const $valuesContainer = $container.find('[class$="__values"]');
   const $slider = $(this).find('.js-range-slider');
   const currencySymbol = '₽';
   const from = 5000;
@@ -18,13 +18,11 @@ $('.field-range').each(function () {
     step: 100,
     hide_min_max: true,
     hide_from_to: true,
-    onChange : function (data) {
-      $valuesContainer.text(data.from_pretty + currencySymbol + ' - ' + data.to_pretty + currencySymbol)
+    onChange(data) {
+      $valuesContainer.text(`${data.from_pretty + currencySymbol} - ${data.to_pretty}${currencySymbol}`);
     },
-    onStart : function (data) {
-      $valuesContainer.text(data.from_pretty + currencySymbol + ' - ' + data.to_pretty + currencySymbol)
+    onStart(data) {
+      $valuesContainer.text(`${data.from_pretty + currencySymbol} - ${data.to_pretty}${currencySymbol}`);
     },
   });
-})
-
-
+});
