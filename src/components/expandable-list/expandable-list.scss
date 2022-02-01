@@ -39,15 +39,7 @@
     transition: height .2s ease-out;
   }
 
-  .content-list {
+  &__wrapper {
     padding-top: 2px;
-
-    &__item {
-      list-style: none;
-    }
-
-    &__item:not(:last-child) {
-      margin-bottom: 10px;
-    }
   }
 }

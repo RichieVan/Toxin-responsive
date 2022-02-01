@@ -7,7 +7,10 @@ mixin header-nav(items = [])
       .header-nav__inner-wrapper.js-header-nav__inner-wrapper
         ul.header-nav__list-wrapper
           .header-nav__list-auth
-            +header-auth(true)
+            +header-auth(
+              true,
+              ['mobile']
+            )
             ul.header-nav__list
               each item in items
                 -

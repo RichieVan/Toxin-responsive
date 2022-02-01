@@ -11,6 +11,7 @@ mixin form(title = '', options = {})
     var classList = 'form' + allMods;
     var attrs = options.attrs || '';
     var room = options.room;
+    var showAuthLink = options.showAuth || false;
   form(class = classList)
     .form__wrapper 
       if (room)
@@ -20,3 +21,24 @@ mixin form(title = '', options = {})
         .form__heading
           h1.heading-1= title
       block
+      if (showAuthLink === 'registration')
+        .form__links
+          span Нет аккаунта на Toxin?
+          +btn(
+            'Создать',
+            {
+              mods: ['light', 'fixed'],
+              href: '/registration'
+            }
+          )
+      if (showAuthLink === 'login')
+        .form__links
+          span Уже есть аккаунт на Toxin
+          +btn(
+            'Войти',
+            {
+              mods: ['light', 'fixed'],
+              href: '/login'
+            }
+          )
+        

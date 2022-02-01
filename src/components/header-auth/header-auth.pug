@@ -1,6 +1,15 @@
-mixin header-auth(isAuth = false)
+mixin header-auth(isAuth = false, mods = [])
   include ../btn/btn
-  .header-auth
+  -
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' header-auth_' + mods[i].trim();
+      }
+    }
+
+    let classList = 'header-auth' + allMods;
+  div(class=classList)
     if (isAuth)
       .header-auth__user
         a.header-auth__link(href="#")  Константин Константинопольский

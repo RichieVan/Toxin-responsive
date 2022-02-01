@@ -17,7 +17,7 @@ $field-border-radius: 4px;
   border-radius: $field-border-radius;
   transition: border-radius 0s 0.2s;
 
-  &.dropdown_expanded {
+  &_expanded {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     transition: none;

@@ -8,7 +8,12 @@ mixin registration-form()
   include ../components/field-radio/field-radio
   include ../components/field-checkbox/field-checkbox
   include ../components/btn/btn
-  +form('Регистрация аккаунта')
+  +form(
+    'Регистрация аккаунта',
+    {
+      showAuth: 'login',
+    }
+  )
     +fields-group()
       +field-text({
         placeholder: 'Имя'
@@ -68,12 +73,3 @@ mixin registration-form()
         arrow: true
       }
     )
-    .account-availability
-      span Уже есть аккаунт на Toxin
-      +btn(
-        'Войти',
-        {
-          mods: ['light'],
-          href: '/login'
-        }
-      )

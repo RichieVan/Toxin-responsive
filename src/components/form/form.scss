@@ -38,17 +38,11 @@
     }
   }
 
-  .account-availability {
+  &__links {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-top: 30px;
     color: #000;
-
-    .btn {
-      padding-left: 0;
-      padding-right: 0;
-      width: 100px;
-    }
   }
 }

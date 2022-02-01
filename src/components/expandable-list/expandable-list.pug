@@ -19,6 +19,6 @@ mixin expandable-list(options = {})
         span.material-icons expand_more
       .expandable-list__mask.js-expandable-list__mask
     .expandable-list__content.js-expandable-list__content
-      .content-list
+      .expandable-list__wrapper
         if checkboxList
           +field-checkbox(checkboxList)
