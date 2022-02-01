@@ -39,7 +39,7 @@
 
   &__input:checked + &__name:before {
     border-color:#BC9CFF;
-    background-image: url('./components/field-checkbox/img/check.svg');
+    background-image: url('./blocks/field-checkbox/img/check.svg');
   }
 
   &__input-wrapper:not(:last-child) {
