@@ -1,0 +1,24 @@
+mixin expandable-list(options = {})
+  include ../field-checkbox/field-checkbox
+  -
+    let mods = '';
+    if (options.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        mods += ' expandable-list_' + options.mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'expandable-list js-expandable-list';
+    var classList = defaultClassName + mods;
+    var labelText = options.text ? options.text : '';
+    var checkboxList = options.checkboxList ? options.checkboxList : [];
+  div(class = classList)
+    .expandable-list__heading
+      .expandable-list__label= labelText
+      .expandable-list__arrow
+        span.material-icons expand_more
+      .expandable-list__mask.js-expandable-list__mask
+    .expandable-list__content.js-expandable-list__content
+      .expandable-list__wrapper
+        if checkboxList
+          +field-checkbox(checkboxList)

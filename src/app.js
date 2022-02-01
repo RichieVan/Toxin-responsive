@@ -1,14 +1,14 @@
 import './style.scss';
 
-import './components/field-dropdown/field-dropdown';
-import './components/field-datepicker/field-datepicker';
-import './components/like-button/like-button';
-import './components/rate-button/rate-button';
-import './components/expandable-list/expandable-list';
-import './components/field-range/field-range';
-import './components/header-nav/header-nav';
-import './components/field-text/field-text';
-import './components/catalog/catalog';
-import './components/catalog-card/catalog-card';
-import './components/chart/chart';
-import './components/multi-slider/multi-slider';
+import './blocks/catalog/catalog';
+import './blocks/catalog-card/catalog-card';
+import './blocks/chart/chart';
+import './blocks/expandable-list/expandable-list';
+import './blocks/field-datepicker/field-datepicker';
+import './blocks/field-dropdown/field-dropdown';
+import './blocks/field-range/field-range';
+import './blocks/field-text/field-text';
+import './blocks/header-nav/header-nav';
+import './blocks/like-button/like-button';
+import './blocks/multi-slider/multi-slider';
+import './blocks/rate-button/rate-button';

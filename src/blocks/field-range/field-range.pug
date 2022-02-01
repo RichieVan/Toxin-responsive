@@ -1,0 +1,25 @@
+mixin field-range(heading = '', mods = [], info = '')
+  -
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' field-range_' + mods[i].trim();
+      }
+    }
+
+    var defaultClassName = 'field-range js-field-range';
+    var classList = defaultClassName + mods;
+    var inputClassList = defaultClassName + '__input' + ' js-range-slider';
+  div(class = classList)
+    .field-range__heading
+      if heading
+        h3.heading-label= heading
+      .field-range__values.js-field-range__values
+    input(
+      type = 'text',
+      class = inputClassList
+    )
+    if info
+      span.field-range__info= info
+    
+      

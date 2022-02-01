@@ -1,56 +1,45 @@
 @import './scss/fonts.scss';
 @import './scss/variables.scss';
 @import './scss/mixins.scss';
+@import './scss/main.scss';
 
 @import 'material-icons/iconfont/material-icons.css';
 @import 'air-datepicker/air-datepicker.css';
 @import '@fortawesome/fontawesome-free/css/all.css';
 @import 'slick-carousel/slick/slick.scss';
 
-@import './scss/main.scss';
-
-@import './components/fields-group/fields-group.scss';
-@import './components/field-label/field-label.scss';
-@import './components/field-text/field-text.scss';
-@import './components/field-dropdown/field-dropdown.scss';
-@import './components/field-datepicker/field-datepicker.scss';
-@import './components/btn/btn.scss';
-@import './components/field-checkbox/field-checkbox.scss';
-@import './components/field-radio/field-radio.scss';
-@import './components/like-button/like-button.scss';
-@import './components/rate-button/rate-button.scss';
-@import './components/bullet-list/bullet-list.scss';
-@import './components/expandable-list/expandable-list.scss';
-@import './components/field-range/field-range.scss';
-@import './components/comment/comment.scss';
-@import './components/pagination/pagination.scss';
-@import './components/form/form.scss';
-@import './components/resulting-table/resulting-table.scss';
-@import './components/room-heading/room-heading.scss';
-@import './components/catalog-card/catalog-card.scss';
-@import './components/header/header.scss';
-@import './components/logo/logo.scss';
-@import './components/header-nav/header-nav.scss';
-@import './components/header-auth/header-auth.scss';
-@import './components/footer/footer.scss';
-@import './components/footer-nav/footer-nav.scss';
-@import './components/subscribe-form/subscribe-form.scss';
-@import './components/banner-image/banner-image.scss';
-@import './components/catalog/catalog.scss';
-@import './components/smartfilter/smartfilter.scss';
-@import './components/chart/chart.scss';
-@import './components/features/features.scss';
-@import './components/catalog-detailed/catalog-detailed.scss';
-@import './components/multi-slider/multi-slider.scss';
-
-@import './components/ui-kit-col/ui-kit-col.scss';
-@import './components/ui-kit-flex-container/ui-kit-flex-container.scss';
-
-
-
-
-
-
-.material-icons {
-  font-family: 'Material Icons', Arial, sans-serif;
-}
+@import './blocks/banner-image/banner-image.scss';
+@import './blocks/btn/btn.scss';
+@import './blocks/bullet-list/bullet-list.scss';
+@import './blocks/catalog/catalog.scss';
+@import './blocks/catalog-card/catalog-card.scss';
+@import './blocks/catalog-detailed/catalog-detailed.scss';
+@import './blocks/chart/chart.scss';
+@import './blocks/comment/comment.scss';
+@import './blocks/expandable-list/expandable-list.scss';
+@import './blocks/features/features.scss';
+@import './blocks/field-checkbox/field-checkbox.scss';
+@import './blocks/field-datepicker/field-datepicker.scss';
+@import './blocks/field-dropdown/field-dropdown.scss';
+@import './blocks/field-label/field-label.scss';
+@import './blocks/field-range/field-range.scss';
+@import './blocks/field-radio/field-radio.scss';
+@import './blocks/field-text/field-text.scss';
+@import './blocks/fields-group/fields-group.scss';
+@import './blocks/form/form.scss';
+@import './blocks/footer/footer.scss';
+@import './blocks/footer-nav/footer-nav.scss';
+@import './blocks/header/header.scss';
+@import './blocks/header-auth/header-auth.scss';
+@import './blocks/header-nav/header-nav.scss';
+@import './blocks/like-button/like-button.scss';
+@import './blocks/logo/logo.scss';
+@import './blocks/multi-slider/multi-slider.scss';
+@import './blocks/rate-button/rate-button.scss';
+@import './blocks/pagination/pagination.scss';
+@import './blocks/resulting-table/resulting-table.scss';
+@import './blocks/room-heading/room-heading.scss';
+@import './blocks/smartfilter/smartfilter.scss';
+@import './blocks/subscribe-form/subscribe-form.scss';
+@import './blocks/ui-kit-col/ui-kit-col.scss';
+@import './blocks/ui-kit-flex-container/ui-kit-flex-container.scss';

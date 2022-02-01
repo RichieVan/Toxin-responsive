@@ -1,6 +1,9 @@
-export default (num) => {
-    if ((num + '').length < 2) {
-        num = '0' + num;
-    }
-    return num;
+function addLeadZero(num) {
+  let result;
+  if (String(num).length < 2) {
+    result = `0${num}`;
+  }
+  return result;
 }
+
+export default addLeadZero;

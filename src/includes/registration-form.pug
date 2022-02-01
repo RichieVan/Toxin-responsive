@@ -1,14 +1,19 @@
 mixin registration-form()
-  include ../components/form/form
-  include ../components/field-datepicker/field-datepicker
-  include ../components/fields-group/fields-group
-  include ../components/field-label/field-label
-  include ../components/field-dropdown/field-dropdown
-  include ../components/field-text/field-text
-  include ../components/field-radio/field-radio
-  include ../components/field-checkbox/field-checkbox
-  include ../components/btn/btn
-  +form('Регистрация аккаунта')
+  include ../blocks/form/form
+  include ../blocks/field-datepicker/field-datepicker
+  include ../blocks/fields-group/fields-group
+  include ../blocks/field-label/field-label
+  include ../blocks/field-dropdown/field-dropdown
+  include ../blocks/field-text/field-text
+  include ../blocks/field-radio/field-radio
+  include ../blocks/field-checkbox/field-checkbox
+  include ../blocks/btn/btn
+  +form(
+    'Регистрация аккаунта',
+    {
+      showAuth: 'login',
+    }
+  )
     +fields-group()
       +field-text({
         placeholder: 'Имя'
@@ -68,12 +73,3 @@ mixin registration-form()
         arrow: true
       }
     )
-    .account-availability
-      span Уже есть аккаунт на Toxin
-      +btn(
-        'Войти',
-        {
-          mods: ['light'],
-          href: '/login'
-        }
-      )

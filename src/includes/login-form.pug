@@ -1,9 +1,14 @@
 mixin login-form()
-  include ../components/form/form
-  include ../components/fields-group/fields-group
-  include ../components/field-text/field-text
-  include ../components/btn/btn
-  +form('Войти')
+  include ../blocks/form/form
+  include ../blocks/fields-group/fields-group
+  include ../blocks/field-text/field-text
+  include ../blocks/btn/btn
+  +form(
+    'Войти',
+    {
+      showAuth: 'registration',
+    }
+  )
     +fields-group()
       +field-text({
         type: 'email',
@@ -20,12 +25,3 @@ mixin login-form()
         arrow: true
       }
     )
-    .account-availability
-      span Нет аккаунта на Toxin?
-      +btn(
-        'Создать',
-        {
-          mods: ['light'],
-          href: '/registration'
-        }
-      )

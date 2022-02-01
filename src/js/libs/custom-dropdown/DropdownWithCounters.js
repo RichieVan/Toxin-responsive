@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 import Counter from './Counter';
 
-export default class DropdownWithCounters {
+class DropdownWithCounters {
   counters;
 
   props;
@@ -24,7 +24,7 @@ export default class DropdownWithCounters {
 
   outputElement;
 
-  activityClass = 'dropdown_expanded';
+  activityClass = 'field-dropdown_expanded';
 
   constructor(container, outputElement) {
     this.counters = Array.from(container.find('[data-counter]')).map((counter) => {
@@ -107,3 +107,5 @@ export default class DropdownWithCounters {
     this.hide();
   }
 }
+
+export default DropdownWithCounters;

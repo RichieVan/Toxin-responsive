@@ -1,10 +1,10 @@
 mixin index-form()
-  include ../components/form/form
-  include ../components/field-datepicker/field-datepicker
-  include ../components/fields-group/fields-group
-  include ../components/field-label/field-label
-  include ../components/field-dropdown/field-dropdown
-  include ../components/btn/btn
+  include ../blocks/form/form
+  include ../blocks/field-datepicker/field-datepicker
+  include ../blocks/fields-group/fields-group
+  include ../blocks/field-label/field-label
+  include ../blocks/field-dropdown/field-dropdown
+  include ../blocks/btn/btn
   +form('Найдём номера под ваши пожелания')
     +fields-group()
       +field-datepicker({
@@ -19,8 +19,8 @@ mixin index-form()
         result: {
           name: 'Гости',
           endings: [
-            [[1,21], 'гость'],
-            [[2,3,4,22,23,24], 'гостя'],
+            [[1, 21], 'гость'],
+            [[2, 3, 4, 22, 23, 24], 'гостя'],
             ['default', 'гостей']
           ]
         },

@@ -76,6 +76,7 @@ module.exports = {
     new HTMLWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     // new HTMLWebpackPlugin({
@@ -93,49 +94,55 @@ module.exports = {
     new HTMLWebpackPlugin({
       filename: 'ui-kit/forms/index.html',
       template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new HTMLWebpackPlugin({
       filename: 'ui-kit/heading-n-footer/index.html',
       template: path.resolve(__dirname, 'src/pages/ui-kit/heading-n-footer.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new HTMLWebpackPlugin({
       filename: 'login/index.html',
       template: path.resolve(__dirname, 'src/pages/login.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new HTMLWebpackPlugin({
       filename: 'registration/index.html',
       template: path.resolve(__dirname, 'src/pages/registration.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new HTMLWebpackPlugin({
       filename: 'catalog/index.html',
       template: path.resolve(__dirname, 'src/pages/catalog.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new HTMLWebpackPlugin({
       filename: 'room/index.html',
       template: path.resolve(__dirname, 'src/pages/room.pug'),
+      favicon: './src/assets/favicon.ico',
       minify: false,
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'src/components/comment/images'),
+          from: path.resolve(__dirname, 'src/blocks/comment/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
         {
-          from: path.resolve(__dirname, 'src/components/catalog-card/images'),
+          from: path.resolve(__dirname, 'src/blocks/catalog-card/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
         {
-          from: path.resolve(__dirname, 'src/components/catalog-detailed/images'),
+          from: path.resolve(__dirname, 'src/blocks/catalog-detailed/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
         {
-          from: path.resolve(__dirname, 'src/components/banner-image/images'),
+          from: path.resolve(__dirname, 'src/blocks/banner-image/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
         // {
@@ -161,7 +168,7 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       watch: true,
     },
-    // watchFiles: ['src/components/*/*.pug'],
+    // watchFiles: ['src/blocks/*/*.pug'],
     historyApiFallback: true,
   },
   // devtool: 'source-map',

@@ -1,0 +1,55 @@
+.header-auth {
+  @media (max-width: $screen-md) {
+    margin-left: auto;
+  }
+
+  @media (max-width: $screen-xsm) {
+    display: none;
+  }
+
+  &__buttons {
+    display: flex;
+
+    & > .btn:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__user {
+    padding-left: 20px;
+    border-left: 1px solid $dark-shade-10;
+
+    @media (max-width: $screen-md) {
+      border-left: none;
+    }
+  }
+
+  &__link {
+    color: $dark-shade-50;
+
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  &_mobile {
+    display: none;
+
+    @media (max-width: $screen-xsm) {
+      display: block;
+
+      .header-auth__buttons {
+        display: block;
+        padding-bottom: 11px;
+    
+        button:not(:last-of-type) {
+          margin-bottom: 11px;
+        }
+      }
+
+      .header-auth__user {
+        padding: 0 15px 0 0;
+      }
+    }
+  }
+}

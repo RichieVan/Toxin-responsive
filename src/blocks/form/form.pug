@@ -1,0 +1,44 @@
+mixin form(title = '', options = {})
+  include ../room-heading/room-heading
+  -
+    let allMods = '';
+    if (options.mods) {
+      for (let i = 0; i < options.mods.length; i++) {
+        allMods = allMods + ' form_' + options.mods[i].trim();
+      }
+    }
+
+    var classList = 'form' + allMods;
+    var attrs = options.attrs || '';
+    var room = options.room;
+    var showAuthLink = options.showAuth || false;
+  form(class = classList)
+    .form__wrapper 
+      if (room)
+        .form__heading
+          +room-heading(room)
+      if (title)
+        .form__heading
+          h1.heading-1= title
+      block
+      if (showAuthLink === 'registration')
+        .form__links
+          span Нет аккаунта на Toxin?
+          +btn(
+            'Создать',
+            {
+              mods: ['light', 'fixed'],
+              href: '/registration'
+            }
+          )
+      if (showAuthLink === 'login')
+        .form__links
+          span Уже есть аккаунт на Toxin
+          +btn(
+            'Войти',
+            {
+              mods: ['light', 'fixed'],
+              href: '/login'
+            }
+          )
+        

@@ -1,4 +1,4 @@
-export default class Counter {
+class Counter {
   count;
 
   defaultValue;
@@ -103,3 +103,5 @@ export default class Counter {
     return this;
   }
 }
+
+export default Counter;

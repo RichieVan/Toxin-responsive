@@ -1,0 +1,31 @@
+mixin header-auth(isAuth = false, mods = [])
+  include ../btn/btn
+  -
+    let allMods = '';
+    if (mods) {
+      for (let i = 0; i < mods.length; i++) {
+        allMods += ' header-auth_' + mods[i].trim();
+      }
+    }
+
+    let classList = 'header-auth' + allMods;
+  div(class=classList)
+    if (isAuth)
+      .header-auth__user
+        a.header-auth__link(href="#")  Константин Константинопольский
+    else
+      .header-auth__buttons
+        +btn(
+          'Войти',
+          {
+            mods: ['thin', 'light'],
+            href: '/login',
+          }
+        )
+        +btn(
+          'Зарегистрироваться',
+          {
+            mods: ['thin'],
+            href: '/registration',
+          }
+        )

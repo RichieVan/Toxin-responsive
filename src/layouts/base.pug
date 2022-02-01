@@ -1,0 +1,13 @@
+include ../blocks/html-head/html-head
+include ../blocks/header/header
+include ../blocks/footer/footer
+
+doctype html
+html(lang="ru")
+  block head
+    +html-head(title)
+  body 
+    +header()
+    main 
+      block content
+    +footer()
