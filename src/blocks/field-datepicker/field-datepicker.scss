@@ -113,19 +113,9 @@
     justify-content: space-between;
   }
 
-  &-button {
-    height: auto;
-    padding: 0;
-    color: $purple;
-    font-size: $font-size-label;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    &:hover,
-    &:focus {
-      color: $dark-shade-50;
-      background: none;
-    }
+  &-button:hover,
+  &-button:focus {
+    background: none;
   }
 
   &--pointer {

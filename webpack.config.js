@@ -1,13 +1,19 @@
 const path = require('path');
-// const fs = require('fs');
+const fs = require('fs');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-// const PAGES_DIR = path.resolve(__dirname, 'src/pages');
-// const PAGES = fs.readdirSync(PAGES_DIR).filter(filename => {
-//   filename.endsWith('.pug');
-// })
+const PAGES_DIR = path.resolve(__dirname, 'src/pages');
+const PAGES = fs.readdirSync(PAGES_DIR).filter((filename) => {
+  const result = filename.endsWith('.pug');
+  return result;
+});
+
+const UI_PAGES_DIR = path.resolve(__dirname, 'src/pages/ui-kit');
+const UI_PAGES = fs.readdirSync(UI_PAGES_DIR).filter((filename) => {
+  const result = filename.endsWith('.pug');
+  return result;
+});
 
 module.exports = {
   mode: 'development',
@@ -79,53 +85,23 @@ module.exports = {
       favicon: './src/assets/favicon.ico',
       minify: false,
     }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/colors-n-fonts.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
-    // ...PAGES.map((page) => {
-    //   new HTMLWebpackPlugin({
-    //     filename: "ui-kit/forms/index.html",
-    //     template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
-    //     minify: false,
-    //   }),
-    // }),
-    new HTMLWebpackPlugin({
-      filename: 'ui-kit/forms/index.html',
-      template: path.resolve(__dirname, 'src/pages/ui-kit/forms.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
+    ...PAGES.map((filename) => {
+      const page = new HTMLWebpackPlugin({
+        filename: `${filename.slice(0, -4)}/index.html`,
+        template: path.resolve(__dirname, `src/pages/${filename}`),
+        favicon: path.resolve(__dirname, 'src/assets/favicon.ico'),
+        minify: false,
+      });
+      return page;
     }),
-    new HTMLWebpackPlugin({
-      filename: 'ui-kit/heading-n-footer/index.html',
-      template: path.resolve(__dirname, 'src/pages/ui-kit/heading-n-footer.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'login/index.html',
-      template: path.resolve(__dirname, 'src/pages/login.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'registration/index.html',
-      template: path.resolve(__dirname, 'src/pages/registration.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'catalog/index.html',
-      template: path.resolve(__dirname, 'src/pages/catalog.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
-    }),
-    new HTMLWebpackPlugin({
-      filename: 'room/index.html',
-      template: path.resolve(__dirname, 'src/pages/room.pug'),
-      favicon: './src/assets/favicon.ico',
-      minify: false,
+    ...UI_PAGES.map((filename) => {
+      const page = new HTMLWebpackPlugin({
+        filename: `ui-kit/${filename.slice(0, -4)}/index.html`,
+        template: path.resolve(__dirname, `src/pages/ui-kit/${filename}`),
+        favicon: path.resolve(__dirname, 'src/assets/favicon.ico'),
+        minify: false,
+      });
+      return page;
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -145,13 +121,8 @@ module.exports = {
           from: path.resolve(__dirname, 'src/blocks/banner-image/images'),
           to: path.resolve(__dirname, 'dist/images'),
         },
-        // {
-        //   from: path.resolve(__dirname, 'src/assets/images'),
-        //   to: path.resolve(__dirname, 'dist/images'),
-        // },
       ],
     }),
-    // new CleanWebpackPlugin()
   ],
   resolve: {
     extensions: ['.js', '.scss'],

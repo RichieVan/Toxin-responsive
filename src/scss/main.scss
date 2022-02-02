@@ -90,11 +90,6 @@ h3.heading-label {
   padding: 0 15px;
   margin: 0 auto;
 
-  &.ui-kit {
-    padding-top: 140px;
-    padding-bottom: 130px;
-  }
-
   @media (max-width: $screen-lg) {
     padding: 0 70px;
   }

@@ -43,9 +43,7 @@ mixin registration-form()
       +field-label('Дата рождения')
       +field-text({
         placeholder: 'ДД.ММ.ГГГГ',
-        attrs: {
-          'data-date-masked': ''
-        }
+        masked: true,
       })
     +fields-group()
       +field-label('Данные для входа в сервис')
