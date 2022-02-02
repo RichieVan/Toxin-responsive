@@ -5,6 +5,10 @@
     width: 320px;
   }
 
+  &_auto {
+    width: auto;
+  }
+
   &.mr-20 > * {
     margin-bottom: 20px;
   }
