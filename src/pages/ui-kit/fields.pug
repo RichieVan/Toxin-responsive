@@ -1,0 +1,299 @@
+extends ../../layouts/ui-kit.pug
+include ../../blocks/btn/btn
+include ../../blocks/bullet-list/bullet-list
+include ../../blocks/comment/comment
+include ../../blocks/expandable-list/expandable-list
+include ../../blocks/features/features
+include ../../blocks/field-checkbox/field-checkbox
+include ../../blocks/field-datepicker/field-datepicker
+include ../../blocks/field-dropdown/field-dropdown
+include ../../blocks/field-label/field-label
+include ../../blocks/field-radio/field-radio
+include ../../blocks/field-range/field-range
+include ../../blocks/field-text/field-text
+include ../../blocks/fields-group/fields-group
+include ../../blocks/like-button/like-button
+include ../../blocks/pagination/pagination
+include ../../blocks/rate-button/rate-button
+include ../../blocks/ui-kit-col/ui-kit-col
+include ../../blocks/ui-kit-flex-container/ui-kit-flex-container
+
+
+block content
+  +ui-kit-flex-container()
+    +ui-kit-col(20, ['wide'])
+      +fields-group()
+        +field-label('Text field')
+        +field-text({
+          type: 'email',
+          placeholder : 'Email'
+        })
+      +fields-group()
+        +field-label('Dropdown')
+        +field-dropdown({
+          counters: [
+            {
+              name: 'Спальни',
+              defaultValue: 10,
+              max: 10,
+              min: 1,
+              nameEndings: [
+                [[1], 'спальня'],
+                [[2,3,4], 'спальни'],
+                ['default', 'спален']
+              ],
+            },
+            {
+              name: 'Кровати',
+              defaultValue: 1,
+              max: 6,
+              min: 1,
+              nameEndings: [
+                [[1], 'кровать'],
+                [[2,3,4], 'кровати'],
+                ['default', 'кроватей'] 
+              ],
+            },
+            {
+              name: 'Ванные комнаты',
+              defaultValue: 1,
+              max: 3,
+              min: 1,
+              nameEndings: [
+                [[1], 'ванная комната'],
+                [[2,3,4], 'ванные комнаты'],
+                ['default', 'ванных комнат']
+              ],
+            },
+          ],
+          buttons: {
+            clear: {
+              text: 'Очистить',
+              show: true
+            },
+            accept: {
+              text: 'Применить',
+              show: true
+            },
+          }
+        })
+      +fields-group()
+        +field-label('Masked text field')
+        +field-text({
+          type: 'text',
+          placeholder : 'ДД.ММ.ГГГГ',
+          masked: true,
+        })
+      +field-datepicker({
+        id: 1,
+        labels: ['date dropdown', 'date dropdown'],
+        placeholder: 'ДД.ММ.ГГГГ',
+        multiple: true
+      })
+      +ui-kit-col(20)
+        +field-datepicker({
+          id: 2,
+          labels: ['filter date dropdown'],
+          placeholder: 'ДД.ММ.ГГГГ',
+        })
+        +expandable-list({
+          text: 'Дополнительные удобства',
+          checkboxList: [
+            {
+              text: 'Завтрак'
+            },
+            {
+              text: 'Письменный стол'
+            },
+            {
+              text: 'Стул для кормления'
+            },
+            {
+              text: 'Кроватка'
+            },
+            {
+              text: 'Телевизор'
+            },
+            {
+              text: 'Шампунь'
+            },
+          ],
+          mods: ['expanded']
+        })
+        +fields-group()
+          +field-label('Subscription text field')
+          +field-text({
+            type: 'email',  
+            placeholder: 'Email',
+            sendArrow: true,
+          })
+    +ui-kit-col(40)
+      +fields-group
+        +field-label('Checkbox buttons', ['high'])
+        +field-checkbox([
+          {
+            text: 'Можно курить',
+            attrs : {
+              checked: true
+            }
+          },
+          {
+            text: 'Можно с питомцами',
+          },
+          {
+            text: 'Можно пригласить гостей (до 10 человек)',
+          },
+        ])
+      +fields-group
+        +field-label('Radio buttons', ['high'])
+        +field-radio(
+          [
+            {
+              text: 'Мужчина',
+              attrs: {
+                name: 'gender'
+              }
+            },
+            {
+              text: 'Женщина',
+              attrs: {
+                name: 'gender',
+                checked: true
+              }
+            }
+          ], 
+          ['inline']
+        )
+      +fields-group
+        +field-label('Toggle', ['high'])
+        +field-checkbox([
+          {
+            text: 'Получать спецпредложения',
+            attrs : {
+              checked: true
+            },
+            mods: ['toggle'],
+          },
+          {
+            text: 'Получать спецпредложения',
+            mods: ['toggle'],
+          },
+        ])
+      +fields-group()  
+        +field-label('Like button', ['high'])
+        +fields-group(['inline'], 10)
+          +like-button(
+            2,
+          )
+          +like-button(
+            12,
+            ['liked'],
+          )
+      +fields-group() 
+        +field-label('Rate button', ['high'])
+        +fields-group(['inline'], 20)
+          +rate-button(4)
+          +rate-button(2)
+      +fields-group() 
+        +field-checkbox([
+          {
+            text: 'Широкий коридор',
+            attrs : {
+              checked: true
+            },
+            mods: ['rich'],
+            rich: 'Ширина коридоров в номере не менее 91 см.'
+          },
+          {
+            text: 'Помощник для инвалидов',
+            mods: ['rich'],
+            rich: 'На 1 этаже вас встретит специалист и проводит до номера.'
+          },
+        ])
+    +ui-kit-col(40, ['wide'])
+      +ui-kit-col()
+        +field-range(
+          'Range slider',
+          [],
+        )
+      +fields-group()
+        +field-label('Buttons', ['high'])
+        +ui-kit-col(30)
+          +fields-group(['inline'], 20)
+            +btn('Click me')
+            +btn(
+              'Click me', 
+              {
+                mods: ['hovered']
+              }
+            )
+          +fields-group(['inline'], 20)
+            +btn(
+              'Click me', 
+              {
+                mods: ['light']
+              }
+            )
+            +btn(
+              'Click me', 
+              {
+                mods: ['light', 'hovered']
+              }
+            )
+          +fields-group(['inline'], 20)
+            +btn(
+              'Click me', 
+              {
+                href: '#',
+                mods: ['inline']
+              }
+            )
+            +btn(
+              'Click me', 
+              {
+                href: '#',
+                mods: ['inline', 'hovered']
+              }
+            )
+          div
+            +btn(
+              'Перейти к оплате', 
+              {
+                mods: ['wide'],
+                arrow: true
+              }
+            )
+      +fields-group()
+        +field-label('Pagination', ['high'])
+        +pagination()
+    +fields-group()
+      +field-label('rich Checkbox Buttons', ['high'])
+      +bullet-list([
+        'Нельзя с питомцами',
+        'Без вечеринок и мероприятий',
+        'Время прибытия — после 13:00,<br> а выезд до 12:00'
+      ])
+    +fields-group()
+      +comment({
+        username: 'Мурад Сарафанов',
+        avatar: 'avatar-1.png',
+        datetime: '5 дней назад',
+        text: `Великолепный матрас на кровати в основной спальне! 
+          А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. 
+          Выкрикивал комплименты повару — никто не жаловался из соседей.`,
+        likes: 12,
+        isLiked: true
+      })
+    +fields-group()
+      +features([
+        {
+          heading: 'Комфорт',
+          text: 'Шумопоглощающие стены',
+          icon: 'insert_emoticon',
+        },
+        {
+          heading: 'Удобство',
+          text: 'Окно в каждой из спален',
+          icon: 'location_city',
+        },
+      ])

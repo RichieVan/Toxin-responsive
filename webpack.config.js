@@ -79,11 +79,11 @@ module.exports = {
       favicon: './src/assets/favicon.ico',
       minify: false,
     }),
-    // new HTMLWebpackPlugin({
-    //   filename: "ui-kit/colors-n-fonts.html",
-    //   template: path.resolve(__dirname, 'src/pages/ui-kit/form-elements.pug'),
-    //   minify: false,
-    // }),
+    new HTMLWebpackPlugin({
+      filename: 'ui-kit/fields/index.html',
+      template: path.resolve(__dirname, 'src/pages/ui-kit/fields.pug'),
+      minify: false,
+    }),
     // ...PAGES.map((page) => {
     //   new HTMLWebpackPlugin({
     //     filename: "ui-kit/forms/index.html",
