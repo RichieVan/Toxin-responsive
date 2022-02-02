@@ -1,261 +1,45 @@
-extends ../../layouts/base.pug
-include ../../blocks/form/form
-include ../../blocks/field-datepicker/field-datepicker
-include ../../blocks/field-dropdown/field-dropdown
-include ../../blocks/fields-group/fields-group
-include ../../blocks/field-label/field-label
-include ../../blocks/field-text/field-text
-include ../../blocks/field-radio/field-radio
-include ../../blocks/field-checkbox/field-checkbox
-include ../../blocks/btn/btn
-include ../../blocks/resulting-table/resulting-table
+extends ../../layouts/ui-kit.pug
 include ../../blocks/catalog-card/catalog-card
+include ../../blocks/ui-kit-flex-container/ui-kit-flex-container
+include ../../blocks/ui-kit-col/ui-kit-col
+include ../../includes/index-form
+include ../../includes/registration-form
+include ../../includes/index-form
+include ../../includes/room-form
+include ../../includes/login-form
 
 block content 
-  div 213
-    +form('Найдём номера под ваши пожелания')
+  +ui-kit-flex-container()
+    +ui-kit-col(40, ['auto'])
+      +index-form()
+      +registration-form()
+    +ui-kit-col(40, ['auto'])
+      +room-form()
+      +login-form()
+    +ui-kit-col(40, ['wide'])
       +field-datepicker({
-        id: 1,
-        labels: ['Прибытие', 'Выезд'],
-        placeholder: 'ДД.ММ.ГГГГ',
-        multiple: true
+        additionalProps: {
+          fixed: true,
+          hideFields: true
+        },
       })
-      +fields-group()
-        +field-label('Гости')
-        +field-dropdown({
-          counters: [
-            {
-              name: 'Спальни',
-              defaultValue: 10,
-              max: 10,
-              min: 1,
-              nameEndings: [
-                [[1], 'спальня'],
-                [[2,3,4], 'спальни'],
-                ['default', 'спален']
-              ],
-            },
-            {
-              name: 'Кровати',
-              defaultValue: 1,
-              max: 6,
-              min: 1,
-              nameEndings: [
-                [[1], 'кровать'],
-                [[2,3,4], 'кровати'],
-                ['default', 'кроватей'] 
-              ],
-            },
-            {
-              name: 'Ванные комнаты',
-              defaultValue: 1,
-              max: 3,
-              min: 1,
-              nameEndings: [
-                [[1], 'ванная комната'],
-                [[2,3,4], 'ванные комнаты'],
-                ['default', 'ванных комнат']
-              ],
-            },
-          ],
-          buttons: {
-            clear: {
-              text: 'Очистить',
-              show: true
-            },
-            accept: {
-              text: 'Применить',
-              show: true
-            },
-          }
-        })
-      +btn(
-        'Подобрать номер', 
-        {
-          mods: ['wide', 'submit', 'margin_big'],
-          arrow: true
-        }
-      )
-    +form('Регистрация аккаунта')
-      +fields-group()
-        +field-text({
-          placeholder: 'Имя'
-        })
-        +field-text({
-          placeholder: 'Фамилия'
-        })
-        +field-radio(
-          [
-            {
-              text: 'Мужчина',
-              attrs: {
-                name: 'gender'
-              }
-            },
-            {
-              text: 'Женщина',
-              attrs: {
-                name: 'gender',
-                checked: true
-              }
-            }
-          ], 
-          ['inline']
-        )
-      +fields-group()
-        +field-label('Дата рождения')
-        +field-text({
-          placeholder: 'ДД.ММ.ГГГГ'
-        })
-      +fields-group()
-        +field-label('Данные для входа в сервис')
-        +field-text({
-          type: 'email',
-          placeholder: 'Email'
-        })
-        +field-text({
-          type: 'password',
-          placeholder: 'Пароль'
-        })
-        +field-checkbox([
-          {
-            text: 'Получать спецпредложения',
-            attrs : {
-              checked: false
-            },
-            mods: ['toggle'],
-          },
-        ])
-      +btn(
-        'Перейти к оплате', 
-        {
-          mods: ['wide', 'submit', 'margin_big'],
-          arrow: true
-        }
-      )
-      .account-availability
-        span Уже есть аккаунт на Toxin
-        +btn(
-          'Войти',
-          {
-            mods: ['light'],
-            href: '/login'
-          }
-        )
-    +form(
-      '',
-      {
+      +catalog-card({
+        comments: 145,
         room: {
           num: 888,
           cost: 9990,
-          isLuxe: true,
-          headingType: 1
-        }
-      }
-    )
-      +field-datepicker({
-        id: 2,
-        labels: ['Прибытие', 'Выезд'],
-        placeholder: 'ДД.ММ.ГГГГ',
-        multiple: true
-      })
-      +fields-group()
-        +field-label('Гости')
-        +field-dropdown({
-          counters: [
-            {
-              name: 'Гости',
-              defaultValue: 0,
-              max: 5,
-              min: 0,
-              nameEndings: [
-                [[1], 'гость'],
-                [[2,3,4], 'гостя'],
-                ['default', 'гостей']
-              ],
-            },
-          ],
-          buttons: {
-            clear: {
-              text: 'Очистить',
-              show: true
-            },
-            accept: {
-              text: 'Применить',
-              show: true
-            },
-          }
-        })
-      +resulting-table(
-        [{
-          text: '9 990₽ х 4 суток',
-          result: '39 960₽'
+          isLuxe: true
         },
-        {
-          text: 'Сбор за услуги: скидка 2 179₽',
-          info: true,
-          result: '0₽'
+        images: [1, 2, 3, 4],
+        rating: 5,
+      })
+      +catalog-card({
+        comments: 65,
+        room: {
+          num: 840,
+          cost: 9990,
+          isLuxe: false
         },
-        {
-          text: 'Сбор за дополнительные услуги',
-          info: true,
-          result: '300₽'
-        }],
-        {
-          text: 'Итого',
-          value: '38 081₽'
-        }  
-      )
-      +btn(
-        'Забронировать', 
-        {
-          mods: ['wide', 'submit'],
-          arrow: true
-        }
-      )
-  +form('Войти')
-    +fields-group()
-      +field-text({
-        type: 'email',
-        placeholder: 'Email'
+        images: [2],
+        rating: 4,
       })
-      +field-text({
-        type: 'password',
-        placeholder: 'Пароль'
-      })
-    +btn(
-      'Войти', 
-      {
-        mods: ['wide', 'submit', 'margin_big'],
-        arrow: true
-      }
-    )
-    .account-availability
-      span Нет аккаунта на Toxin?
-      +btn(
-        'Создать',
-        {
-          mods: ['light'],
-          href: '/register'
-        }
-      )
-  div(style = "max-width: 270px")
-    +catalog-card({
-      comments: 145,
-      room: {
-        num: 888,
-        cost: 9990,
-        isLuxe: true,
-      },
-      rating: 5
-    })
-    +catalog-card({
-      comments: 65,
-      room: {
-        num: 840,
-        cost: 9990,
-        isLuxe: false,
-      },
-      image: 2,
-      rating: 4
-    })
