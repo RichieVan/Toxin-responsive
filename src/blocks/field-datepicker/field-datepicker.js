@@ -8,7 +8,7 @@ $('[data-datepicker]').each(function () {
 
   const acceptButton = {
     content: 'Применить',
-    className: 'air-datepicker-button button_accept',
+    className: 'btn btn_inline air-datepicker-button button_accept',
     attrs: { type: 'button' },
     onClick: (dp) => {
       dp.hide();
@@ -16,7 +16,7 @@ $('[data-datepicker]').each(function () {
   };
   const clearButton = {
     content: 'Очистить',
-    className: 'air-datepicker-button button_clear',
+    className: 'btn btn_inline air-datepicker-button button_clear',
     attrs: { type: 'button' },
     onClick: (dp) => {
       dp.clear();
