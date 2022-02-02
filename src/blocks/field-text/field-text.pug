@@ -15,6 +15,12 @@ mixin field-text(options = {})
     var placeholder = options.placeholder || '';
     var inputValue = options.value || '';
     var attributes = options.attrs || {};
+    var masked = options.masked || false;
+
+    if (masked) {
+      attributes['data-date-masked'] = '';
+    }
+
   div(class=classList)
     input(
       type = inputType, 
