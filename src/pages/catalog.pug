@@ -2,6 +2,9 @@ extends ../layouts/base.pug
 include ../blocks/smartfilter/smartfilter
 include ../blocks/catalog/catalog
 
+block prepend head
+  - var title = 'Каталог';
+
 block content 
   .container
     .inner-container

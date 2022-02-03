@@ -4,5 +4,8 @@ include ../blocks/features/features
 include ../blocks/comment/comment
 include ../blocks/catalog-detailed/catalog-detailed
 
+block prepend head
+  - var title = 'Комната';
+
 block content 
   +catalog-detailed()

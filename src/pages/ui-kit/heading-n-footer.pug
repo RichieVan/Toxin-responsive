@@ -13,6 +13,9 @@ include ../../blocks/catalog-card/catalog-card
 include ../../blocks/header/header
 include ../../blocks/footer/footer
 
+block prepend head
+  - var title = 'Ui-kit heading and footer';
+
 block content
   +header()
   +header(true)

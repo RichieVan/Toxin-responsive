@@ -8,6 +8,9 @@ include ../../includes/index-form
 include ../../includes/room-form
 include ../../includes/login-form
 
+block prepend head
+  - var title = 'Ui-kit forms';
+
 block content 
   +ui-kit-flex-container()
     +ui-kit-col(40, ['auto'])
