@@ -2,6 +2,9 @@ extends ../layouts/base.pug
 include ../blocks/banner-image/banner-image
 include ../includes/registration-form
 
+block prepend head
+  - var title = 'Регистрация пользователя';
+
 block content 
   +banner-image('bg-auth.png', ['centered'])
     +registration-form()

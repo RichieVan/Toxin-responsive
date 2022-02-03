@@ -52,30 +52,6 @@ module.exports = {
         test: /\.(png|jpg|ico|svg|ttf|woff|woff2|svg)$/,
         type: 'asset/resource',
       },
-      // {
-      //   test: /\.html$/,
-      //   loader: 'html-loader',
-      //   options: {
-      //     sources: {
-      //       list: [
-      //         '...',
-      //         {
-      //           tag: 'div',
-      //           attribute: 'style',
-      //           type: 'src'
-      //         }
-      //       ]
-      //     }
-      //   }
-      // }
-      // {
-      //   test: /\.(ttf|woff|woff2)$/,
-      //   use: 'file-loader',
-      // },
-      // {
-      //   test: /\.(svg)$/,
-      //   use: 'svg-inline-loader'
-      // },
     ],
   },
   plugins: [
@@ -139,8 +115,6 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
       watch: true,
     },
-    // watchFiles: ['src/blocks/*/*.pug'],
     historyApiFallback: true,
   },
-  // devtool: 'source-map',
 };

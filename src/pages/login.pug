@@ -2,6 +2,9 @@ extends ../layouts/base.pug
 include ../blocks/banner-image/banner-image
 include ../includes/login-form
 
+block prepend head
+  - var title = 'Авторизация пользователя';
+
 block content 
   +banner-image('bg-auth.png', ['centered'])
     +login-form()
