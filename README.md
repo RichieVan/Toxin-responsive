@@ -1,2 +1,2 @@
-# Задание 2
+# Responsive верстка сайта Toxin
 Ссылка на Github Pages: https://richievan.github.io/
